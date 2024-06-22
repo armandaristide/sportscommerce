@@ -13,7 +13,7 @@
     @endif
 
 
-    <h1 class="text-md text-center font-bold py-2">Seller Admin Login Form</h1>
+    <h1 class="text-md text-center font-bold py-2 text-white">Seller Admin Login Form</h1>
 
     <form method="POST" action="{{ route('adminLoginSubmit') }}">
         @csrf
