@@ -334,16 +334,6 @@
                                                 <div class="gradient-title">Voxo plus</div>
                                             </a>
                                         </li>
-                                        <li class="mobile-poster d-flex d-xl-none">
-                                            <img src="assets/images/pwa.png" class="img-fluid" alt="">
-                                            <div class="mobile-contain">
-                                                <h5>Enjoy app-like experience</h5>
-                                                <p class="font-light">With this Screen option you can use Website
-                                                    like an App.</p>
-                                                <a href="javascript:void(0)" id="installApp" class="btn btn-solid-default btn-spacing w-100">ADD TO
-                                                    HOMESCREEN</a>
-                                            </div>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -384,26 +374,33 @@
                                     </div>
                                 </li>
 {{--                                login button--}}
-                                <li>
-                                    <a href="{{route('login')}}" >
+                                @if (Route::has('login'))
+                                    <div class="top-right links">
+                                        @auth
+                                            <a href="{{ route('dashboard') }}">
+                                                <button type="button" class="btn btn-solid-default btn-spacing">
+                                                    <i data-feather="user" class="pe-2"></i>
+                                                    <span>Dashboard</span>
+                                                </button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('login') }}">
+                                                <button type="button" class="btn btn-solid-default btn-spacing">
+                                                    <span>Login</span>
+                                                </button>
+                                            </a>
 
-                                        <button  type="button" href="{{route('login')}}" class="rounded btn btn-solid-default btn-spacing">
-                                            <span>Login</span>
-                                        </button>
-                                    </a>
+                                            @if (Route::has('register'))
+                                                <a href="{{ route('register') }}">
+                                                    <button type="button" class="btn btn-solid-default btn-spacing">
+                                                        <span>Register</span>
+                                                    </button>
+                                                </a>
+                                            @endif
+                                        @endauth
+                                    </div>
+                                @endif
 
-                                </li>
-
-{{--                                regiser button sherwin--}}
-                                <li>
-                                    <a href="{{route('register')}}" >
-
-                                        <button  type="button" href="{{route('register')}}" class="rounded btn btn-solid-default btn-spacing">
-                                            <span>Register</span>
-                                        </button>
-                                    </a>
-
-                                </li>
                             </ul>
                         </div>
                         <div class="search-full">
