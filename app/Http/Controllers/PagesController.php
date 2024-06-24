@@ -11,6 +11,10 @@ class PagesController extends Controller
     {
         return view('welcome');
     }
+    public function home()
+    {
+        return view('home');
+    }
     public function sport()
     {
         return view('sport');

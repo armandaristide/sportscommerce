@@ -18,6 +18,7 @@ use App\Http\Controllers\PagesController;
 
 
 ############################Habib routes#########################################3
+Route::get('/home', [PagesController::class, 'home'])->name('homePage');
 
 
 
