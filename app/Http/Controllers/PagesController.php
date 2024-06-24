@@ -11,4 +11,8 @@ class PagesController extends Controller
     {
         return view('welcome');
     }
+    public function sport()
+    {
+        return view('sport');
+    }
 }

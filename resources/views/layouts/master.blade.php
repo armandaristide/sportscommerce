@@ -295,39 +295,38 @@
                                             <a href="javascript:void(0)" class="nav-link menu-title">home</a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">shop</a>
+                                            <a href="{{route('sportcat')}}" class="nav-link menu-title">sports</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li>
-                                                    <a href="shop-canvas-filter.html">Shop Canvas Filter</a>
+                                                    <a href="#">Football</a>
                                                 </li>
                                                 <li>
-                                                    <a href="shop-category-slider.html">Shop Category Filter</a>
+                                                    <a href="#">tennis</a>
                                                 </li>
                                                 <li>
-                                                    <a href="shop-filter-hide.html">Shop Filter Hide</a>
+                                                    <a href="#">basketball</a>
                                                 </li>
                                                 <li>
-                                                    <a href="shop-left-sidebar.html">Shop Left Sidebar
-                                                        <span>Trending</span></a>
+                                                    <a href="#">volleyball</a>
                                                 </li>
                                                 <li>
-                                                    <a href="shop-list-infinite.html">Shop List Infinite</a>
+                                                    <a href="#">cricket</a>
                                                 </li>
                                                 <li>
-                                                    <a href="shop-list.html">Shop List</a>
+                                                    <a href="#">athletics</a>
                                                 </li>
-                                                <li>
-                                                    <a href="shop-no-sidebar.html">Shop No Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-top-filter.html">Shop Top Filter</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-with-category.html">Shop With Category <span class="tren-budge">New</span></a>
-                                                </li>
+{{--                                                <li>--}}
+{{--                                                    <a href="shop-no-sidebar.html">Shop No Sidebar</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="shop-right-sidebar.html">Shop Right Sidebar</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="shop-top-filter.html">Shop Top Filter</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="shop-with-category.html">Shop With Category <span class="tren-budge">New</span></a>--}}
+{{--                                                </li>--}}
                                             </ul>
                                         </li>
                                         <li class="ratio_40">

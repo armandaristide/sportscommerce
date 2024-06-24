@@ -21,8 +21,8 @@ use App\Http\Controllers\PagesController;
 
 
 
-#####################################SIDDARTH ROUTES####################################
-
+#####################################SIDDHARTH ROUTES####################################
+Route::get('/sport', [PagesController::class, 'sport'])->name('sportcat');
 
 
 
