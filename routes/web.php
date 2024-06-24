@@ -5,12 +5,54 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\SuperAdminAuthController;
+use App\Http\Controllers\PagesController;
+########################################################################
+##########################SHERWIN ROUTES#######################################
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+
+
+
+
+
+
+############################Habib routes#########################################3
+
+
+
+#####################################SIDDARTH ROUTES####################################
+
+
+
+
+############################################ARPIT ROUTES###########################################
+
+
+
+
+####################################CYPRIAN ROUTES###################################################
+
+
+
+
+
+####################################AHBIN ROUTES #######################################################
+
+
+
+
+
+
+####################################ADITHYA ROUTES########################################################
+
+
+
+
+
+
+#####################ARMAND'S ROUTES#################################################
+Route::get('/', [PagesController::class, 'index'])->name('index');
 
 /**General user routes **/
 Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
@@ -46,3 +88,4 @@ Route::prefix('superAdmin')->group(function(){
 //});
 
 require __DIR__.'/auth.php';
+##########################################################################################################
