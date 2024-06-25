@@ -85,6 +85,9 @@
                                             <a href="javascript:void(0)" class="nav-link menu-title">home</a>
                                         </li>
                                         <li class="dropdown">
+                                            <a href="javascript:void(0)" class="nav-link menu-title">Sports</a>
+                                            <ul class="nav-submenu menu-content">
+                                            <li class="dropdown">
                                                     <a href="#">tennis</a>
                                                 </li>
                                                 <li>
