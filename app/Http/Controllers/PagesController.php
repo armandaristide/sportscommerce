@@ -29,4 +29,8 @@ class PagesController extends Controller
         $cats = Cat::where('categories','football')->get();
         return view('sport')->with('cats', $cats);
     }
+    public function catpage($cat)
+    {
+        return view('sportcategories')->with('cat', $cat);
+    }
 }
