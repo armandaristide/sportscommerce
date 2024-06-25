@@ -8,7 +8,7 @@ use App\Http\Controllers\SuperAdminAuthController;
 use App\Http\Controllers\PagesController;
 ########################################################################
 ##########################SHERWIN ROUTES#######################################
-
+Route::get('/about_us', [PagesController::class, 'about'])->name('about');
 
 
 
