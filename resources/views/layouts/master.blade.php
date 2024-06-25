@@ -82,7 +82,7 @@
                                             </div>
                                         </li>
                                         <li class="home-menu">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">home</a>
+                                            <a href="{{route('index')}}" class="nav-link menu-title">home</a>
                                         </li>
                                         <li class="dropdown">
                                             <a href="javascript:void(0)" class="nav-link menu-title">Sports</a>
