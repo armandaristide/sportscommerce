@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cat;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -21,6 +22,7 @@ class PagesController extends Controller
     }
     public function sport()
     {
-        return view('sport');
+        $cats = Cat::where('categories','football')->get();
+        return view('sport')->with('cats', $cats);
     }
 }
