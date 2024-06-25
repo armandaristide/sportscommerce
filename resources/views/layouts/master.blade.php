@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="assets/css/product.css">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -43,9 +45,40 @@
     <link rel="stylesheet" type="text/css" href="assets/css/vendors/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/css/vendors/slick/slick-theme.css">
 
+
+
+    <link rel="icon" href="assets/images/favicon/3.png" type="image/x-icon" />
+
     <!-- Theme css -->
     <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo2.css">
 
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- bootstrap css -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="assets/css/vendors/bootstrap.css">
+
+    <!-- font-awesome css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/font-awesome.css">
+
+    <!-- feather icon css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/feather-icon.css">
+
+    <!-- Icon Start -->
+    <link rel="icon" href="assets/images/shoes/png/001-hotel-service.png">
+
+    <!-- animation css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/animate.css">
+
+    <!-- slick css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/slick/slick-theme.css">
+
+    <!-- Theme css -->
+    <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo3.css">
 </head>
 
 <body class="theme-color2 light ltr" style="">
@@ -292,13 +325,9 @@
                                             </div>
                                         </li>
                                         <li class="home-menu">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">home</a>
+                                            <a href="{{route('index')}}" class="nav-link menu-title">home</a>
                                         </li>
                                         <li class="dropdown">
-                                            <a  class="nav-link menu-title">sports</a>
-                                            <ul class="nav-submenu menu-content">
-                                                <li>
-                                                    <a href="{{route('sportcat')}}">Football</a>
                                                 </li>
                                                 <li>
                                                     <a href="#">tennis</a>

@@ -33,7 +33,7 @@ Route::get('/sport', [PagesController::class, 'sport'])->name('sportcat');
 
 
 ####################################CYPRIAN ROUTES###################################################
-
+Route::get('/product', [PagesController::class, 'product'])->name('product');
 
 
 
