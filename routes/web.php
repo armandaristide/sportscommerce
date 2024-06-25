@@ -24,7 +24,7 @@ Route::get('/home', [PagesController::class, 'home'])->name('homePage');
 
 #####################################SIDDHARTH ROUTES####################################
 Route::get('/sport', [PagesController::class, 'sport'])->name('sportcat');
-Route::get('/{cat}', [PagesController::class, 'catpage'])->name('categories');
+Route::get('/categories_{cat}', [PagesController::class, 'catpage'])->name('categories');
 
 
 
