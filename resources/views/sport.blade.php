@@ -3,18 +3,18 @@
 @section('content')
     <!-- Breadcrumb section start -->
     <section class="breadcrumb-section section-b-space">
-        <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+{{--        <ul class="circles">--}}
+{{--            <li></li>--}}
+{{--            <li></li>--}}
+{{--            <li></li>--}}
+{{--            <li></li>--}}
+{{--            <li></li>--}}
+{{--            <li></li>--}}
+{{--            <li></li>--}}
+{{--            <li></li>--}}
+{{--            <li></li>--}}
+{{--            <li></li>--}}
+{{--        </ul>--}}
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -25,10 +25,9 @@
                                     SPORTS
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">{{$cats}}</li>
                         </ol>
                     </nav>
-                    <h1>FOOTBALL</h1>
+                    <h1 align="left" >FOOTBALL</h1>
 
                 </div>
             </div>

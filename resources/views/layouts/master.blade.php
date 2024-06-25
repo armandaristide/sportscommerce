@@ -328,10 +328,6 @@
                                             <a href="{{route('index')}}" class="nav-link menu-title">home</a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#" class="nav-link menu-title">sports</a>
-                                            <ul class="nav-submenu menu-content">
-                                                <li>
-                                                    <a href="{{route('sportcat')->$football}}">Football</a>
                                                 </li>
                                                 <li>
                                                     <a href="#">tennis</a>
