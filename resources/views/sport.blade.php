@@ -25,7 +25,7 @@
                                     SPORTS
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">FOOTBALL</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{$cats}}</li>
                         </ol>
                     </nav>
                     <h1>FOOTBALL</h1>
