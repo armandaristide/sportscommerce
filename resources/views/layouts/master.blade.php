@@ -96,7 +96,7 @@
                                     <svg class="svg-icon">
                                         <use class="fill-color" xlink:href="assets/svg/icons.svg#logo"></use>
                                     </svg>
-                                    <img src="assets/images/logo.png" class="img-fluid blur-up lazyloaded" alt="logo">
+                                    <img src="assets/images/logo.png" class="img-fluid blur-up lazyloaded" alt="logo" style="width: 40%;">
                                 </a>
                             </div>
                             <div class="category-menu">
