@@ -87,22 +87,12 @@
                                         <li class="dropdown">
                                             <a href="javascript:void(0)" class="nav-link menu-title">Sports</a>
                                             <ul class="nav-submenu menu-content">
-                                            <li class="dropdown">
-                                                    <a href="#">tennis</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">basketball</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">volleyball</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">cricket</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">athletics</a>
-                                                </li>
-{{--                                                <li>--}}
+
+
+                                                @foreach(\App\Models\Cat::get() as $cat)
+                                                    <li class="dropdown"><a href="{{ route('categories',$cat->categories) }}">{{ $cat->categories }}</a></li>
+                                                @endforeach
+
 {{--                                                    <a href="shop-no-sidebar.html">Shop No Sidebar</a>--}}
 {{--                                                </li>--}}
 {{--                                                <li>--}}
