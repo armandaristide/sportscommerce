@@ -117,7 +117,7 @@
                                             </ul>
                                         </li>
                                         <li class="ratio_40">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">
+                                            <a href= "{{route('about')}}" class="nav-link menu-title">
                                                 <div class="gradient-title">About Us</div>
                                             </a>
                                         </li>
