@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="assets/css/product.css">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
