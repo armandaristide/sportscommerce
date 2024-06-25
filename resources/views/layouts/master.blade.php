@@ -331,7 +331,7 @@
                                             <a href="#" class="nav-link menu-title">sports</a>
                                             <ul class="nav-submenu menu-content">
                                                 <li>
-                                                    <a href="{{route('sportcat')->$football}}">Football</a>
+                                                    <a href="#">Football</a>
                                                 </li>
                                                 <li>
                                                     <a href="#">tennis</a>
