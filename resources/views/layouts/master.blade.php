@@ -383,7 +383,7 @@
                                         @endauth
                                     </div>
                                 @endif
-</li>
+                            </li>
 
                                 <li class="onhover-dropdown">
                                     <div class="cart-media">
@@ -428,12 +428,19 @@
                                                 </button>
                                             </a>
                                         @else
+                                            @if(Route::has('login'))
                                             <a href="{{ route('login') }}">
+                                                @auth
                                                 <button type="button" class="btn btn-solid-default btn-spacing">
                                                     <span>Login</span>
                                                 </button>
+                                                @else
+                                                    <button type="button" class="btn btn-solid-default btn-spacing">
+                                                        <span>Logout</span>
+                                                    </button>
                                             </a>
-
+                                        @endauth
+                                        @endif
                                             @if (Route::has('register'))
                                                 <a href="{{ route('register') }}">
                                                     <button type="button" class="btn btn-solid-default btn-spacing">
