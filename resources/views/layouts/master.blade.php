@@ -196,10 +196,17 @@
                                                 </button>
                                             </a>
                                         @else
+
                                             <a href="{{ route('login') }}">
+                                                @auth
                                                 <button type="button" class="btn btn-solid-default btn-spacing">
                                                     <span>Login</span>
                                                 </button>
+                                                @else
+                                                    <button type="button" class="btn btn-solid-default btn-spacing">
+                                                        <span>Logout</span>
+                                                    </button>
+                                                @endauth
                                             </a>
 
                                             @if (Route::has('register'))
