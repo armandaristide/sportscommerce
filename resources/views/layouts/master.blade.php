@@ -46,6 +46,35 @@
     <!-- Theme css -->
     <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo2.css">
 
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- bootstrap css -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="assets/css/vendors/bootstrap.css">
+
+    <!-- font-awesome css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/font-awesome.css">
+
+    <!-- feather icon css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/feather-icon.css">
+
+    <!-- Icon Start -->
+    <link rel="icon" href="assets/images/shoes/png/001-hotel-service.png">
+
+    <!-- animation css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/animate.css">
+
+    <!-- slick css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/slick/slick-theme.css">
+
+    <!-- Theme css -->
+    <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo3.css">
+
+
 </head>
 
 <body class="theme-color2 light ltr" style="">
@@ -629,6 +658,43 @@
 <!-- tap to top Section End -->
 
 <div class="bg-overlay"></div>
+
+
+<!-- latest jquery-->
+<script src="assets/js/jquery-3.5.1.min.js"></script>
+
+<!-- Bootstrap js-->
+<script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+<!-- feather icon js-->
+<script src="assets/js/feather/feather.min.js"></script>
+
+<!-- lazyload js-->
+<script src="assets/js/lazysizes.min.js"></script>
+
+<!-- Add To Home js -->
+<script src="assets/js/pwa.js"></script>
+
+<!-- Timer Js -->
+<script src="assets/js/timer1.js"></script>
+
+<!-- Slick js-->
+<script src="assets/js/slick/slick.js"></script>
+<script src="assets/js/slick/slick-animation.min.js"></script>
+<script src="assets/js/slick/custom_slick.js"></script>
+
+<!-- newsletter js -->
+<script src="assets/js/newsletter.js"></script>
+
+<!-- add to cart modal resize -->
+<script src="assets/js/cart_modal_resize.js"></script>
+
+<!-- Notify js-->
+<script src="assets/js/bootstrap/bootstrap-notify.min.js"></script>
+
+<!-- script js -->
+<script src="assets/js/theme-setting.js"></script>
+<script src="assets/js/script.js"></script>
 
 <!-- latest jquery-->
 <script src="assets/js/jquery-3.5.1.min.js"></script>
