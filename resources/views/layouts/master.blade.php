@@ -629,6 +629,12 @@
 <!-- lazyload js-->
 <script src="assets/js/lazysizes.min.js"></script>
 
+<!-- Add To Home js -->
+<script src="assets/js/pwa.js"></script>
+
+<!-- Timer Js -->
+<script src="assets/js/timer1.js"></script>
+
 <!-- Slick js-->
 <script src="assets/js/slick/slick.js"></script>
 <script src="assets/js/slick/slick-animation.min.js"></script>
@@ -640,21 +646,16 @@
 <!-- add to cart modal resize -->
 <script src="assets/js/cart_modal_resize.js"></script>
 
-<!-- Add To Home js -->
-<script src="assets/js/pwa.js"></script>
-
-<!-- add to cart modal resize -->
-<script src="assets/js/cart_modal_resize.js"></script>
-
-<!-- feather icon js-->
-<script src="assets/js/timer1.js"></script>
-
-<!-- notify js -->
+<!-- Notify js-->
 <script src="assets/js/bootstrap/bootstrap-notify.min.js"></script>
 
 <!-- script js -->
 <script src="assets/js/theme-setting.js"></script>
 <script src="assets/js/script.js"></script>
+
+
+
+
 
 
 
