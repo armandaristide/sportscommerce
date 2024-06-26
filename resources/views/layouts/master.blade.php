@@ -329,164 +329,25 @@
 
 <!-- footer start -->
 <footer class="footer-sm-space">
-    <div class="main-footer">
-        <div class="container">
-            <div class="row gy-4">
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="footer-contact">
-                        <div class="brand-logo">
-                            <a href="{{route('index')}}" class="footer-logo">
-                                <svg class="svg-icon">
-                                    <use class="fill-color" xlink:href="assets/svg/icons.svg#logo"></use>
-                                </svg>
-                                <img src="assets/images/logo.png" class="img-fluid blur-up lazyload" alt="logo">
-                            </a>
-                        </div>
-                        <ul class="contact-lists">
-                            <li>
-                                    <span>
-                                        <b>phone:</b>
-                                        <span class="font-light"> + 185659635</span>
-                                    </span>
-
-                            </li>
-                            <li>
-                                    <span>
-                                        <b>Address:</b>
-                                        <span class="font-light"> 1418 Riverwood Drive, Suite 3245
-                                            Cottonwood, CA 96052, United States</span>
-                                    </span>
-                            </li>
-                            <li>
-                                    <span>
-                                        <b>Email:</b>
-                                        <span class="font-light"> Voxo123@gmail.com</span>
-                                    </span>
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="footer-links">
-                        <div class="footer-title">
-                            <h3>About us</h3>
-                        </div>
-                        <div class="footer-content">
-                            <ul>
-                                <li>
-                                    <a href="{{route('index')}}" class="font-dark">Home</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="font-dark">Shop</a>
-                                </li>
-                                <li>
-                                    <a href="about-us.html" class="font-dark">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="blog-details.html" class="font-dark">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="contact-us.html" class="font-dark">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                    <div class="footer-links">
-                        <div class="footer-title">
-                            <h3>New Categories</h3>
-                        </div>
-                        <div class="footer-content">
-                            <ul>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="font-dark">Latest Shoes</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="font-dark">Branded Jeans</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="font-dark">New Jackets</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="font-dark">Colorfull Hoodies</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="font-dark">Shiner Goggles</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                    <div class="footer-links">
-                        <div class="footer-title">
-                            <h3>Get Help</h3>
-                        </div>
-                        <div class="footer-content">
-                            <ul>
-                                <li>
-                                    <a href="user-dashboard.html" class="font-dark">Your Orders</a>
-                                </li>
-                                <li>
-                                    <a href="user-dashboard.html" class="font-dark">Your Account</a>
-                                </li>
-                                <li>
-                                    <a href="order-tracking.html" class="font-dark">Track Orders</a>
-                                </li>
-                                <li>
-                                    <a href="wishlist.html" class="font-dark">Your Wishlist</a>
-                                </li>
-                                <li>
-                                    <a href="faq.html" class="font-dark">Shopping FAQs</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 d-none d-sm-block">
-                    <div class="footer-newsletter">
-                        <h3>Let’s stay in touch</h3>
-                        <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="form-newsletter  needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-                            <div class="input-group mb-4">
-                                <input type="text" class="form-control" placeholder="Your Email Address">
-                                <span class="input-group-text" id="basic-addon4"><i class="fas fa-arrow-right"></i></span>
-                            </div>
-                            <p class="font-dark mb-0">Keep up to date with our latest news and special offers.
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="sub-footer">
+    <div class="sub-footer bg-gray-500">
         <div class="container">
             <div class="row gy-3">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <ul>
-                        <li class="font-dark">We accept:</li>
                         <li>
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/payment-icon/1.jpg" class="img-fluid blur-up lazyload" alt="payment icon"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/payment-icon/2.jpg" class="img-fluid blur-up lazyload" alt="payment icon"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/payment-icon/3.jpg" class="img-fluid blur-up lazyload" alt="payment icon"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/payment-icon/4.jpg" class="img-fluid blur-up lazyload" alt="payment icon"></a>
+                            <a href="{{route('index')}}">
+                                <img src="assets/images/logo.png" width="20%" class="img-fluid blur-up lazyload" alt="payment icon"></a>
                         </li>
                     </ul>
                 </div>
+                <div class="col-md-2 text-left">
+                    <p class="mb-0 font-dark">© 2024 Created by team 2</p>
+                </div>
                 <div class="col-md-6">
-                    <p class="mb-0 font-dark">© 2022, Voxo Theme. Made with heart by Pixelstrap</p>
+                    <li><a href="{{route('index')}}">Home</a></li>
+                    <li><a href="{{route('index')}}">Categories</a></li>
+                    <li><a href="{{route('index')}}">About Us</a></li>
+                    <li><a href="{{route('index')}}">Terms and Conditions</a></li>
                 </div>
             </div>
         </div>
@@ -730,34 +591,6 @@
 </div>
 <!-- Cart Successful End -->
 
-<!-- Newsletter modal start -->
-<div class="modal fade newletter-modal" id="newsletter" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content ">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <img src="assets/images/newletter-icon.png" class="img-fluid blur-up lazyloaded" alt="">
-                <div class="modal-title">
-                    <h2 class="tt-title">Sign up for our Newsletter!</h2>
-                    <p class="font-light">Never miss any new updates or products we reveal, stay up to date.</p>
-                    <p class="font-light">Oh, and it's free!</p>
-
-                    <div class="input-group mb-3">
-                        <input placeholder="Email" class="form-control" type="text">
-                    </div>
-
-                    <div class="cancel-button text-center">
-                        <button class="btn default-theme w-100" data-bs-dismiss="modal" type="button">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Newsletter modal end -->
 
 <!-- Coockie Section Start -->
 <div class="cookie-bar-section hide">
