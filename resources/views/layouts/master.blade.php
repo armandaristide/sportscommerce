@@ -155,41 +155,68 @@
                                 @if (Route::has('login'))
                                     <div class="top-right links">
                                         @auth
-                                            <li class="onhover-dropdown wislist-dropdown">
-                                                <div class="cart-media">
-                                                    <div class="cart-icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart pe-2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>                                                        <span class="label label-theme rounded-pill">0</span>
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <li class="onhover-dropdown wislist-dropdown">
+                                                        <div class="cart-media">
+                                                            <div class="cart-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart pe-2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>                                                        <span class="label label-theme rounded-pill">0</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <li class="onhover-dropdown wislist-dropdown">
+
+                                                        <a href="{{ route('dashboard') }}">
+                                                            <div class="cart-media">
+                                                                <div class="cart-icon">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>                                                        </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                        <button type="button" class="rounded-3 btn btn-solid-default btn-spacing">
+                                                            <span>{{ __('Logout') }}</span>
+                                                        </button>
+
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        @else
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <a href="{{ route('login') }}">
+                                                            <button type="button" class="btn rounded-3 btn-solid-default btn-spacing">
+                                                                <span>Login</span>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        @if (Route::has('register'))
+                                                            <a href="{{ route('register') }}">
+                                                                <button type="button" class="rounded-3 btn btn-solid-default btn-spacing">
+                                                                    <span>Register</span>
+                                                                </button>
+                                                            </a>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li class="onhover-dropdown wislist-dropdown">
-                                                <a href="{{ route('dashboard') }}">
-                                                    <div class="cart-media">
-                                                        <div class="cart-icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-
-                                            <a href="{{ route('dashboard') }}">
-                                                <button type="button" class="rounded-3 btn btn-solid-default btn-spacing">
-                                                    <span>Logout</span>
-                                                </button>
-                                            </a>
-                                        @else
-                                            <a href="{{ route('login') }}">
-                                                <button type="button" class="btn rounded-3 btn-solid-default btn-spacing">
-                                                    <span>Login</span>
-                                                </button>
-                                            </a>
-
-                                            @if (Route::has('register'))
-                                                <a href="{{ route('register') }}">
-                                                    <button type="button" class="rounded-3 btn btn-solid-default btn-spacing">
-                                                        <span>Register</span>
-                                                    </button>
-                                                </a>
-                                            @endif
+                                            </div>
                                         @endauth
                                     </div>
                                 @endif
