@@ -2,7 +2,7 @@
   --theme-color: #0163d2; }
 
 .theme-color2 {
-  --theme-color: #e22454; }
+  --theme-color: #750320; }
 
 .theme-color3 {
   --theme-color: #7520dd; }
@@ -5060,7 +5060,7 @@ header .main-navbar {
       max-width: 100%; } }
 
 /* =====================
-    Slick SLider CSS Start 
+    Slick SLider CSS Start
  ========================== */
 .box-arrow .slick-prev {
   left: calc(5px + (25 - 5) * ((100vw - 320px) / (1920 - 320)));
