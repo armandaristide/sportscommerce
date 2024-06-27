@@ -315,26 +315,40 @@
 @yield('content')
 
 <!-- footer start -->
-<footer class="footer-sm-space">
-    <div class="sub-footer bg-gray-500">
+<footer class="footer-sm-space" style="margin-top: 30px">
+    <div class="sub-footer" style="background-color: #f2f3f5">
         <div class="container">
             <div class="row gy-3">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <ul>
                         <li>
                             <a href="{{route('index')}}">
-                                <img src="assets/images/logo.png" width="20%" class="img-fluid blur-up lazyload" alt="payment icon"></a>
+                                <img src="assets/images/logo.png" width="30%" class="img-fluid blur-up lazyload" alt="payment icon"></a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-2 text-left">
-                    <p class="mb-0 font-dark">© 2024 Created by team 2</p>
+                    <p style="color: black"><strong>© 2024 Created by team 2</strong></p>
                 </div>
-                <div class="col-md-6">
-                    <li><a href="{{route('index')}}">Home</a></li>
-                    <li><a href="{{route('index')}}">Categories</a></li>
-                    <li><a href="{{route('index')}}">About Us</a></li>
-                    <li><a href="{{route('index')}}">Terms and Conditions</a></li>
+                <div class="col-md-7">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p><strong><a style="color: black" href="{{route('index')}}">Home</a></strong></p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><strong><a style="color: black" href="{{route('index')}}">Categories</a></strong></p>
+                            </div>
+                            <div class="col-md-2">
+                                <p><strong><a style="color: black"  href="{{route('index')}}">About Us</a></strong></p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong><a style="color: black" href="{{route('index')}}">Terms and Conditions</a></strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
