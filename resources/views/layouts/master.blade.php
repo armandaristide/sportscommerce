@@ -71,8 +71,12 @@
     <!-- Icon Start -->
     <link rel="icon" href="assets/images/shoes/png/001-hotel-service.png">
 
+    <link rel="stylesheet" href="assets/css/vendors/ion.rangeSlider.min.css" />
+
     <!-- animation css -->
     <link rel="stylesheet" type="text/css" href="assets/css/vendors/animate.css">
+
+
 
     <!-- slick css -->
     <link rel="stylesheet" type="text/css" href="assets/css/vendors/slick/slick.css">
@@ -80,6 +84,8 @@
 
     <!-- Theme css -->
     <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo3.css">
+    <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo2.css">
+    <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/prod.css">
 </head>
 
 <body class="theme-color2 light ltr" style="">
@@ -98,7 +104,7 @@
                                     <svg class="svg-icon">
                                         <use class="fill-color" xlink:href="assets/svg/icons.svg#logo"></use>
                                     </svg>
-                                    <img src="assets/images/logo.png" class="img-fluid blur-up lazyloaded" alt="logo" style="width: 40%;">
+                                    <img src="assets/images/logo.png" class="img-fluid blur-up lazyloaded" alt="logo" style="width: 35%;">
                                 </a>
                             </div>
                         </div>
@@ -357,7 +363,7 @@
                     <ul>
                         <li>
                             <a href="{{route('index')}}">
-                                <img src="assets/images/logo.png" width="30%" class="img-fluid blur-up lazyload" alt="payment icon"></a>
+                                <img src="assets/images/logo.png" style="width: 30%" class="img-fluid blur-up lazyload" alt="payment icon"></a>
                         </li>
                     </ul>
                 </div>
@@ -374,7 +380,7 @@
                                 <p><strong><a style="color: black" href="{{route('index')}}">Categories</a></strong></p>
                             </div>
                             <div class="col-md-2">
-                                <p><strong><a style="color: black"  href="{{route('index')}}">About Us</a></strong></p>
+                                <p><strong><a style="color: black"  href="{{route('about')}}">About Us</a></strong></p>
                             </div>
                             <div class="col-md-4">
                                 <p><strong><a style="color: black" href="{{route('index')}}">Terms and Conditions</a></strong></p>
@@ -667,9 +673,6 @@
 <!-- Add To Home js -->
 <script src="assets/js/pwa.js"></script>
 
-<!-- Timer Js -->
-<script src="assets/js/timer1.js"></script>
-
 <!-- Slick js-->
 <script src="assets/js/slick/slick.js"></script>
 <script src="assets/js/slick/slick-animation.min.js"></script>
@@ -677,6 +680,24 @@
 
 <!-- newsletter js -->
 <script src="assets/js/newsletter.js"></script>
+
+
+<!-- timer js -->
+<script src="assets/js/timer.js"></script>
+
+<!-- sticky cart bottom js-->
+<script src="assets/js/check-box-select.js"></script>
+<script src="assets/js/prod.js"></script>
+
+<!-- Zoom Js -->
+<script src="assets/js/jquery.elevatezoom.js"></script>
+<script src="assets/js/zoom-filter.js"></script>
+
+<!--Plugin JavaScript file-->
+<script src="assets/js/ion.rangeSlider.min.js"></script>
+
+<!-- Filter Hide and show Js -->
+<script src="assets/js/filter.js"></script>
 
 <!-- add to cart modal resize -->
 <script src="assets/js/cart_modal_resize.js"></script>

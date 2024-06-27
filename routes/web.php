@@ -55,6 +55,7 @@ Route::get('/product', [PagesController::class, 'product'])->name('product');
 
 #####################ARMAND'S ROUTES#################################################
 Route::get('/', [PagesController::class, 'index'])->name('index');
+Route::get('/product_details_{prod}', [PagesController::class, 'productDetails'])->name('productdets');
 
 /**General user routes **/
 Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');

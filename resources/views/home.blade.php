@@ -198,323 +198,111 @@
 
 
     <!-- product section start -->
-    <section class="ratio_asos mb-6">
-        <div class="container">
-            <div class="row m-0">
-                <div class="col-sm-12 p-0">
-                    <div class="title title1 text-left">
-                        <h2>Recent Products</h2>
-                    </div>
-                    <div class="product-wrapper product-style-2 slide-4 p-0 light-arrow ">
-                        <div>
-                            <div class="product-box">
-                                <div class="img-wrapper">
-                                    <div class="front">
-                                        <a href="#">
-                                            <img src="assets/images/fashion/product/front/2.jpg"
-                                                 class="bg-img blur-up lazyload" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="back">
-                                        <a href="#">
-                                            <img src="assets/images/fashion/product/back/2.jpg"
-                                                 class="bg-img blur-up lazyload" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="label-block">
-                                        <span class="label label-black">New</span>
-                                        <span class="label label-theme">50% Off</span>
-                                    </div>
-                                    <div class="cart-wrap">
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:void(0)" class="addtocart-btn"
-                                                   data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                    <i data-feather="shopping-bag"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                   data-bs-target="#quick-view">
-                                                    <i data-feather="eye"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-details">
-                                    <div class="rating-details">
-                                        <span class="font-light grid-content">Category</span>
-                                        <ul class="rating mt-0">
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="main-price" id="quick-view">
-                                        <a href="#" class="font-default">
-                                            <h5>Product Name</h5>
-                                        </a>
-                                        <div class="listing-content">
-                                            <span class="font-light">Filter</span>
-                                            <p class="font-light">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                                elit. Sit, deserunt? Asperiores aliquam voluptatum culpa aliquid ab
-                                                ducimus eaque illum, quibusdam reiciendis id ad consectetur quis, animi
-                                                qui, minus quidem eveniet! Dolorum magnam numquam, asperiores
-                                                accusantium architecto placeat quam officia, tempore repellendus.</p>
-                                        </div>
-                                        <h3 class="theme-color">$60.00</h3>
-                                        <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                            To Cart</button>
-                                    </div>
-                                </div>
-                            </div>
+    @if(count($products)>0)
+        <section class="ratio_asos mb-6">
+            <div class="container">
+                <div class="row m-0">
+                    <div class="col-sm-12 p-0">
+                        <div class="title title1 text-left">
+                            <h2>Recent Products</h2>
                         </div>
-                        <div>
-                            <div class="product-box">
-                                <div class="img-wrapper">
-                                    <div class="front">
-                                        <a href="#">
-                                            <img src="assets/images/fashion/product/front/2.jpg"
-                                                 class="bg-img blur-up lazyload" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="back">
-                                        <a href="#">
-                                            <img src="assets/images/fashion/product/back/2.jpg"
-                                                 class="bg-img blur-up lazyload" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="label-block">
-                                        <span class="label label-black">New</span>
-                                        <span class="label label-theme">50% Off</span>
-                                    </div>
-                                    <div class="cart-wrap">
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:void(0)" class="addtocart-btn"
-                                                   data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                    <i data-feather="shopping-bag"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                   data-bs-target="#quick-view">
-                                                    <i data-feather="eye"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-details">
-                                    <div class="rating-details">
-                                        <span class="font-light grid-content">Category</span>
-                                        <ul class="rating mt-0">
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="main-price" id="quick-view">
-                                        <a href="#" class="font-default">
-                                            <h5>Product Name</h5>
-                                        </a>
-                                        <div class="listing-content">
-                                            <span class="font-light">Filter</span>
-                                            <p class="font-light">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                                elit. Sit, deserunt? Asperiores aliquam voluptatum culpa aliquid ab
-                                                ducimus eaque illum, quibusdam reiciendis id ad consectetur quis, animi
-                                                qui, minus quidem eveniet! Dolorum magnam numquam, asperiores
-                                                accusantium architecto placeat quam officia, tempore repellendus.</p>
+                        <div class="product-wrapper product-style-2 slide-4 p-0 light-arrow ">
+                            @php
+                                $count = 0;
+                            @endphp
+                            @foreach($products as $product)
+                                @if($count < 4)
+                                    <div>
+                                        <div class="product-box">
+                                            <div class="img-wrapper">
+                                                <div class="front">
+                                                    <a href="{{route('productdets',$product->id)}}">
+                                                        <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_2.jpg"
+                                                             class="bg-img blur-up lazyload" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="back">
+                                                    <a href="{{route('productdets',$product->id)}}">
+                                                        <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg"
+                                                             class="bg-img blur-up lazyload" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="label-block">
+                                                    <span class="label label-black">New</span>
+                                                    <span class="label label-theme">50% Off</span>
+                                                </div>
+                                                <div class="cart-wrap">
+                                                    <ul>
+                                                        @if(Route::has('login'))
+                                                            @auth
+                                                                <li>
+                                                                    <a href="javascript:void(0)" class="addtocart-btn"
+                                                                       data-bs-toggle="modal" data-bs-target="#addtocart">
+                                                                        <i data-feather="shopping-bag"></i>
+                                                                    </a>
+                                                                </li>
+                                                            @endauth
+                                                            @endif
+
+                                                        <li>
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                               data-bs-target="#quick-view">
+                                                                <i data-feather="eye"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-details">
+                                                <div class="rating-details">
+                                                    <span class="font-light grid-content">{{$product->categories}}</span>
+                                                    <ul class="rating mt-0">
+                                                        <li>
+                                                            <i class="fas fa-star theme-color"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star theme-color"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star theme-color"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star theme-color"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star theme-color"></i>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="main-price" id="quick-view">
+                                                    <a href="{{route('productdets',$product->id)}}" class="font-default">
+                                                        <h5>{{$product->name}}</h5>
+                                                    </a>
+                                                    <div class="listing-content">
+                                                        <span class="font-light">{{$product->filter}}</span>
+                                                        <p class="font-light">{{$product->description}}</p>
+                                                    </div>
+                                                    <h3 class="theme-color">${{$product->price}}</h3>
+                                                    <button onclick="location.href = '#';" class="btn listing-content">Add
+                                                        To Cart</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <h3 class="theme-color">$60.00</h3>
-                                        <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                            To Cart</button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-box">
-                                <div class="img-wrapper">
-                                    <div class="front">
-                                        <a href="#">
-                                            <img src="assets/images/fashion/product/front/2.jpg"
-                                                 class="bg-img blur-up lazyload" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="back">
-                                        <a href="#">
-                                            <img src="assets/images/fashion/product/back/2.jpg"
-                                                 class="bg-img blur-up lazyload" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="label-block">
-                                        <span class="label label-black">New</span>
-                                        <span class="label label-theme">50% Off</span>
-                                    </div>
-                                    <div class="cart-wrap">
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:void(0)" class="addtocart-btn"
-                                                   data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                    <i data-feather="shopping-bag"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                   data-bs-target="#quick-view">
-                                                    <i data-feather="eye"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-details">
-                                    <div class="rating-details">
-                                        <span class="font-light grid-content">Category</span>
-                                        <ul class="rating mt-0">
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="main-price" id="quick-view">
-                                        <a href="#" class="font-default">
-                                            <h5>Product Name</h5>
-                                        </a>
-                                        <div class="listing-content">
-                                            <span class="font-light">Filter</span>
-                                            <p class="font-light">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                                elit. Sit, deserunt? Asperiores aliquam voluptatum culpa aliquid ab
-                                                ducimus eaque illum, quibusdam reiciendis id ad consectetur quis, animi
-                                                qui, minus quidem eveniet! Dolorum magnam numquam, asperiores
-                                                accusantium architecto placeat quam officia, tempore repellendus.</p>
-                                        </div>
-                                        <h3 class="theme-color">$60.00</h3>
-                                        <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                            To Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-box">
-                                <div class="img-wrapper">
-                                    <div class="front">
-                                        <a href="#">
-                                            <img src="assets/images/fashion/product/front/2.jpg"
-                                                 class="bg-img blur-up lazyload" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="back">
-                                        <a href="#">
-                                            <img src="assets/images/fashion/product/back/2.jpg"
-                                                 class="bg-img blur-up lazyload" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="label-block">
-                                        <span class="label label-black">New</span>
-                                        <span class="label label-theme">50% Off</span>
-                                    </div>
-                                    <div class="cart-wrap">
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:void(0)" class="addtocart-btn"
-                                                   data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                    <i data-feather="shopping-bag"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                   data-bs-target="#quick-view">
-                                                    <i data-feather="eye"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-details">
-                                    <div class="rating-details">
-                                        <span class="font-light grid-content">Category</span>
-                                        <ul class="rating mt-0">
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star theme-color"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="main-price" id="quick-view">
-                                        <a href="#" class="font-default">
-                                            <h5>Product Name</h5>
-                                        </a>
-                                        <div class="listing-content">
-                                            <span class="font-light">Filter</span>
-                                            <p class="font-light">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                                elit. Sit, deserunt? Asperiores aliquam voluptatum culpa aliquid ab
-                                                ducimus eaque illum, quibusdam reiciendis id ad consectetur quis, animi
-                                                qui, minus quidem eveniet! Dolorum magnam numquam, asperiores
-                                                accusantium architecto placeat quam officia, tempore repellendus.</p>
-                                        </div>
-                                        <h3 class="theme-color">$60.00</h3>
-                                        <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                            To Cart</button>
-                                    </div>
-                                </div>
-                            </div>
+                                    @php
+                                        $count = $count+1
+                                    @endphp
+                                @else
+                                @break
+                                @endif
+                                    @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    @endif
     <!-- product section end -->
 
 
