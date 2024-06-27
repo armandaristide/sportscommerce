@@ -117,15 +117,22 @@
                                             </div>
                                         </li>
                                         <li class="home-menu">
-                                            <a href="{{route('index')}}" class="nav-link menu-title"><h3>Home</h3></a>
+                                            <a href="{{route('index')}}" class="nav-link menu-title">
+                                                <div class="{{ request()->is('/') ? 'gradient-title' : '' }}">
+                                                    <h3>Home</h3>
+                                                </div>
+                                            </a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="javascript:void(0)" class="nav-link menu-title"><h3>Sports</h3></a>
+                                            <a href="javascript:void(0)" class="nav-link menu-title">
+                                                    <div class="{{ request()->is('categories_*') ? 'gradient-title' : '' }}">
+                                                        <h3> Sports</h3>
+                                                    </div></a>
                                             <ul class="nav-submenu menu-content">
 
 
                                                 @foreach(\App\Models\Cat::get() as $cat)
-                                                    <li class="dropdown"><a href="{{ route('categories',$cat->categories) }}">{{ $cat->categories }}</a></li>
+                                                    <li class="dropdown"><a href="{{ route('categories',$cat->categories) }}"><div class="{{ request()->is('categories_'.$cat->categories) ? 'gradient-title' : '' }}">{{ $cat->categories }}</div></a></li>
                                                 @endforeach
 
                                                 {{--                                                    <a href="shop-no-sidebar.html">Shop No Sidebar</a>--}}
@@ -143,7 +150,7 @@
                                         </li>
                                         <li class="ratio_40">
                                             <a href= "{{route('about')}}" class="nav-link menu-title">
-                                                <div class="gradient-title"><h3>About Us</h3></div>
+                                                <div class="{{ request()->is('about_us') ? 'gradient-title' : '' }}"><h3>About Us</h3></div>
                                             </a>
                                         </li>
                                     </ul>

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','SPORTS CATEGORY | E COMMERCE')
+@section('title','WELCOME | LEVEL UP ')
 @section('content')
     <section class="pt-0 overflow-hidden">
         <div>
