@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cat;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -10,7 +11,14 @@ class PagesController extends Controller
     //
     public function index()
     {
-        return view('home');
+        $products = Product::orderBy('created_at', 'desc')->get();
+        return view('home')->with('products', $products);
+    }
+
+    public function productDetails($prod)
+    {
+        $product = Product::where('id', $prod)->firstOrFail();
+        return view('productdetails')->with('product', $product);
     }
     public function about()
     {
