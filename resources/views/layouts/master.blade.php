@@ -48,8 +48,11 @@
     <link rel="icon" href="assets/images/favicon/3.png" type="image/x-icon" />
 
     <!-- Theme css -->
-    <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo2.css">
 
+    <!-- Theme css -->
+    <link id="color-link" rel="stylesheet" type="text/css" href="{{('assets/css/demo2.css') }}">
+    <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo4.css">
+    <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo6.css">
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -114,10 +117,10 @@
                                             </div>
                                         </li>
                                         <li class="home-menu">
-                                            <a href="{{route('index')}}" class="nav-link menu-title">home</a>
+                                            <a href="{{route('index')}}" class="nav-link menu-title"><h3>Home</h3></a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">Sports</a>
+                                            <a href="javascript:void(0)" class="nav-link menu-title"><h3>Sports</h3></a>
                                             <ul class="nav-submenu menu-content">
 
 
@@ -140,7 +143,7 @@
                                         </li>
                                         <li class="ratio_40">
                                             <a href= "{{route('about')}}" class="nav-link menu-title">
-                                                <div class="gradient-title">About Us</div>
+                                                <div class="gradient-title"><h3>About Us</h3></div>
                                             </a>
                                         </li>
                                     </ul>
@@ -149,55 +152,40 @@
                         </nav>
                         <div class="menu-right">
                             <ul>
-                                <li>{{--                                login button--}}
-                                    @if (Route::has('login'))
-                                        <div class="top-right links">
-                                            @auth
-                                                <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 902.86 902.86" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"></path> <path d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717 c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744 c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742 C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744 c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742 S619.162,694.432,619.162,716.897z"></path> </g> </g> </g></svg>
-                                            @else
-
-                                                <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 902.86 902.86" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"></path> <path d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717 c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744 c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742 C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744 c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742 S619.162,694.432,619.162,716.897z"></path> </g> </g> </g></svg>
-
-                                            @endauth
-                                        </div>
-                                    @endif
-                                </li>
-
-                                <li class="onhover-dropdown">
-                                    {{--                                    <div class="cart-media">--}}
-                                    {{--                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>--}}
-                                    {{--                                    </div>--}}
-                                    {{--                                    <div class="onhover-div profile-dropdown">--}}
-                                    {{--                                        <ul>--}}
-                                    {{--                                            <li>--}}
-                                    {{--                                                <a href="log-in.html" class="d-block">Login</a>--}}
-                                    {{--                                            </li>--}}
-                                    {{--                                            <li>--}}
-                                    {{--                                                <a href="sign-up.html" class="d-block">Register</a>--}}
-                                    {{--                                            </li>--}}
-                                    {{--                                        </ul>--}}
-                                    {{--                                    </div>--}}
-                                </li>
-                                {{--                                login button--}}
                                 @if (Route::has('login'))
                                     <div class="top-right links">
                                         @auth
+                                            <li class="onhover-dropdown wislist-dropdown">
+                                                <div class="cart-media">
+                                                    <div class="cart-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart pe-2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>                                                        <span class="label label-theme rounded-pill">0</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="onhover-dropdown wislist-dropdown">
+                                                <a href="{{ route('dashboard') }}">
+                                                    <div class="cart-media">
+                                                        <div class="cart-icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+
                                             <a href="{{ route('dashboard') }}">
-                                                <button type="button" class="btn btn-solid-default btn-spacing">
-                                                    <i data-feather="user" class="pe-2"></i>
-                                                    <span>Dashboard</span>
+                                                <button type="button" class="rounded-3 btn btn-solid-default btn-spacing">
+                                                    <span>Logout</span>
                                                 </button>
                                             </a>
                                         @else
                                             <a href="{{ route('login') }}">
-                                                <button type="button" class="btn btn-solid-default btn-spacing">
+                                                <button type="button" class="btn rounded-3 btn-solid-default btn-spacing">
                                                     <span>Login</span>
                                                 </button>
                                             </a>
 
                                             @if (Route::has('register'))
                                                 <a href="{{ route('register') }}">
-                                                    <button type="button" class="btn btn-solid-default btn-spacing">
+                                                    <button type="button" class="rounded-3 btn btn-solid-default btn-spacing">
                                                         <span>Register</span>
                                                     </button>
                                                 </a>
@@ -285,7 +273,6 @@
         </div>
     </div>
 </header>
-<!-- header end -->
 
 <!-- mobile fix menu start -->
 <div class="mobile-menu d-sm-none">
