@@ -22,7 +22,7 @@
         </ul>
         <div class="container" style="text-align: left">
             <div class="row">
-                <h3 class="breadcrumb-item"><a href="{{route('categories',$cat)}}">
+                <h3 class="breadcrumb-item text-capitalize"><a href="{{route('categories',$cat)}}">
                         SPORTS
                     </a> / {{$cat}}
                 </h3>
@@ -47,10 +47,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="collection-banner p-bottom p-center text-center">
-                        <a href="#" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
                             <img src="assets/img/football/jersey.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
                         </a>
-                        <a href="#" class="contain-banner">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="contain-banner">
                             <div class="banner-content with-big">
                                 <h2 class="mb-2">Jerseys</h2>
                                 <span>Check out our {{$cat}} jerseys</span>
@@ -60,10 +60,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="collection-banner p-bottom p-center text-center">
-                        <a href="#" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/shorts.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/shorts.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
                             <img src="assets/img/football/shorts.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
                         </a>
-                        <a href="#" class="contain-banner">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="contain-banner">
                             <div class="banner-content with-big">
                                 <h2 class="mb-2">Shorts</h2>
                                 <span>Check out our {{$cat}} shorts</span>
@@ -73,10 +73,10 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="collection-banner p-bottom p-center text-center">
-                        <a href="#" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
                             <img src="assets/img/football/tracksuits.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
                         </a>
-                        <a href="#" class="contain-banner">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="contain-banner">
                             <div class="banner-content with-big">
                                 <h2 class="mb-2">Track Suits</h2>
                                 <span>Check out our {{$cat}} track suits</span>
