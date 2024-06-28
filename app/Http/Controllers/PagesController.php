@@ -20,6 +20,27 @@ class PagesController extends Controller
         $product = Product::where('id', $prod)->firstOrFail();
         return view('productdetails')->with('product', $product);
     }
+
+    public function subcategory($prod)
+    {
+        $subcat = explode('_',$prod);
+        $products = Product::where('subcategories','=', $subcat[0])
+            ->where('categories','=',$subcat[1])
+            ->where('tag','=',$subcat[2])
+            ->orderBy('created_at', 'desc')->get();
+        $subcate = $subcat[0];
+        $cat = $subcat[1];
+        $tag = $subcat[2];
+        return view('subcategory')->with('subcate', $subcate)->with('cat',$cat)->with('tag',$tag)->with('products', $products);
+    }
+
+    public function generalsub($prod)
+    {
+        $gen=explode('_',$prod);
+        $cat = $gen[0];
+        $subcat = $gen[1];
+        return view('generalsub')->with('cat', $cat)->with('subcat', $subcat);
+    }
     public function about()
     {
         return view('about');
