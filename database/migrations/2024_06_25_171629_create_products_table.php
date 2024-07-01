@@ -17,7 +17,12 @@ return new class extends Migration
             $table->string('categories');
             $table->string('subcategories');
             $table->string('color');
-            $table->string('promo');
+            $table->string('tag');
+            $table->string('brand');
+            $table->string('imageone');
+            $table->string('imagetwo');
+            $table->string('imagethree');
+            $table->string('imagefour');
             $table->string('description');
             $table->string('price');
             $table->string('quantity');
