@@ -10,5 +10,6 @@ class Cat extends Model
     use HasFactory;
     protected $fillable = [
         'categories',
+        'seller',
     ];
 }
