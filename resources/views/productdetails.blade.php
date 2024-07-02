@@ -3,8 +3,18 @@
 @section('content')
     @if($product->categories== "football")
         <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/football.png); background-size: cover">
-            @else
-                <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/tennis.png);background-size: cover">
+            @elseif($product->categories== "basketball")
+                <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/basketball.png); background-size: cover">
+                    @elseif($product->categories== "tennis")
+                        <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/tennis.png); background-size: cover">
+                            @elseif($product->categories== "volleyball")
+                                <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/volleyball.png); background-size: cover">
+                                    @elseif($product->categories== "cricket")
+                                        <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/cricket.png); background-size: cover">
+                                            @elseif($product->categories== "athletics")
+                                                <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/athletics.png); background-size: cover">
+                                                @else
+                <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/sports.png);background-size: cover">
                     @endif
 
                     <ul class="circles">
