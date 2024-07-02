@@ -24,5 +24,6 @@ class Product extends Model
         'quantity',
         'size',
         'filter',
+        'seller',
     ];
 }

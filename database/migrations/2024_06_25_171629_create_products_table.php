@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('quantity');
             $table->string('size');
             $table->string('filter');
+            $table->string('seller');
             $table->timestamps();
         });
     }
