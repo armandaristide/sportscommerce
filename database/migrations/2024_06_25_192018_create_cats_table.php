@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('cats', function (Blueprint $table) {
             $table->id();
-            $table->string('categories');
+            $table->string('categories')->unique();
             $table->string('seller');
+            $table->string('backgroundurl');
             $table->timestamps();
         });
     }

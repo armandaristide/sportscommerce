@@ -11,5 +11,6 @@ class Cat extends Model
     protected $fillable = [
         'categories',
         'seller',
+        'backgroundurl',
     ];
 }
