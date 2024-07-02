@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Cat;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+
     //
     public function index()
     {
@@ -61,5 +63,15 @@ class PagesController extends Controller
     public function catpage($cat)
     {
         return view('sportcategories')->with('cat', $cat);
+    }
+
+
+    public function cart()
+    {
+
+       // $carts = Cart::select('name', 'categories', 'subcategories', 'color')->get();
+         $carts= Cart::all();
+        $total=0;
+        return view('cart',['carts'=>$carts,'total'=>$total])->with('cart');
     }
 }

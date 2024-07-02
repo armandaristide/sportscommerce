@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\SuperAdminAuthController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\CartController;
+
 ########################################################################
 ##########################SHERWIN ROUTES#######################################
 Route::get('/about_us', [PagesController::class, 'about'])->name('about');
@@ -19,6 +21,13 @@ Route::get('/about_us', [PagesController::class, 'about'])->name('about');
 
 ############################Habib routes#########################################3
 Route::get('/home', [PagesController::class, 'home'])->name('homePage');
+Route::get('/cart', [PagesController::class, 'cart'])->name('cart');
+
+
+Route::get('/prodcut-list', [CartController::class, 'index']);
+Route::get('/cart-list', [CartController::class, 'cartList']);
+Route::post('add-to-cart', [CartController::class, 'addProductToCart'])->name('add-product-to-shopping-cart');
+Route::delete('/delete-cart-product', [CartController::class, 'deleteItem'])->name('delete.cart.product');
 
 
 
