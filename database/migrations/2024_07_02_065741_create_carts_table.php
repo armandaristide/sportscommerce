@@ -12,8 +12,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->id();
+
             $table->timestamps();
+            $table->id();
+            $table->string('name');
+            $table->string('categories');
+            $table->string('subcategories');
+            $table->string('color');
+            $table->string('tag');
+            $table->string('brand');
+            $table->string('imageone');
+            $table->string('imagetwo');
+            $table->string('imagethre');
+            $table->string('imagefour');
+            $table->text('description');
+            $table->decimal('price', 8, 2);
+            $table->integer('quantity');
+            $table->string('size');
+            $table->string('filter');
         });
     }
 
