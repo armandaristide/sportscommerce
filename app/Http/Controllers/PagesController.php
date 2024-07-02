@@ -53,6 +53,18 @@ class PagesController extends Controller
     {
         return view('product');
     }
+
+
+    public function orderhistory()
+    {
+        return view('orderhistory');
+    }
+
+    public function invoicepage()
+    {
+        return view('invoicepage');
+    }
+
     public function sport()
     {
         $cats = Cat::where('categories','football')->get();
@@ -63,3 +75,4 @@ class PagesController extends Controller
         return view('sportcategories')->with('cat', $cat);
     }
 }
+

@@ -35,8 +35,8 @@ Route::get('/categories_{cat}', [PagesController::class, 'catpage'])->name('cate
 
 ####################################CYPRIAN ROUTES###################################################
 Route::get('/product', [PagesController::class, 'product'])->name('product');
-
-
+Route::get('/orderhistory', [PagesController::class, 'orderhistory'])->name('orderhistory');
+Route::get('/invoicepage', [PagesController::class, 'invoicepage'])->name('invoicepage');
 
 
 ####################################AHBIN ROUTES #######################################################
@@ -94,3 +94,4 @@ Route::prefix('superAdmin')->group(function(){
 
 require __DIR__.'/auth.php';
 ##########################################################################################################
+
