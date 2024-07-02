@@ -70,6 +70,10 @@ Route::prefix('admin')->group(function(){
     Route::get('/login', [AdminAuthController::class, 'login'])->name('adminLogin');
     Route::post('/loginSubmit', [AdminAuthController::class, 'loginSubmit'])->name('adminLoginSubmit');
     Route::get('/logout', [AdminAuthController::class, 'adminLogout'])->name('adminLogout');
+    Route::get('/add_category', [DashboardController::class, 'addCategory'])->name('addCategory');
+    Route::post('/add_category', [DashboardController::class, 'submitCategory'])->name('submit.addcategory');
+    Route::get('/add_product', [DashboardController::class, 'addProduct'])->name('addProduct');
+    Route::post('/add_product', [DashboardController::class, 'submitProduct'])->name('submit.addproduct');
 });
 
 /**Super Admin routes **/
