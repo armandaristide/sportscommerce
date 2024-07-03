@@ -355,7 +355,7 @@
 
 
     <!-- product section start -->
-    <section class="ratio_asos">
+    <sgit pullection class="ratio_asos">
         <div class="container">
             <div class="row m-0">
                 <div class="col-sm-12 p-0">
@@ -790,7 +790,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </sgitection>
     <!-- product section end -->
 
 
