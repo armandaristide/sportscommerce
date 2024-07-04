@@ -71,7 +71,6 @@ class PagesController extends Controller
     public function product_details($product){
         $prod = Product::where('id', $product)->firstOrFail();
         return view('productdetails')->with('product', $prod);
-        return view('productdetails');
     }
 
     public function sport()
