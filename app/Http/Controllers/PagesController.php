@@ -23,6 +23,7 @@ class PagesController extends Controller
         return view('productdetails')->with('product', $product);
     }
 
+
     public function subcategory($prod)
     {
         $subcat = explode('_',$prod);
@@ -65,6 +66,12 @@ class PagesController extends Controller
     public function invoicepage()
     {
         return view('invoicepage');
+    }
+
+    public function product_details($product){
+        $prod = Product::where('id', $product)->firstOrFail();
+        return view('productdetails')->with('product', $prod);
+        return view('productdetails');
     }
 
     public function sport()

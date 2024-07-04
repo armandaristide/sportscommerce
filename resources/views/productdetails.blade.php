@@ -2,19 +2,19 @@
 @section('title','Product Details | LEVEL UP')
 @section('content')
     @if($product->categories== "football")
-        <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/football.png); background-size: cover">
+        <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihbv_kwYq0cqbHBk15PcUwygXa_JGvxK70vUu2yHM6sjql-cMB4-wDOPwk_1ojZdBBGev6x1soXUYBrUvqM8OnSwPGKMSuH5P3c=s1600-rw-v1'); background-size: cover">
             @elseif($product->categories== "basketball")
-                <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/basketball.png); background-size: cover">
+                <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihb21nBUo3P4ZtYAab4XKWcogWPvHUH7nYdDO6fDxJWFP6sGbkCRmGn2YmPIkt5UC8Irqou1dNLZn9OSXPAHXSB2fA3ksmwCxzI=s1600-rw-v1'); background-size: cover">
                     @elseif($product->categories== "tennis")
-                        <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/tennis.png); background-size: cover">
+                        <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihafeynsQd6ZKq6eOIuRAAKGsBPALvr7eZi79h8wp_tmbmZ-mM4z6w7cI1wY8GFByXcsewl3kHKRaxm5Gq9TWveNZe9jtgxN6B0=s1600-rw-v1'); background-size: cover">
                             @elseif($product->categories== "volleyball")
-                                <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/volleyball.png); background-size: cover">
+                                <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihZTMfzpu4TflPLIU1dYMPZki42eKnY6gCC41qnedx3xn1PctVRN7z3Wb2WK4DbPY8v3gc2MSUMtrcu_BcQKIMu0eQfymI_eiHM=s1600-rw-v1'); background-size: cover">
                                     @elseif($product->categories== "cricket")
-                                        <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/cricket.png); background-size: cover">
+                                        <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihb5afoALxxaR1lXiKwlT8zRdHjQbNF_PutojIeMzTz0hp6n6sek6CjPcXJZdss5Xhf3Bb38-QB3JN5H5LoprZZdW60ozj-mDg=s1600-rw-v1'); background-size: cover">
                                             @elseif($product->categories== "athletics")
-                                                <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/athletics.png); background-size: cover">
+                                                <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihaXaLL4FEaFQq1G-BxYldavne93FVynsWv_sU0RJH0xtiQ5fWwJWEgbPqlkN3QQn1epY5gH7m2llPFJnr3XQmk2ApJfpIn3riI=s1600-rw-v1'); background-size: cover">
                                                 @else
-                <section class="breadcrumb-section section-b-space" style="background-image: url(assets/img/banners/sports.png);background-size: cover">
+                                                        <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihZm_arptYYXtWkO9gVErZWPdfXEEaPR-xiAB3YcFjrUXUEEyO4zUCBXGkMn9Ovk4Bz8S_K6VYo5uRUYvEmtcH8KZEVtmEsfMg=s1600-rw-v1');background-size: cover">
                     @endif
 
                     <ul class="circles">
@@ -58,31 +58,31 @@
                                             <div class = "product-imgs">
                                                 <div class = "img-display">
                                                     <div class = "img-showcase">
-                                                        <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg" alt = "shoe image">
-                                                        <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_2.jpg" alt = "shoe image">
-                                                        <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg" alt = "shoe image">
-                                                        <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg" alt = "shoe image">
+                                                        <img src=  "{{$product->imageone}}"  alt = "{{$product->tag}}">
+                                                        <img src = "{{$product->imagetwo}}" alt = "{{$product->tag}}">
+                                                        <img src = "{{$product->imagethree}}" alt = "{{$product->tag}}">
+                                                        <img src = "{{$product->imagefour}}" alt = "{{$product->tag}}">
                                                     </div>
                                                 </div>
                                                 <div class = "img-select">
                                                     <div class = "img-item">
                                                         <a href = "#" data-id = "1">
-                                                            <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg" alt = "shoe image">
+                                                            <img src = "{{$product->imageone}}"  alt = "{{$product->tag}}">
                                                         </a>
                                                     </div>
                                                     <div class = "img-item">
                                                         <a href = "#" data-id = "2">
-                                                            <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_2.jpg" alt = "shoe image">
+                                                            <img src = "{{$product->imagetwo}}" alt = "{{$product->tag}}">
                                                         </a>
                                                     </div>
                                                     <div class = "img-item">
                                                         <a href = "#" data-id = "3">
-                                                            <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg" alt = "shoe image">
+                                                            <img src = "{{$product->imagethree}}" alt = "{{$product->tag}}">
                                                         </a>
                                                     </div>
                                                     <div class = "img-item">
                                                         <a href = "#" data-id = "4">
-                                                            <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg" alt = "shoe image">
+                                                            <img src = "{{$product->imagefour}}" alt = "{{$product->tag}}">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -95,7 +95,7 @@
                                                     <h2>{{$product->name}}</h2>
                                                 </div>
 
-                                                <h3 class="price-detail">$32.96 <del>$459.00</del><span>55% off</span></h3>
+                                                <h3 class="price-detail">{{$product->price}} <del>{{$product->price*2}}</del><span>50% off</span></h3>
                                                 <h4 style="text-align: justify">{{$product->description}}</h4>
 
                                                 <div class="color-image">
@@ -104,17 +104,17 @@
                                                         <ul class="image-section">
                                                             <li>
                                                                 <a href="javascript:void(0)">
-                                                                    <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg" class="img-fluid blur-up lazyloaded" alt="">
+                                                                    <img src="{{$product->imageone}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0)">
-                                                                    <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_2.jpg" class="img-fluid blur-up lazyloaded" alt="">
+                                                                    <img src="{{$product->imagetwo}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0)">
-                                                                    <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg" class="img-fluid blur-up lazyloaded" alt="">
+                                                                    <img src="{{$product->imagethree}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </a>
                                                             </li>
                                                         </ul>
