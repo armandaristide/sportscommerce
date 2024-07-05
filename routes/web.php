@@ -34,8 +34,7 @@ Route::delete('/delete-cart-product', [CartController::class, 'deleteItem'])->na
 #####################################SIDDHARTH ROUTES####################################
 Route::get('/sport', [PagesController::class, 'sport'])->name('sportcat');
 Route::get('/categories_{cat}', [PagesController::class, 'catpage'])->name('categories');
-
-
+Route::get('/productdetails_{product}', [PagesController::class,'product_details'])->name('productdetails');
 
 ############################################ARPIT ROUTES###########################################
 
