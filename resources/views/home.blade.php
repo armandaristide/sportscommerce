@@ -30,8 +30,7 @@
 
                     <div class="price-number">
                         <h2>$79.00 <span><del>$65.00</del></span></h2>
-                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae minima asperiores
-                            possimus ad quae.</h6>
+                        <h6>Step up your style game with these sleek kicks! Comfortable, durable, and on-trend.</h6>
                     </div>
                     <div class="slider-arrow-2">
                         <div class="left-arrow d-lg-block d-none"></div>
@@ -67,8 +66,7 @@
 
                     <div class="price-number">
                         <h2>$79.00 <span><del>$65.00</del></span></h2>
-                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae minima asperiores
-                            possimus ad quae.</h6>
+                        <h6>Step up your style game with these sleek kicks! Comfortable, durable, and on-trend.</h6>
                     </div>
 
                     <div class="slider-arrow-2">
@@ -103,8 +101,7 @@
 
                     <div class="price-number">
                         <h2>$79.00 <span><del>$65.00</del></span></h2>
-                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae minima asperiores
-                            possimus ad quae.</h6>
+                        <h6>Step up your style game with these sleek kicks! Comfortable, durable, and on-trend.</h6>
                     </div>
 
                     <div class="slider-arrow-2">

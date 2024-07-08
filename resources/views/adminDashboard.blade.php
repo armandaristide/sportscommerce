@@ -246,7 +246,7 @@
 
                                             <td>{{$product->categories}}</td>
 
-                                            <td>12</td>
+                                            <td>{{$product->quantity}}</td>
 
                                             <td class="td-price">${{$product->price}}</td>
 
