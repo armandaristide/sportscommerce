@@ -73,6 +73,8 @@ class PagesController extends Controller
         return view('productdetails')->with('product', $prod);
     }
 
+
+
     public function sport()
     {
         $cats = Cat::where('categories','football')->get();

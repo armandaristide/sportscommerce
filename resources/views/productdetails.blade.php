@@ -95,7 +95,7 @@
                                                     <h2>{{$product->name}}</h2>
                                                 </div>
 
-                                                <h3 class="price-detail">{{$product->price}} <del>{{$product->price*2}}</del><span>50% off</span></h3>
+                                                <h3 class="price-detail">{{$product->price}}$ <del>{{$product->price*2}}$</del><span>50% off</span></h3>
                                                 <h4 style="text-align: justify">{{$product->description}}</h4>
 
                                                 <div class="color-image">
@@ -165,7 +165,7 @@
                                                 </div>
 
                                                 <div class="product-buttons">
-                                                    <a href="#" class="btn btn-solid">
+                                                    <a href="{{route('invoicepage')}}" class="btn btn-solid">
                                                         <i class="fa fa-bookmark fz-16 me-2"></i>
                                                         <span>BUY NOW</span>
                                                     </a>
