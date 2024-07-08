@@ -109,12 +109,13 @@
                                 </div>
                                 <!-- label and featured section -->
 
-                                <!-- Prodcut setion -->
+                                <!-- Prodcut section -->
                                 <div class="row g-sm-4 g-3 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 gx-sm-4 gx-3 mt-1 custom-gy-5 product-style-2 ratio_asos product-list-section">
                                     <div>
                                         <div class="product-box">
                                             <div class="img-wrapper">
                                                 <div class="front">
+
                                                     <a href="product-left-sidebar.html" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;assets/images/fashion/product/front/1.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
                                                         <img src="assets/images/fashion/product/front/1.jpg" class="bg-img blur-up lazyload" alt="" style="display: none;">
                                                     </a>
