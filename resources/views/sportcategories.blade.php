@@ -33,9 +33,9 @@
         </ul>
         <div class="container" style="text-align: left">
             <div class="row">
-                <h3 class="breadcrumb-item text-capitalize"><a href="{{route('categories',$cat)}}">
+                <h3 class="breadcrumb-item text-capitalize"><a style="color:#fcb320" href="{{route('categories',$cat)}}">
                         SPORTS</a>
-                    <a class = "text-white-50"> / {{$cat}} </a>
+                    <a class = "text-white"> / {{$cat}} </a>
                 </h3>
 
                 <div class="col-12">

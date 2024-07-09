@@ -33,9 +33,9 @@
                     </ul>
                     <div class="container" style="text-align: left">
                         <div class="row">
-                            <h3 class="breadcrumb-item text-capitalize"><a class="text-capitalize"><a href="{{route('categories',$cat)}}">
+                            <h3 class="breadcrumb-item text-capitalize"><a  class="text-capitalize"><a  style="color:#fcb320" href="{{route('categories',$cat)}}">
                                 {{$cat}}
-                                </a> / <a href="{{route('generalsub',$cat.'_'.$subcate)}}">{{$subcate}} </a>/ {{$tag}}
+                                    </a> / <a style="color:#fcb320" href="{{route('generalsub',$cat.'_'.$subcate)}}">{{$subcate}} </a>/ <a style="color:#f0f0f0"> {{$tag}} </a>
                             </h3>
 
                             <div class="col-12">
