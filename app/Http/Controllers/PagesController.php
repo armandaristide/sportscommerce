@@ -94,5 +94,17 @@ class PagesController extends Controller
         $total=0;
         return view('cart',['carts'=>$carts,'total'=>$total])->with('cart');
     }
+
+    public function submitCart(Request $request)
+    {
+        $request->validate([
+            'color' => ['required', 'string'],
+            'quantity' => ['required', 'string'],
+        ]);
+
+        dd($request->input('color'),$request->input('quantity'));
+        $cat = new Cat();
+        $cat->categories = $request->input('categories');
+    }
 }
 

@@ -99,82 +99,85 @@
                                                 <h3 class="price-detail">{{$product->price}}$ <del>{{$product->price*2}}$</del><span>50% off</span></h3>
                                                 <h4 style="text-align: justify">{{$product->description}}</h4>
 
-                                                <div class="color-image">
-                                                    <div class="image-select">
-                                                        <h5>Color :</h5>
-                                                        <ul class="image-section">
-                                                            <li>
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="{{$product->imageone}}" class="img-fluid blur-up lazyloaded" alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="{{$product->imagetwo}}" class="img-fluid blur-up lazyloaded" alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="{{$product->imagethree}}" class="img-fluid blur-up lazyloaded" alt="">
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                                <form class="row g-2" method="POST" action="{{ route('submit.cart') }}" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="color-image">
+                                                        <div class="image-select">
+                                                            <h5>Color :</h5>
+                                                            <ul class="image-section">
+                                                                <li>
+                                                                    <input name="color" value="{{$product->imageone}}" hidden>
+                                                                        <img src="{{$product->imageone}}" class="img-fluid blur-up lazyloaded" alt="">
+                                                                </li>
+                                                                <li>
+                                                                    <input name="color" value="{{$product->imagetwo}}" hidden >
+                                                                        <img src="{{$product->imagetwo}}" class="img-fluid blur-up lazyloaded" alt="">
+                                                                </li>
+                                                                <li>
+                                                                    <input name="color" value="{{$product->imagethree}}" hidden >
+                                                                        <img src="{{$product->imagethree}}" class="img-fluid blur-up lazyloaded" alt="">
+                                                                </li>
 
-                                                <div id="selectSize" class="addeffect-section product-description border-product">
-                                                    <h6 class="product-title size-text">select size
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#sizemodal">size chart</a>
-                                                    </h6>
+                                                            </ul>
 
-                                                    <h6 class="error-message">please select size</h6>
-
-                                                    <div class="size-box">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="javascript:void(0)">s</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0)">m</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0)">l</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0)">xl</a>
-                                                            </li>
-                                                        </ul>
+                                                        </div>
                                                     </div>
 
-                                                    <h6 class="product-title product-title-2 d-block">quantity</h6>
+                                                    <div id="selectSize" class="addeffect-section product-description border-product">
+                                                        <h6 class="product-title size-text">select size
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#sizemodal">size chart</a>
+                                                        </h6>
 
-                                                    <div class="qty-box">
-                                                        <div class="input-group">
+                                                        <h6 class="error-message">please select size</h6>
+
+                                                        <div class="size-box">
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="javascript:void(0)">s</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:void(0)">m</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:void(0)">l</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:void(0)">xl</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <h6 class="product-title product-title-2 d-block">quantity</h6>
+
+                                                        <div class="qty-box">
+                                                            <div class="input-group">
                                                 <span class="input-group-prepend">
                                                     <button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
                                                 </span>
-                                                            <input type="text" name="quantity" class="form-control input-number" value="1">
-                                                            <span class="input-group-prepend">
+                                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                                                <span class="input-group-prepend">
                                                     <button type="button" class="btn quantity-right-plus" data-type="plus" data-field="">
                                                         <i class="fas fa-plus"></i>
                                                     </button>
                                                 </span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="product-buttons">
-                                                    <a href="{{route('invoicepage')}}" class="btn btn-solid">
-                                                        <i class="fa fa-bookmark fz-16 me-2"></i>
-                                                        <span>BUY NOW</span>
-                                                    </a>
-                                                    <a href="javascript:void(0)" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span>Add To Cart</span>
-                                                    </a>
-                                                </div>
+                                                    <div class="product-buttons">
+                                                        <a href="{{route('invoicepage')}}" class="btn btn-solid">
+                                                            <i class="fa fa-bookmark fz-16 me-2"></i>
+                                                            <span>BUY NOW</span>
+                                                        </a>
+                                                        <button type="submit" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            <span>Add To Cart</span>
+                                                        </button>
+                                                    </div>
+                                                </form>
+
 
 
                                                 <div class="mt-2 mt-md-3 border-product">
