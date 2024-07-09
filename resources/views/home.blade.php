@@ -76,40 +76,6 @@
                 </div>
                 <!-- Slider 2 End -->
 
-                <!-- Slider 3 Start -->
-                <div class="banner-poster">
-                    <div class="slider-right-detail">
-                        <h4>New Festival Offer</h4>
-                        <div class="offer-box">
-                            <h6>65% off</h6>
-                        </div>
-                    </div>
-
-                    <div class="slider-bg">
-                        <div class="bg-text">
-                            <span>HIGH END</span>
-                        </div>
-
-                        <div class="bg-circle gradient-blue"></div>
-                        <img class="shoes-1 img-fluid blur-up lazyload" alt="" src="assets/images/shoes/Slider.png">
-                    </div>
-
-                    <div class="sugestion-product d-xl-block d-none">
-                        <h3>Quality Products</h3>
-                        <h6>Our Sports Shoes Collection</h6>
-                    </div>
-
-                    <div class="price-number">
-                        <h2>$79.00 <span><del>$65.00</del></span></h2>
-                        <h6>Step up your style game with these sleek kicks! Comfortable, durable, and on-trend.</h6>
-                    </div>
-
-                    <div class="slider-arrow-2">
-                        <div class="left-arrow d-lg-block d-none"></div>
-                        <div class="right-arrow d-lg-block d-none"></div>
-                    </div>
-                </div>
-                <!-- Slider 3 End -->
             </div>
         </div>
     </section>
@@ -129,7 +95,7 @@
                 <div class="col-xxl-12  mx-auto">
                     <div class="row">
                         <div class="col-4">
-                            <a href="/categories_football" class="category-wrap category-padding">
+                            <a href="/categories_football" class="category-wrap category-padding" style="border-radius: 25px">
                                 <img src="https://www.dropbox.com/scl/fi/kblfpjr9li6rbh8t0w2v1/football.png?rlkey=1x3suqfiazoens0tg3g3md0iy&st=puhrzhzt&raw=1"  class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
@@ -138,7 +104,7 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            <a href="/categories_basketball" class="category-wrap category-padding">
+                            <a href="/categories_basketball" class="category-wrap category-padding" style="border-radius: 25px">
                                 <img src="https://www.dropbox.com/scl/fi/5eerew9j2p2yjt7o892a2/basketball.png?rlkey=cwzlhfsxzw1hfx9aflynsmsho&st=g2rbr7xe&raw=1"  class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
@@ -147,7 +113,7 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            <a href="/categories_tennis" class="category-wrap category-padding">
+                            <a href="/categories_tennis" class="category-wrap category-padding" style="border-radius: 25px">
                                 <img src="https://www.dropbox.com/scl/fi/mqw48zsb1p0lr5qr5rzdd/tennis.png?rlkey=3sfwtp1yksodlv8ch991cc1qi&st=tzgp3zgj&raw=1"  class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
@@ -159,7 +125,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-4">
-                            <a href="/categories_cricket" class="category-wrap category-padding">
+                            <a href="/categories_cricket" class="category-wrap category-padding" style="border-radius: 25px">
                                 <img src="https://www.dropbox.com/scl/fi/41ugij799k8ozqwnihm7b/cricket.png?rlkey=5e9r5a2ka4g7pv5gp8wf14kws&st=zm2icxxi&raw=1" class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
@@ -168,7 +134,7 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            <a href="/categories_volleyball" class="category-wrap category-padding">
+                            <a href="/categories_volleyball" class="category-wrap category-padding" style="border-radius: 25px">
                                 <img src="https://www.dropbox.com/scl/fi/1js4s7nlpahtcjxzv98z2/volleyball.png?rlkey=9gglezh3i3rab019t6dyt2pwx&st=5jom2qla&raw=1" class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
@@ -177,7 +143,7 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            <a href="/categories_athletics" class="category-wrap category-padding">
+                            <a href="/categories_athletics" class="category-wrap category-padding" style="border-radius: 25px">
                                 <img src="https://www.dropbox.com/scl/fi/5xna6c92w85bb254wye0k/athletics.png?rlkey=8vowqab38m0vivyesxtuho7y8&st=4wshw67j&raw=1" class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
