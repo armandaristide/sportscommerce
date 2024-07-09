@@ -130,7 +130,7 @@
                     <div class="row">
                         <div class="col-4">
                             <a href="/categories_football" class="category-wrap category-padding">
-                                <img src="https://www.dropbox.com/scl/fi/xjl214lcu7y6sf5c9h4oq/football.png?rlkey=ll0m5akx0vfabz34rqa65ysft&st=w5gfklwt&raw=1"  class="bg-img blur-up lazyload"
+                                <img src="https://www.dropbox.com/scl/fi/kblfpjr9li6rbh8t0w2v1/football.png?rlkey=1x3suqfiazoens0tg3g3md0iy&st=puhrzhzt&raw=1"  class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
                                     <h2 class="text-white">Football</h2>
@@ -139,7 +139,7 @@
                         </div>
                         <div class="col-4">
                             <a href="/categories_basketball" class="category-wrap category-padding">
-                                <img src="https://www.dropbox.com/scl/fi/6gzjw2x6ywh9w19hk7gxj/basketball.png?rlkey=tmaettl2wrqhrr6owhhax3hx9&st=1jmt70l0&raw=1"  class="bg-img blur-up lazyload"
+                                <img src="https://www.dropbox.com/scl/fi/5eerew9j2p2yjt7o892a2/basketball.png?rlkey=cwzlhfsxzw1hfx9aflynsmsho&st=g2rbr7xe&raw=1"  class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
                                     <h2 class="text-white">Basketball</h2>
@@ -148,7 +148,7 @@
                         </div>
                         <div class="col-4">
                             <a href="/categories_tennis" class="category-wrap category-padding">
-                                <img src="https://www.dropbox.com/scl/fi/66yum9vrysvt68kbj5tn2/tennis.png?rlkey=ys7obzn0rwrjrp2ji5lt66ef3&st=kb41mnad&raw=1"  class="bg-img blur-up lazyload"
+                                <img src="https://www.dropbox.com/scl/fi/mqw48zsb1p0lr5qr5rzdd/tennis.png?rlkey=3sfwtp1yksodlv8ch991cc1qi&st=tzgp3zgj&raw=1"  class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
                                     <h2 class="text-white">Tennis</h2>
@@ -160,7 +160,7 @@
                     <div class="row mt-4">
                         <div class="col-4">
                             <a href="/categories_cricket" class="category-wrap category-padding">
-                                <img src="https://www.dropbox.com/scl/fi/oz18c747tvhixf10dq8le/cricket.png?rlkey=dxdd7yshr5qayb392o8oqx021&st=972o46b7&raw=1" class="bg-img blur-up lazyload"
+                                <img src="https://www.dropbox.com/scl/fi/41ugij799k8ozqwnihm7b/cricket.png?rlkey=5e9r5a2ka4g7pv5gp8wf14kws&st=zm2icxxi&raw=1" class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
                                     <h3 class="text-white">Cricket</h3>
@@ -169,7 +169,7 @@
                         </div>
                         <div class="col-4">
                             <a href="/categories_volleyball" class="category-wrap category-padding">
-                                <img src="https://www.dropbox.com/scl/fi/n3bevzct34vx075m309mv/volleyball.png?rlkey=98rjidkmb707gpvlpibcyqmt1&st=jslgoirl&raw=1" class="bg-img blur-up lazyload"
+                                <img src="https://www.dropbox.com/scl/fi/1js4s7nlpahtcjxzv98z2/volleyball.png?rlkey=9gglezh3i3rab019t6dyt2pwx&st=5jom2qla&raw=1" class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
                                     <h3 class="text-white">Volleyball</h3>
@@ -178,7 +178,7 @@
                         </div>
                         <div class="col-4">
                             <a href="/categories_athletics" class="category-wrap category-padding">
-                                <img src="https://www.dropbox.com/scl/fi/ra4lvs3poa60w5aicqrp0/athletics.png?rlkey=aihwk654a6c2hxj45l4tqe8sy&st=01z9go3q&raw=1" class="bg-img blur-up lazyload"
+                                <img src="https://www.dropbox.com/scl/fi/5xna6c92w85bb254wye0k/athletics.png?rlkey=8vowqab38m0vivyesxtuho7y8&st=4wshw67j&raw=1" class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-text-1">
                                     <h3 class="text-white">Athletics</h3>
