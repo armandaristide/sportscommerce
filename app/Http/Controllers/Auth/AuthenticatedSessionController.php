@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
         if(Auth::attempt(['email'=> $input['email'], 'password'=> $input['password']])){
             // check the user role
             if(Auth::user()->type == 0){
-                return redirect()->route('dashboard');
+                return redirect()->route('index');
             }
             elseif (Auth::user()->type == 1) {
                 return redirect()->route('adminDashboardShow');
@@ -55,7 +55,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Redirect based on user role
+        if (Auth::user()->type == 0) {
+            return redirect()->route('index');
+        } elseif (Auth::user()->type == 1) {
+            return redirect()->route('adminDashboardShow');
+        } elseif (Auth::user()->type == 2) {
+            return redirect()->route('superAdminDashboardShow');
+        }
+        return redirect()->route('index')->with('error', 'Unauthorized access');
     }
 
     /**

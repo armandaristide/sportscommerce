@@ -16,9 +16,6 @@ Route::get('/about_us', [PagesController::class, 'about'])->name('about');
 
 
 
-
-
-
 ############################Habib routes#########################################3
 Route::get('/home', [PagesController::class, 'home'])->name('homePage');
 Route::get('/cart', [PagesController::class, 'cart'])->name('cart');
