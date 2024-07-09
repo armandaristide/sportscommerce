@@ -2,17 +2,17 @@
 @section('title','Product Details | LEVEL UP')
 @section('content')
     <!-- Breadcrumb section start -->
-    @if($product== "football")
+    @if($product->categories== "football")
         <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihbv_kwYq0cqbHBk15PcUwygXa_JGvxK70vUu2yHM6sjql-cMB4-wDOPwk_1ojZdBBGev6x1soXUYBrUvqM8OnSwPGKMSuH5P3c=s1600-rw-v1'); background-size: cover">
-            @elseif($product== "basketball")
+            @elseif($product->categories== "basketball")
                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/bn48u880rm7kqxsxt293m/basketball.png?rlkey=as76a6adzifpv91ey7yn0v2p9&st=6j2g6sn4&raw=1'); background-size: cover">
-                    @elseif($product== "tennis")
+                    @elseif($product->categories== "tennis")
                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihafeynsQd6ZKq6eOIuRAAKGsBPALvr7eZi79h8wp_tmbmZ-mM4z6w7cI1wY8GFByXcsewl3kHKRaxm5Gq9TWveNZe9jtgxN6B0=s1600-rw-v1'); background-size: cover">
-                            @elseif($product == "volleyball")
+                            @elseif($product->categories == "volleyball")
                                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/s9d7wljo620mhvjt2uyeq/volleyball.png?rlkey=v47b67llv4ttxzciqpl2sedqa&st=vdvxp633&raw=1'); background-size: cover">
-                                    @elseif($product == "cricket")
+                                    @elseif($product->categories == "cricket")
                                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/9gec45nw867z4kjix35qa/cricket.png?rlkey=q2a4zgv98nlhgv4ru2lg41kd1&st=7y4cuoj9&raw=1'); background-size: cover">
-                                            @elseif($product == "athletics")
+                                            @elseif($product->categories == "athletics")
                                                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/oqb854mclmrndqx6i96nx/athletics.png?rlkey=do699ncwf90zjmgy6b8rufclx&st=rovm21r1&raw=1'); background-size: cover">
                                                     @else
                                                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihZm_arptYYXtWkO9gVErZWPdfXEEaPR-xiAB3YcFjrUXUEEyO4zUCBXGkMn9Ovk4Bz8S_K6VYo5uRUYvEmtcH8KZEVtmEsfMg=s1600-rw-v1');background-size: cover">
@@ -131,34 +131,27 @@
                                                         <h6 class="error-message">please select size</h6>
 
                                                         <div class="size-box">
+
                                                             <ul>
-                                                                <li>
-                                                                    <a href="javascript:void(0)">s</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="javascript:void(0)">m</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="javascript:void(0)">l</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="javascript:void(0)">xl</a>
-                                                                </li>
+                                                                @foreach(explode(',',$product->size) as $size)
+                                                                    <li><a>{{ $size }}</a></li>
+                                                                @endforeach
                                                             </ul>
+
                                                         </div>
 
                                                         <h6 class="product-title product-title-2 d-block">quantity</h6>
 
                                                         <div class="qty-box">
-                                                            <div class="input-group">
-                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
+                                                            <div class="input-group" >
+                                                <span class="input-group-prepend" >
+                                                    <button type="button" class="btn quantity-left-minus" data-type="minus" data-field="" >
                                                         <i class="fas fa-minus"></i>
                                                     </button>
                                                 </span>
-                                                                <input type="text" name="quantity" class="form-control input-number" value="1">
-                                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-right-plus" data-type="plus" data-field="">
+                                                                <input type="number" name="quantity" class="form-control input-number" value="1" maxlength="2"  min="0" max="{{$product->quantity}}">
+                                                                <span class="input-group-prepend" >
+                                                    <button type="button" class="btn quantity-right-plus" data-type="plus" data-field="" >
                                                         <i class="fas fa-plus"></i>
                                                     </button>
                                                 </span>
