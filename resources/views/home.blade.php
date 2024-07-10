@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('title','WELCOME | LEVEL UP ')
 @section('content')
+
+
     <section class="pt-0 overflow-hidden">
         <div>
             <div class="banner-slider box-arrow">
@@ -307,4 +309,5 @@
     <!-- script js -->
     <script src="assets/js/theme-setting.js"></script>
     <script src="assets/js/script.js"></script>
+
 @stop
