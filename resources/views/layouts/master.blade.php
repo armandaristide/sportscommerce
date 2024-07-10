@@ -76,7 +76,10 @@
     <!-- animation css -->
     <link rel="stylesheet" type="text/css" href="assets/css/vendors/animate.css">
 
-
+    <!-- home page success pop up -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <!-- slick css -->
     <link rel="stylesheet" type="text/css" href="assets/css/vendors/slick/slick.css">
@@ -710,7 +713,20 @@
 <script src="assets/js/theme-setting.js"></script>
 <script src="assets/js/script.js"></script>
 
+<!-- Toastr notification script -->
+<script type="text/javascript">
+    @if (session('success'))
+    $(document).ready(function() {
+        toastr.success("{{ session('success') }}");
+    });
+    @endif
 
+    @if (session('error'))
+    $(document).ready(function() {
+        toastr.error("{{ session('error') }}");
+    });
+    @endif
+</script>
 
 
 

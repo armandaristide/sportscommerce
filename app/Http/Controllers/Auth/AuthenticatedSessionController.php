@@ -28,19 +28,16 @@ class AuthenticatedSessionController extends Controller
         ]);
 
         // check if the given user exists in db
-        if(Auth::attempt(['email'=> $input['email'], 'password'=> $input['password']])){
-            // check the user role
-            if(Auth::user()->type == 0){
-                return redirect()->route('index');
+        if (Auth::attempt(['email'=> $input['email'], 'password'=> $input['password']])) {
+            // Check the user role
+            if (Auth::user()->type == 0) {
+                return redirect()->route('index')->with('success', 'You have successfully logged in!');
+            } elseif (Auth::user()->type == 1) {
+                return redirect()->route('adminDashboardShow')->with('success', 'You have successfully logged in!');
+            } elseif (Auth::user()->type == 2) {
+                return redirect()->route('superAdminDashboardShow')->with('success', 'You have successfully logged in!');
             }
-            elseif (Auth::user()->type == 1) {
-                return redirect()->route('adminDashboardShow');
-            }
-            elseif (Auth::user()->type == 2) {
-                return redirect()->route('superAdminDashboardShow');
-            }
-        }
-        else{
+        } else {
             return redirect()->route('login')->with('error', "Wrong credentials");
         }
 
@@ -57,11 +54,11 @@ class AuthenticatedSessionController extends Controller
 
         // Redirect based on user role
         if (Auth::user()->type == 0) {
-            return redirect()->route('index');
+            return redirect()->route('index')->with('success', 'You have successfully logged in!');
         } elseif (Auth::user()->type == 1) {
-            return redirect()->route('adminDashboardShow');
+            return redirect()->route('adminDashboardShow')->with('success', 'You have successfully logged in!');
         } elseif (Auth::user()->type == 2) {
-            return redirect()->route('superAdminDashboardShow');
+            return redirect()->route('superAdminDashboardShow')->with('success', 'You have successfully logged in!');
         }
         return redirect()->route('index')->with('error', 'Unauthorized access');
     }
