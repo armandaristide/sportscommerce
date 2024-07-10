@@ -101,22 +101,20 @@
 
                                                 <form class="row g-2" method="POST" action="{{ route('submit.cart') }}" enctype="multipart/form-data">
                                                     @csrf
-                                                    <span><input type="radio" checked name="identity" value="{{$product->id}}" hidden><p>Product id: {{$product->id}}</p></span>
                                                     <div class="color-image">
                                                         <div class="image-select">
                                                             <h5>Color :</h5>
                                                             <ul class="image-section">
-
                                                                 <li>
-                                                                    <input name="color" value="{{$product->imageone}}" type="radio" >
+                                                                    <input name="color" value="{{$product->imageone}}" hidden>
                                                                         <img src="{{$product->imageone}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </li>
                                                                 <li>
-                                                                    <input name="color" value="{{$product->imagetwo}}" type="radio"  >
+                                                                    <input name="color" value="{{$product->imagetwo}}" hidden >
                                                                         <img src="{{$product->imagetwo}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </li>
                                                                 <li>
-                                                                    <input name="color" value="{{$product->imagethree}}" type="radio"  >
+                                                                    <input name="color" value="{{$product->imagethree}}" hidden >
                                                                         <img src="{{$product->imagethree}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </li>
 
@@ -126,6 +124,23 @@
                                                     </div>
 
                                                     <div id="selectSize" class="addeffect-section product-description border-product">
+                                                        <style>
+                                                            /* CSS to hide the default select option text */
+                                                            .hidden-select {
+                                                                appearance: none;
+                                                                -moz-appearance: none;
+                                                                -webkit-appearance: none;
+                                                                background-image: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>');
+                                                                background-repeat: no-repeat;
+                                                                background-position: right 10px top 50%;
+                                                                background-size: 20px;
+                                                                padding-right: 30px; /* Adjust padding for the arrow */
+                                                            }
+                                                            .hidden-select option:first-of-type {
+                                                                display: none; /* Hide the first default option */
+                                                            }
+                                                        </style>
+                                                    <div id="selectSize" class="addeffect-section product-description border-product">
                                                         <h6 class="product-title size-text">select size
                                                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#sizemodal">size chart</a>
                                                         </h6>
@@ -133,14 +148,14 @@
                                                         <h6 class="error-message">please select size</h6>
 
                                                         <div class="size-box">
-
-                                                            <ul>
-                                                                @foreach(explode(',',$product->size) as $size)
-                                                                    <li><input name="size" value="{{$size}}" type="radio"><a>{{ $size }}</a></li>
+                                                            <select name="size" class="form-control hidden-select" required>
+                                                                <option value="" disabled selected></option> <!-- Default empty option -->
+                                                                @foreach(explode(',', $product->size) as $size)
+                                                                    <option value="{{ $size }}">{{ $size }}</option>
                                                                 @endforeach
-                                                            </ul>
-
+                                                            </select>
                                                         </div>
+
 
                                                         <h6 class="product-title product-title-2 d-block">quantity</h6>
 
@@ -160,22 +175,17 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @auth
-                                                        <div class="product-buttons">
+
+                                                    <div class="product-buttons">
                                                         <a href="{{route('invoicepage')}}" class="btn btn-solid">
                                                             <i class="fa fa-bookmark fz-16 me-2"></i>
                                                             <span>BUY NOW</span>
                                                         </a>
-                                                        <button type="submit" id="cartEffect" value="{{$product->id}}" class="btn btn-solid hover-solid btn-animation">
+                                                        <button type="submit" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
                                                             <i class="fa fa-shopping-cart"></i>
                                                             <span>Add To Cart</span>
                                                         </button>
-                                                    </div>              @else
-                                                        <div></div>
-                                                    @endauth
-
-
-
+                                                    </div>
                                                 </form>
 
 
