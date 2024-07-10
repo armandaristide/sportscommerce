@@ -101,20 +101,22 @@
 
                                                 <form class="row g-2" method="POST" action="{{ route('submit.cart') }}" enctype="multipart/form-data">
                                                     @csrf
+                                                    <span><input type="radio" checked name="identity" value="{{$product->id}}" hidden><p>Product id: {{$product->id}}</p></span>
                                                     <div class="color-image">
                                                         <div class="image-select">
                                                             <h5>Color :</h5>
                                                             <ul class="image-section">
+
                                                                 <li>
-                                                                    <input name="color" value="{{$product->imageone}}" hidden>
+                                                                    <input name="color" value="{{$product->imageone}}" type="radio" >
                                                                         <img src="{{$product->imageone}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </li>
                                                                 <li>
-                                                                    <input name="color" value="{{$product->imagetwo}}" hidden >
+                                                                    <input name="color" value="{{$product->imagetwo}}" type="radio"  >
                                                                         <img src="{{$product->imagetwo}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </li>
                                                                 <li>
-                                                                    <input name="color" value="{{$product->imagethree}}" hidden >
+                                                                    <input name="color" value="{{$product->imagethree}}" type="radio"  >
                                                                         <img src="{{$product->imagethree}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </li>
 
@@ -134,7 +136,7 @@
 
                                                             <ul>
                                                                 @foreach(explode(',',$product->size) as $size)
-                                                                    <li><a>{{ $size }}</a></li>
+                                                                    <li><input name="size" value="{{$size}}" type="radio"><a>{{ $size }}</a></li>
                                                                 @endforeach
                                                             </ul>
 
@@ -158,17 +160,22 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
-                                                    <div class="product-buttons">
+                                                    @auth
+                                                        <div class="product-buttons">
                                                         <a href="{{route('invoicepage')}}" class="btn btn-solid">
                                                             <i class="fa fa-bookmark fz-16 me-2"></i>
                                                             <span>BUY NOW</span>
                                                         </a>
-                                                        <button type="submit" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+                                                        <button type="submit" id="cartEffect" value="{{$product->id}}" class="btn btn-solid hover-solid btn-animation">
                                                             <i class="fa fa-shopping-cart"></i>
                                                             <span>Add To Cart</span>
                                                         </button>
-                                                    </div>
+                                                    </div>              @else
+                                                        <div></div>
+                                                    @endauth
+
+
+
                                                 </form>
 
 
