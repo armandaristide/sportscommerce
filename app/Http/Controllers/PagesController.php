@@ -21,7 +21,8 @@ class PagesController extends Controller
     public function productDetails($prod)
     {
         $product = Product::where('id', $prod)->firstOrFail();
-        return view('productdetails')->with('product', $product);
+        $similars = Product::where('subcategories','=', $product->subcategories)->get();
+        return view('productdetails')->with('product', $product)->with('similars', $similars);
     }
 
 
@@ -72,8 +73,9 @@ class PagesController extends Controller
     public function product_details(Request $request,$product){
         $prod = Product::where('id', $product)->firstOrFail();
         $request->session()->put('identity', $prod->id);
-
-        return view('productdetails')->with('product', $prod);
+        $similars = Product::where('subcategories','=', $prod->subcategories)->get();
+        dd(count($similars));
+        return view('productdetails')->with('product', $prod)->with('similars', $similars);
     }
 
 
