@@ -11,15 +11,17 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     //
-    public function superAdminDashboard(){
+    public function superAdminDashboard()
+    {
         return view('superAdminDashboard');
     }
 
-    public function adminDashboard(){
+    public function adminDashboard()
+    {
         $profile = User::where('email', Auth::user()->email)->first();
-        $cats = Cat::where('seller','=',Auth::user()->username)->Orderby('id','desc')->get();
-        $products= Product::where('seller','=',Auth::user()->username)->Orderby('id','desc')->get();
-        return view('adminDashboard')->with('profile', $profile)->with('cats',$cats)->with('products',$products);
+        $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
+        $products = Product::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
+        return view('adminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products);
     }
 
     public function submitCategory(Request $request)
@@ -89,7 +91,11 @@ class DashboardController extends Controller
     }
 
 
-    public function generalUserDashboard(){
-        return view('generalUserDashboard');
+    public function generalUserDashboard()
+    {
+        $user = Auth::user();
+        $orders = $user->orders; // Retrieve the orders for the authenticated user
+        return view('generalUserDashboard', compact('user', 'orders'));
     }
+
 }
