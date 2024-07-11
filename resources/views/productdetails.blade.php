@@ -174,7 +174,7 @@
                                                                     <i class="fa fa-money-bill fz-16 me-2"></i>
                                                                     <span>BUY NOW</span>
                                                                 </a>
-                                                                <a href="#" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+                                                                <a href="{{route('submit.cart')}}" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
                                                                     <i class="fa fa-shopping-cart"></i>
                                                                     <span>Add To Cart</span>
                                                                 </a>
@@ -367,5 +367,11 @@
                                                             </div>
                                                         </section>
 
+
+                                                        @push('other-scripts')
+                                                            <script>
+                                                                console.log('do something in js')
+                                                            </script>
+        @endpush
 
     @stop

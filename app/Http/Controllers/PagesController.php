@@ -124,6 +124,7 @@ class PagesController extends Controller
             'size' => $request->input('size'),
             'color' => $request->input('color'),
         ];
+
         Cart::create($data);
 
         return redirect()->route('cart')->with('message', 'Product added successfully');
