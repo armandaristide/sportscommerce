@@ -96,6 +96,8 @@
 
 <!-- header start -->
 <header class="header-style-2" id="home">
+    <script src="{{ asset('js/app.js') }}"></script>
+    @stack('other-scripts')
     <div class="main-header navbar-searchbar">
         <div class="container-fluid-lg">
             <div class="row">
