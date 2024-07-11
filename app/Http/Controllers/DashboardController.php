@@ -95,6 +95,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $orders = $user->orders; // Retrieve the orders for the authenticated user
+
         return view('generalUserDashboard', compact('user', 'orders'));
     }
 
