@@ -102,6 +102,7 @@
                                                 <form class="row g-2" method="POST" action="{{ route('submit.cart') }}" enctype="multipart/form-data">
                                                     @csrf
 
+{{--                                                    WORK HERE HABIB--}}
                                                     @if (Route::has('login'))
                                                         @auth
                                                     <div class="color-image">
@@ -178,6 +179,8 @@
                                                                     <span>Add To Cart</span>
                                                                 </a>
                                                             </div>
+
+{{--                                                            END WORK HERE HABIB--}}
                                                         @else
                                                             <div class="color-image">
                                                                 <div class="image-select">
