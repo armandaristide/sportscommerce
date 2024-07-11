@@ -70,11 +70,13 @@
 
 
                 </div>
+
+{{--                SHIRTS--}}
                 @if($cat=="football")
                 <div class="col-lg-4 col-md-6">
                     <div class="collection-banner p-bottom p-center text-center">
                         <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                            <img src="assets/img/football/jersey.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            <img src="https://www.dropbox.com/scl/fi/eicujolvsbm7kkgxlot4s/jersey.png?rlkey=flvcq0khqutyk46tjjrwz4wnz&st=9aetoyev&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
                         </a>
                         <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="contain-banner">
                             <div class="banner-content with-big">
@@ -88,11 +90,11 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="collection-banner p-bottom p-center text-center">
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                <img src="assets/img/football/jersey.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                                <img src="https://www.dropbox.com/scl/fi/ucgdhbrpf05v15dzie7g6/f2f3f5-16.png?rlkey=02hrgpgvbp1r6f7kdh2rvmvzb&st=wuzvcmxe&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
                             </a>
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="contain-banner">
                                 <div class="banner-content with-big">
-                                    <h2 class="mb-2">{{$cat}} Shirts</h2>
+                                    <h2 class="mb-2">{{$cat}} Jersey</h2>
                                     <span>Check out our {{$cat}} jerseys</span>
                                 </div>
                             </a>
@@ -102,12 +104,12 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="collection-banner p-bottom p-center text-center">
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                <img src="assets/img/football/jersey.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                                <img src="https://www.dropbox.com/scl/fi/j7xenokmplf2j7m7kkknd/f2f3f5-23.png?rlkey=39s4ybmhskdv6vjquqp098b4e&st=qf4mc3ex&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
                             </a>
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="contain-banner">
                                 <div class="banner-content with-big">
                                     <h2 class="mb-2">{{$cat}} Shirts</h2>
-                                    <span>Check out our {{$cat}} jerseys</span>
+                                    <span>Check out our {{$cat}} shirts</span>
                                 </div>
                             </a>
                         </div>
@@ -116,12 +118,12 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="collection-banner p-bottom p-center text-center">
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                <img src="assets/img/football/jersey.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                                <img src="https://www.dropbox.com/scl/fi/hf47kplphy4oh6xwamk0x/f2f3f5-11.png?rlkey=sohbyqxk43q28fmepudogt08w&st=7yie5gzg&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
                             </a>
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="contain-banner">
                                 <div class="banner-content with-big">
                                     <h2 class="mb-2">{{$cat}} Shirts</h2>
-                                    <span>Check out our {{$cat}} jerseys</span>
+                                    <span>Check out our {{$cat}} shirts</span>
                                 </div>
                             </a>
                         </div>
@@ -130,12 +132,12 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="collection-banner p-bottom p-center text-center">
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                <img src="assets/img/football/jersey.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                                <img src="https://www.dropbox.com/scl/fi/hhnfmybl2v8kyio2xzup2/f2f3f5-19.png?rlkey=rn3c6yt1c1fu6g0obvto0slln&st=lrvlqvqc&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
                             </a>
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="contain-banner">
                                 <div class="banner-content with-big">
                                     <h2 class="mb-2">{{$cat}} Shirts</h2>
-                                    <span>Check out our {{$cat}} jerseys</span>
+                                    <span>Check out our {{$cat}} shirts</span>
                                 </div>
                             </a>
                         </div>
@@ -144,12 +146,12 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="collection-banner p-bottom p-center text-center">
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                <img src="assets/img/football/jersey.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                                <img src="https://www.dropbox.com/scl/fi/nt19cj1vcyk1xwzgtnofb/f2f3f5-26.png?rlkey=yqjatlvj5b2mg75mfx09ysczb&st=2q9uphf5&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
                             </a>
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="contain-banner">
                                 <div class="banner-content with-big">
                                     <h2 class="mb-2">{{$cat}} Shirts</h2>
-                                    <span>Check out our {{$cat}} jerseys</span>
+                                    <span>Check out our {{$cat}} shirts</span>
                                 </div>
                             </a>
                         </div>
@@ -158,17 +160,111 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="collection-banner p-bottom p-center text-center">
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                <img src="assets/img/football/jersey.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                                <img src="https://www.dropbox.com/scl/fi/kt1uk0rbutvvk6nchmrea/f2f3f5-29.png?rlkey=ztusqd1japfl7aoasq323xi5e&st=d0hyuhtv&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
                             </a>
                             <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="contain-banner">
                                 <div class="banner-content with-big">
                                     <h2 class="mb-2">{{$cat}} Shirts</h2>
-                                    <span>Check out our {{$cat}} jerseys</span>
+                                    <span>Check out our {{$cat}} shirts</span>
                                 </div>
                             </a>
                         </div>
                     </div>
                 @endif
+
+{{--                SHORTS--}}
+
+                @if($cat=="cricket")
+                    <div class="col-lg-4 col-md-6">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/shorts.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="https://www.dropbox.com/scl/fi/l49retugm11pq4um11k2q/f2f3f5-12.png?rlkey=t7zgln81hz0za6ckyfog1pjwf&st=ozmdxoz2&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">{{$cat}} Trousers</h2>
+                                    <span>Check out our {{$cat}} trousers</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                @elseif($cat=="football")
+                <div class="col-lg-4 col-md-6">
+                    <div class="collection-banner p-bottom p-center text-center">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/shorts.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                            <img src="https://www.dropbox.com/scl/fi/corhk8samnalttpxy53ii/f2f3f5-14.png?rlkey=1ildaoq77unm2op6yu2uvzf9a&st=bs6peys5&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                        </a>
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="contain-banner">
+                            <div class="banner-content with-big">
+                                <h2 class="mb-2">{{$cat}} Shorts</h2>
+                                <span>Check out our {{$cat}} shorts</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                @elseif($cat=="basketball")
+                <div class="col-lg-4 col-md-6">
+                    <div class="collection-banner p-bottom p-center text-center">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/shorts.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                            <img src="https://www.dropbox.com/scl/fi/ahi27hrlxwmsy2l5f0l10/f2f3f5-17.png?rlkey=4fegth2ba1v1vzxesyibwjpyv&st=ddkrsnas&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                        </a>
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="contain-banner">
+                            <div class="banner-content with-big">
+                                <h2 class="mb-2">{{$cat}} Shorts</h2>
+                                <span>Check out our {{$cat}} shorts</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                @elseif($cat=="athletics")
+                <div class="col-lg-4 col-md-6">
+                    <div class="collection-banner p-bottom p-center text-center">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/shorts.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                            <img src="https://www.dropbox.com/scl/fi/nwm4xzptrob51lp3f59we/f2f3f5-20.png?rlkey=ytqx36oqmlmwlw1x9nringitx&st=t833gyu3&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                        </a>
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="contain-banner">
+                            <div class="banner-content with-big">
+                                <h2 class="mb-2">{{$cat}} Shorts</h2>
+                                <span>Check out our {{$cat}} shorts</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                @elseif($cat=="tennis")
+                <div class="col-lg-4 col-md-6">
+                    <div class="collection-banner p-bottom p-center text-center">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/shorts.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                            <img src="https://www.dropbox.com/scl/fi/8sm30ynt43tj7he6scs80/f2f3f5-24.png?rlkey=elf77fivk8j15bpx2ljtta862&st=26xeund2&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                        </a>
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="contain-banner">
+                            <div class="banner-content with-big">
+                                <h2 class="mb-2">{{$cat}} Shorts/Skirts</h2>
+                                <span>Check out our {{$cat}} shorts and skirts</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                @elseif($cat=="volleyball")
+                <div class="col-lg-4 col-md-6">
+                    <div class="collection-banner p-bottom p-center text-center">
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/shorts.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                            <img src="https://www.dropbox.com/scl/fi/03s73pdbjzd8ghg1zsp4t/f2f3f5-27.png?rlkey=16knh4x1ly46gy1he65d840tw&st=36ic4dys&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                        </a>
+                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="contain-banner">
+                            <div class="banner-content with-big">
+                                <h2 class="mb-2">{{$cat}} Shorts</h2>
+                                <span>Check out our {{$cat}} shorts</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                @else
                 <div class="col-lg-4 col-md-6">
                     <div class="collection-banner p-bottom p-center text-center">
                         <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shorts")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/shorts.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
@@ -182,19 +278,115 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="collection-banner p-bottom p-center text-center">
-                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                            <img src="assets/img/football/tracksuits.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
-                        </a>
-                        <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="contain-banner">
-                            <div class="banner-content with-big">
-                                <h2 class="mb-2">Track Suits</h2>
-                                <span>Check out our {{$cat}} track suits</span>
-                            </div>
-                        </a>
+                @endif
+
+{{--                TRACK SUITS--}}
+                @if($cat=="cricket")
+                    <div class="col-lg-4">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="https://www.dropbox.com/scl/fi/4iktp71of9ssodjctgf4m/f2f3f5-13.png?rlkey=p8mlc7v7myxf5ot63crer34rg&st=4t7oyp14&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Track Suits</h2>
+                                    <span>Check out our {{$cat}} track suits</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
+
+                @elseif($cat == "football")
+                    <div class="col-lg-4">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="https://www.dropbox.com/scl/fi/dyyt9j9jri85bzlfxglim/f2f3f5-15.png?rlkey=4jb6ticevb5v9omtv7panwlhj&st=m41d690x&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Track Suits</h2>
+                                    <span>Check out our {{$cat}} track suits</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                @elseif($cat == "basketball")
+                <div class="col-lg-4">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="https://www.dropbox.com/scl/fi/04prqmd6j2qk7ojp5mhp3/f2f3f5-18.png?rlkey=el9wwy7binccrtbqyerl5a35t&st=rof8u9rc&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Track Suits</h2>
+                                    <span>Check out our {{$cat}} track suits</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                @elseif($cat == "athletics")
+                <div class="col-lg-4">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="https://www.dropbox.com/scl/fi/1tvkc4lrmj8mx9hmdgbay/f2f3f5-21.png?rlkey=hlft1tkpgpryptcjzqw31fu5d&st=jaqmu89t&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Track Suits</h2>
+                                    <span>Check out our {{$cat}} track suits</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                @elseif($cat == "tennis")
+                <div class="col-lg-4">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="https://www.dropbox.com/scl/fi/yn9jgmktm4kg1lbkftxdq/f2f3f5-25.png?rlkey=dh6ip5d2kapxbrh0955gee101&st=3l1z4w81&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Track Suits</h2>
+                                    <span>Check out our {{$cat}} track suits</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                @elseif($cat == "volleyball")
+                <div class="col-lg-4">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="https://www.dropbox.com/scl/fi/qojba2dt9rwtip5wzga3q/f2f3f5-28.png?rlkey=lxezilhy2a23tizcv8uocf6dx&st=hlewx5jt&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Track Suits</h2>
+                                    <span>Check out our {{$cat}} track suits</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                @else
+                    <div class="col-lg-4">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/tracksuits.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="assets/img/football/tracksuits.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Track Suits")}}" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Track Suits</h2>
+                                    <span>Check out our {{$cat}} track suits</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endif
+
             </div>
         </div>
     </section>
@@ -253,11 +445,77 @@
                         </div>
                     </div>
                 @elseif($cat=="tennis")
+                    <div class="col-lg-4 col-md-6">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="#" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/boots.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="assets/img/football/boots.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="#" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Shoes</h2>
+                                    <span>Check out our {{$cat}} shoes</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 @elseif($cat=="cricket")
+                    <div class="col-lg-4 col-md-6">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="#" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/boots.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="assets/img/football/boots.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="#" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">shoes</h2>
+                                    <span>Check out our {{$cat}} shoes</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 @elseif($cat=="athletics")
+                    <div class="col-lg-4 col-md-6">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="#" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/boots.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="assets/img/football/boots.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="#" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Shoes</h2>
+                                    <span>Check out our {{$cat}} shoes</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 @elseif($cat=="volleyball")
+                    <div class="col-lg-4 col-md-6">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="#" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/boots.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="assets/img/football/boots.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="#" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Shoes</h2>
+                                    <span>Check out our {{$cat}} shoes</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 @else
+                    <div class="col-lg-4 col-md-6">
+                        <div class="collection-banner p-bottom p-center text-center">
+                            <a href="#" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/boots.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                <img src="assets/img/football/boots.png" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                            </a>
+                            <a href="#" class="contain-banner">
+                                <div class="banner-content with-big">
+                                    <h2 class="mb-2">Shoes</h2>
+                                    <span>Check out our {{$cat}} shoes</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 @endif
+
                 <div class="col-lg-4 col-md-6">
                     <div class="collection-banner p-bottom p-center text-center">
                         <a href="#" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/socks.pn); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
