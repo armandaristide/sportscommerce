@@ -69,7 +69,7 @@ class PagesController extends Controller
         return view('invoicepage');
     }
 
-    public function product_details($product){
+    public function product_details(Request $request,$product){
         $prod = Product::where('id', $product)->firstOrFail();
         $request->session()->put('identity', $prod->id);
 
