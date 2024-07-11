@@ -96,11 +96,14 @@
                                                     <h2>{{$product->name}}</h2>
                                                 </div>
 
-                                                <h3 class="price-detail">{{$product->price}}$ <del>{{$product->price*2}}$</del><span>50% off</span></h3>
+                                                <h3 class="price-detail">€{{$product->price}} <del>€{{$product->price*2}}</del><span>50% off</span></h3>
                                                 <h4 style="text-align: justify">{{$product->description}}</h4>
 
                                                 <form class="row g-2" method="POST" action="{{ route('submit.cart') }}" enctype="multipart/form-data">
                                                     @csrf
+
+                                                    @if (Route::has('login'))
+                                                        @auth
                                                     <div class="color-image">
                                                         <div class="image-select">
                                                             <h5>Color :</h5>
@@ -124,23 +127,6 @@
                                                     </div>
 
                                                     <div id="selectSize" class="addeffect-section product-description border-product">
-                                                        <style>
-                                                            /* CSS to hide the default select option text */
-                                                            .hidden-select {
-                                                                appearance: none;
-                                                                -moz-appearance: none;
-                                                                -webkit-appearance: none;
-                                                                background-image: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>');
-                                                                background-repeat: no-repeat;
-                                                                background-position: right 10px top 50%;
-                                                                background-size: 20px;
-                                                                padding-right: 30px; /* Adjust padding for the arrow */
-                                                            }
-                                                            .hidden-select option:first-of-type {
-                                                                display: none; /* Hide the first default option */
-                                                            }
-                                                        </style>
-                                                    <div id="selectSize" class="addeffect-section product-description border-product">
                                                         <h6 class="product-title size-text">select size
                                                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#sizemodal">size chart</a>
                                                         </h6>
@@ -148,44 +134,124 @@
                                                         <h6 class="error-message">please select size</h6>
 
                                                         <div class="size-box">
-                                                            <select name="size" class="form-control hidden-select" required>
-                                                                <option value="" disabled selected></option> <!-- Default empty option -->
-                                                                @foreach(explode(',', $product->size) as $size)
-                                                                    <option value="{{ $size }}">{{ $size }}</option>
-                                                                @endforeach
-                                                            </select>
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="javascript:void(0)">s</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:void(0)">m</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:void(0)">l</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:void(0)">xl</a>
+                                                                </li>
+                                                            </ul>
                                                         </div>
-
 
                                                         <h6 class="product-title product-title-2 d-block">quantity</h6>
 
                                                         <div class="qty-box">
-                                                            <div class="input-group" >
-                                                <span class="input-group-prepend" >
-                                                    <button type="button" class="btn quantity-left-minus" data-type="minus" data-field="" >
+                                                            <div class="input-group">
+                                                <span class="input-group-prepend">
+                                                    <button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
                                                 </span>
-                                                                <input type="number" name="quantity" class="form-control input-number" value="1" maxlength="2"  min="0" max="{{$product->quantity}}">
-                                                                <span class="input-group-prepend" >
-                                                    <button type="button" class="btn quantity-right-plus" data-type="plus" data-field="" >
+                                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                                                <span class="input-group-prepend">
+                                                    <button type="button" class="btn quantity-right-plus" data-type="plus" data-field="">
                                                         <i class="fas fa-plus"></i>
                                                     </button>
                                                 </span>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                            <div class="product-buttons">
+                                                                <a href="#" class="btn btn-solid">
+                                                                    <i class="fa fa-money-bill fz-16 me-2"></i>
+                                                                    <span>BUY NOW</span>
+                                                                </a>
+                                                                <a href="#" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+                                                                    <i class="fa fa-shopping-cart"></i>
+                                                                    <span>Add To Cart</span>
+                                                                </a>
+                                                            </div>
+                                                        @else
+                                                            <div class="color-image">
+                                                                <div class="image-select">
+                                                                    <h5>Color :</h5>
+                                                                    <ul class="image-section">
+                                                                        <li>
+                                                                            <img src="{{$product->imageone}}" class="img-fluid blur-up lazyloaded" alt="">
+                                                                        </li>
+                                                                        <li>
+                                                                            <img src="{{$product->imagetwo}}" class="img-fluid blur-up lazyloaded" alt="">
+                                                                        </li>
+                                                                        <li>
+                                                                            <img src="{{$product->imagethree}}" class="img-fluid blur-up lazyloaded" alt="">
+                                                                        </li>
 
-                                                    <div class="product-buttons">
-                                                        <a href="{{route('invoicepage')}}" class="btn btn-solid">
-                                                            <i class="fa fa-bookmark fz-16 me-2"></i>
-                                                            <span>BUY NOW</span>
-                                                        </a>
-                                                        <button type="submit" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
-                                                            <i class="fa fa-shopping-cart"></i>
-                                                            <span>Add To Cart</span>
-                                                        </button>
-                                                    </div>
+                                                                    </ul>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div id="selectSize" class="addeffect-section product-description border-product">
+                                                                <h6 class="product-title size-text">Available sizes
+                                                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#sizemodal">size chart</a>
+                                                                </h6>
+
+                                                                <div class="container">
+                                                                    <ul>
+                                                                        <li>
+                                                                           <h3>S,</h3>
+                                                                        </li>
+                                                                        <li>
+                                                                            <h3>  M,</h3>
+                                                                        </li>
+                                                                        <li>
+                                                                            <h3>  L,</h3>
+                                                                        </li>
+                                                                        <li>
+                                                                            <h3>  XL</h3>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <h6 class="product-title product-title-2 d-block">quantity</h6>
+
+                                                                <div class="qty-box">
+                                                                    <div class="input-group">
+                                                <span class="input-group-prepend">
+                                                    <button type="button" class="btn quantity-left-minus" disabled data-type="minus" data-field="">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </span>
+                                                                        <input type="text" name="quantity" class="form-control input-number" value="1">
+                                                                        <span class="input-group-prepend">
+                                                    <button type="button" disabled class="btn quantity-right-plus" data-type="plus" data-field="">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </span>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="product-buttons">
+                                                                <a href="#" class="btn btn-solid disabled">
+                                                                    <i class="fa fa-money-bill fz-16 me-2"></i>
+                                                                    <span>BUY NOW</span>
+                                                                </a>
+                                                                <a href="#" id="cartEffect" class="btn btn-solid  disabled hover-solid btn-animation">
+                                                                    <i class="fa fa-shopping-cart"></i>
+                                                                    <span>Add To Cart</span>
+                                                                </a>
+                                                            </div>
+                                                        @endauth
+                                                        @endif
                                                 </form>
 
 
@@ -207,6 +273,96 @@
                     </div>
                 </section>
 
+
+                                                        <section class="ratio_asos mb-6">
+                                                            <div class="container">
+                                                                <div class="row m-0">
+                                                                    <div class="col-sm-12 p-0">
+                                                                        @if(count($similars)>0)
+                                                                        <div class="title title1 text-left">
+                                                                            <h2>Similar Products</h2>
+                                                                        </div>
+                                                                        <div class="product-wrapper product-style-2 slide-4 p-0 light-arrow slick-initialized slick-slider">
+                                                                            <div class="slick-list draggable">
+                                                                                <div class="slick-track" style="opacity: 1; width: 1400px; transform: translate3d(0px, 0px, 0px);">
+                                                                                        <?php
+                                                                                        $count = 0
+                                                                                        ?>
+                                                                                        @foreach($similars as $similar)
+                                                                                        @if($count<4)
+                                                                                        <div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 350px;">
+                                                                                                <div>
+                                                                                                    <div style="width: 100%; display: inline-block;">
+                                                                                                        <div class="product-box">
+                                                                                                            <div class="img-wrapper">
+                                                                                                                <div class="front">
+                                                                                                                    <a href="http://localhost:8000/product_details_1" tabindex="0" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;{{$similar->imageone}};); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                                                                                                        <img src="{{$similar->imageone}}" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                                                                                                                    </a>
+                                                                                                                </div>
+                                                                                                                <div class="back">
+                                                                                                                    <a href="http://localhost:8000/product_details_1" tabindex="0" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;{{$similar->imagetwo}};); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                                                                                                        <img src="{{$similar->imagetwo}}" class="bg-img blur-up lazyload" alt="" style="display: none;">
+                                                                                                                    </a>
+                                                                                                                </div>
+                                                                                                                <div class="label-block">
+                                                                                                                    <span class="label label-black">New</span>
+                                                                                                                    <span class="label label-theme">50% Off</span>
+                                                                                                                </div>
+                                                                                                                <div class="cart-wrap">
+                                                                                                                    <ul>
+                                                                                                                    </ul>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="product-details">
+                                                                                                                <div class="rating-details">
+                                                                                                                    <span class="font-light grid-content">{{$similar->categories}}</span>
+                                                                                                                    <ul class="rating mt-0">
+                                                                                                                        <li>
+                                                                                                                            <i class="fas fa-star theme-color"></i>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <i class="fas fa-star theme-color"></i>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <i class="fas fa-star theme-color"></i>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <i class="fas fa-star theme-color"></i>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <i class="fas fa-star theme-color"></i>
+                                                                                                                        </li>
+                                                                                                                    </ul>
+                                                                                                                </div>
+                                                                                                                <div class="main-price" id="quick-view">
+                                                                                                                    <a href="http://localhost:8000/product_details_1" class="font-default" tabindex="0">
+                                                                                                                        <h5>
+                                                                                                                            {{$similar->name}}</h5>
+                                                                                                                    </a>
+                                                                                                                    <h3 class="theme-color">€{{$similar->price}}</h3>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        @endif
+                                                                                                <?php
+                                                                                                $count=$count+1
+                                                                                                ?>
+                                                                                    @endforeach
+
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
 
 
     @stop
