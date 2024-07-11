@@ -51,9 +51,23 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-sm-12 p-0">
-                    <div class="title title1 text-left">
-                        <h2>Clothing</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="title title1 text-left">
+                                <h2>Clothing</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6 float-right">
+                            <div style="text-align: right">
+                                <a href="{{route('generalsub',$cat.'_'.'Clothing')}}">
+                                    <button type="button" class="btn rounded-3 btn-solid-default btn-spacing">
+                                        <span>SEE ALL</span>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
+
 
                 </div>
                 @if($cat=="football")
@@ -191,8 +205,22 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-sm-12 p-0">
-                    <div class="title title1 text-left">
-                        <h2>Footwears</h2>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="title title1 text-left">
+                                <h2>Footwears</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6 float-right">
+                            <div style="text-align: right">
+                                <a href="{{route('generalsub',$cat.'_'.'Footwears')}}">
+                                    <button type="button" class="btn rounded-3 btn-solid-default btn-spacing">
+                                        <span>SEE ALL</span>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -265,8 +293,22 @@
                     <div class="container">
                         <div class="row gy-4">
                             <div class="col-sm-12 p-0">
-                                <div class="title title1 text-left">
-                                    <h2>{{$cat}} Accessories</h2>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="title title1 text-left">
+                                            <h2>{{$cat}} Accessories</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 float-right">
+                                        <div style="text-align: right">
+                                            <a href="{{route('generalsub',$cat.'_'.'Accessories')}}">
+                                                <button type="button" class="btn rounded-3 btn-solid-default btn-spacing">
+                                                    <span>SEE ALL</span>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>

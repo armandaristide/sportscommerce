@@ -63,7 +63,7 @@ Route::get('/invoicepage', [PagesController::class, 'invoicepage'])->name('invoi
 Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/product_details_{prod}', [PagesController::class, 'productDetails'])->name('productdets');
 Route::get('/subcategories_{prod}', [PagesController::class, 'subcategory'])->name('subcat');
-Route::get('/p_{prod}', [PagesController::class, 'generalsub'])->name('generalsub');
+Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('generalsub');
 
 /**General user routes **/
 Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');

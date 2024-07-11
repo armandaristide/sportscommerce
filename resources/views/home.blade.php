@@ -208,13 +208,6 @@
                                                                 </li>
                                                             @endauth
                                                             @endif
-
-                                                        <li>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                               data-bs-target="#quick-view">
-                                                                <i data-feather="eye"></i>
-                                                            </a>
-                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
