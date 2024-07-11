@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Cat;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use MongoDB\Driver\Session;
 
 class PagesController extends Controller
 {
@@ -70,6 +71,8 @@ class PagesController extends Controller
 
     public function product_details($product){
         $prod = Product::where('id', $product)->firstOrFail();
+        $request->session()->put('identity', $prod->id);
+
         return view('productdetails')->with('product', $prod);
     }
 
@@ -88,23 +91,40 @@ class PagesController extends Controller
 
     public function cart()
     {
-
-       // $carts = Cart::select('name', 'categories', 'subcategories', 'color')->get();
+        $product=[];
          $carts= Cart::all();
+         foreach ($carts as $cart) {
+
+             $addon=Product::where('id',$cart->identity)->get();
+             $cart=[$cart,...$addon];
+             array_push($product,$cart);
+         }
         $total=0;
-        return view('cart',['carts'=>$carts,'total'=>$total])->with('cart');
+
+        return view('cart',['total'=>$total,"products"=>$product])->with('cart');
     }
 
-    public function submitCart(Request $request)
+    public function submitCart(Request $request,)
     {
-        $request->validate([
+
+
+       $validate=$request->validate([
             'color' => ['required', 'string'],
             'quantity' => ['required', 'string'],
+            'size' => ['required', 'string'],
         ]);
+       $cart=new Cart();
 
-        dd($request->input('color'),$request->input('quantity'));
-        $cat = new Cat();
-        $cat->categories = $request->input('categories');
+        $data = [
+            'name' => 'Example Name',
+            'identity' => $request->input('identity'),
+            'quantity' => $request->input('quantity'),
+            'size' => $request->input('size'),
+            'color' => $request->input('color'),
+        ];
+        Cart::create($data);
+
+        return redirect()->route('cart')->with('message', 'Product added successfully');
     }
 }
 

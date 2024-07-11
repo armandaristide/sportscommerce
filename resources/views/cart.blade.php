@@ -64,18 +64,18 @@
                             <th scope="col">total</th>
                         </tr>
                         </thead>
-                        @if($carts)
-                            @foreach($carts as $cart)
+                        @if($products)
+                            @foreach($products as $cart)
                                 <tbody>
                                 <tr>
                                     <td>
                                         <a href="product-left-sidebar.html">
-                                            <img src={{$cart->imageone}} class=" blur-up lazyload"
+                                            <img src={{$cart[1]->imageone}} class=" blur-up lazyload"
                                                  alt="">
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="product-left-sidebar.html">{{$cart->name}}</a>
+                                        <a href="product-left-sidebar.html">{{$cart[1]->name}}</a>
                                         <div class="mobile-cart-content row">
                                             <div class="col">
                                                 <div class="qty-box">
@@ -96,13 +96,13 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <h2>{{$cart->price}}</h2>
+                                        <h2>{{$cart[1]->price}}</h2>
                                     </td>
                                     <td>
                                         <div class="qty-box">
                                             <div class="input-group">
                                                 <input type="number" name="quantity" class="form-control input-number"
-                                                       value={{$cart->quantity}}>
+                                                       value={{$cart[0]->quantity}}>
                                             </div>
                                         </div>
                                     </td>
@@ -112,8 +112,8 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <h2 class="td-color"                                 {{$total=$total+$cart->quantity *$cart->price}}
-                                        >{{$cart->quantity *$cart->price }}</h2>
+                                        <h2 class="td-color"                                 {{$total=$total+$cart[0]->quantity *$cart[1]->price}}
+                                        >{{$cart[0]->quantity *$cart[1]->price }}</h2>
                                     </td>
                                 </tr>
                                 </tbody>
