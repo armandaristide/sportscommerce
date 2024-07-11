@@ -31,7 +31,7 @@
 
 
                     <div class="price-number">
-                        <h2>$79.00 <span><del>$65.00</del></span></h2>
+                        <h2>€79.00 <span><del>€65.00</del></span></h2>
                         <h6>Step up your style game with these sleek kicks! Comfortable, durable, and on-trend.</h6>
                     </div>
                     <div class="slider-arrow-2">
@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="price-number">
-                        <h2>$79.00 <span><del>$65.00</del></span></h2>
+                        <h2>€79.00 <span><del>€65.00</del></span></h2>
                         <h6>Step up your style game with these sleek kicks! Comfortable, durable, and on-trend.</h6>
                     </div>
 
@@ -240,7 +240,7 @@
                                                         <span class="font-light">{{$product->filter}}</span>
                                                         <p class="font-light">{{$product->description}}</p>
                                                     </div>
-                                                    <h3 class="theme-color">${{$product->price}}</h3>
+                                                    <h3 class="theme-color">€{{$product->price}}</h3>
                                                     <button onclick="location.href = '#';" class="btn listing-content">Add
                                                         To Cart</button>
                                                 </div>
