@@ -27,7 +27,7 @@
 
     <!-- Themify icon css-->
     <link rel="stylesheet" type="text/css" href="../admin/assets/css/vendors/themify.css">
-    <link rel="stylesheet" type="text/css" href="a../admin/ssets/css/vendors/dropzone.css">
+    <link rel="stylesheet" type="text/css" href="../admin/assets/css/vendors/dropzone.css">
     <link rel="stylesheet" type="text/css" href="../admin/assets/css/vendors/feather-icon.css">
     <link rel="stylesheet" type="text/css" href="../admin/assets/css/remixicon.css">
     <link rel="stylesheet" type="text/css" href="../admin/assets/css/select2.min.css">
@@ -73,14 +73,14 @@
         <div class="header-wrapper m-0">
             <div class="header-logo-wrapper p-0">
                 <div class="logo-wrapper">
-                    <a href="{{route('index')}}">
+                    <a href="{{ route('index') }}">
                         <img class="img-fluid main-logo" src="../admin/assets/images/logo.png" alt="logo">
                         <img class="img-fluid white-logo" src="../admin/assets/images/logo.png" alt="logo">
                     </a>
                 </div>
                 <div class="toggle-sidebar">
                     <i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i>
-                    <a href="{{route('index')}}">
+                    <a href="{{ route('index') }}">
                         <img src="../admin/assets/images/logo.png" class="img-fluid" alt="">
                     </a>
                 </div>
@@ -89,11 +89,9 @@
                 <h3>
                     @if(Auth::user()->type == 0)
                         USER
-                    @endif
-                    @if(Auth::user()->type == 1)
+                    @elseif(Auth::user()->type == 1)
                         SELLER ADMIN
-                    @endif
-                    @if(Auth::user()->type == 2)
+                    @elseif(Auth::user()->type == 2)
                         SUPER ADMIN
                     @endif
                     DASHBOARD
@@ -101,23 +99,21 @@
             </div>
             <div class="nav-right col-6 pull-right right-header p-0">
                 <ul class="nav-menus">
-
                     <li class="profile-nav onhover-dropdown pe-0 me-0">
                         <div class="media profile-media">
                             <img class="user-profile rounded-circle" src="../assets/user.png" alt="">
                             <div class="user-name-hide media-body">
-                                <span>{{Auth::user()->name}}</span>
+                                <span>{{ Auth::user()->name }}</span>
                                 <p class="mb-0 font-roboto">
                                     @if(Auth::user()->type == 0)
                                         User
-                                    @endif
-                                    @if(Auth::user()->type == 1)
+                                    @elseif(Auth::user()->type == 1)
                                         Seller Admin
-                                    @endif
-                                    @if(Auth::user()->type == 2)
+                                    @elseif(Auth::user()->type == 2)
                                         Super Admin
                                     @endif Account
-                                    <i class="middle ri-arrow-down-s-line"></i></p>
+                                    <i class="middle ri-arrow-down-s-line"></i>
+                                </p>
                             </div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div">
@@ -146,8 +142,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                   href="javascript:void(0)">
+                                <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="javascript:void(0)">
                                     <i data-feather="log-out"></i>
                                     <span>Log out</span>
                                 </a>
@@ -167,7 +162,7 @@
             <div id="sidebarEffect"></div>
             <div>
                 <div class="logo-wrapper logo-wrapper-center">
-                    <a href="{{route('index')}}" data-bs-original-title="" title="">
+                    <a href="{{ route('index') }}" data-bs-original-title="" title="">
                         <img class="img-fluid for-white" src="../admin/assets/images/logo.png" alt="logo">
                     </a>
                     <div class="back-btn">
@@ -178,7 +173,7 @@
                     </div>
                 </div>
                 <div class="logo-icon-wrapper">
-                    <a href="{{route('index')}}">
+                    <a href="{{ route('index') }}">
                         <img class="img-fluid main-logo main-white" src="../admin/assets/images/logo/logo.png" alt="logo">
                         <img class="img-fluid main-logo main-dark" src="../admin/assets/images/logo/logo-white.png"
                              alt="logo">
@@ -188,7 +183,6 @@
                     <div class="left-arrow" id="left-arrow">
                         <i data-feather="arrow-left"></i>
                     </div>
-
                     <div class="right-arrow" id="right-arrow">
                         <i data-feather="arrow-right"></i>
                     </div>
@@ -201,9 +195,7 @@
         <div class="page-body">
             <div class="container-fluid">
                 <div class="row">
-
-             @yield('content')
-
+                    @yield('content')
                 </div>
             </div>
             <!-- Container-fluid Ends-->
@@ -213,7 +205,7 @@
                 <footer class="footer">
                     <div class="row">
                         <div class="col-md-12 footer-copyright text-center">
-                            <p class="mb-0">Copyright 2024 © LEVEL UP  by TEAM II</p>
+                            <p class="mb-0">Copyright 2024 © LEVEL UP by TEAM II</p>
                         </div>
                     </div>
                 </footer>
@@ -221,7 +213,6 @@
             <!-- footer End-->
         </div>
         <!-- index body end -->
-
     </div>
     <!-- Page Body End -->
 </div>
@@ -238,25 +229,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="button-box">
                     <button type="button" class="btn btn--no" data-bs-dismiss="modal">No</button>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                             onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                <button type="button" class="btn  btn--yes btn-primary">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-dropdown-link :href="route('logout')"
+                                         onclick="event.preventDefault(); this.closest('form').submit();">
+                            <button type="button" class="btn btn--yes btn-primary">
                                 {{ __('Yes') }}
-                                </button>
-
-                            </x-dropdown-link>
-                        </form>
+                            </button>
+                        </x-dropdown-link>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Modal End -->
-
 
 <!-- latest js -->
 <script src="../admin/assets/js/jquery-3.6.0.min.js"></script>
@@ -292,7 +279,6 @@
 <script src="../admin/assets/js/chart/apex-chart/apex-chart.js"></script>
 <script src="../admin/assets/js/chart/apex-chart/stock-prices.js"></script>
 <script src="../admin/assets/js/chart/apex-chart/chart-custom1.js"></script>
-
 
 <!-- slick slider js -->
 <script src="../admin/assets/js/slick.min.js"></script>
