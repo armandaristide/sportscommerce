@@ -22,7 +22,6 @@
                                 Super Admin
                             @endif
                         </p>
-                        <!-- Add more details as needed -->
                     </div>
                 </div>
             </div>
@@ -39,9 +38,11 @@
                             <thead>
                             <tr>
                                 <th>S.No</th>
-                                <th>Product Name</th>
+                                <th>Buyer Id</th>
+                                <th>Product Id</th>
+                                <th>Colour</th>
+                                <th>Size</th>
                                 <th>Quantity</th>
-                                <th>Date</th>
                                 <th>Price</th>
                             </tr>
                             </thead>
@@ -49,9 +50,11 @@
                             @foreach($orders as $order)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $order->product_name }}</td>
+                                    <td>{{ $order->buyer_id }}</td>
+                                    <td>{{ $order->product_id }}</td>
+                                    <td>{{ $order->colour }}</td>
+                                    <td>{{ $order->size  }}</td>
                                     <td>{{ $order->quantity }}</td>
-                                    <td>{{ $order->date }}</td>
                                     <td>{{ $order->price }}</td>
                                 </tr>
                             @endforeach

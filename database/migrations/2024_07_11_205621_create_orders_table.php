@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('size');
             $table->integer('quantity');
             $table->decimal('price', 10, 2);
-            $table->timestamps();
 
             // Foreign key constraints
             $table->foreign('buyer_id')->references('id')->on('users');
