@@ -68,17 +68,19 @@ Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('general
 Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
 
 /**Admin routes **/
-Route::middleware('adminAuth')->prefix('admin')->group(function(){
+Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'adminDashboard'])->name('adminDashboardShow');
-});
-Route::middleware('adminAuth')->prefix('admin')->group(function(){
-    Route::get('/login', [AdminAuthController::class, 'login'])->name('adminLogin');
-    Route::post('/loginSubmit', [AdminAuthController::class, 'loginSubmit'])->name('adminLoginSubmit');
-    Route::get('/logout', [AdminAuthController::class, 'adminLogout'])->name('adminLogout');
     Route::get('/add_category', [DashboardController::class, 'addCategory'])->name('addCategory');
     Route::post('/add_category', [DashboardController::class, 'submitCategory'])->name('submit.addcategory');
     Route::get('/add_product', [DashboardController::class, 'addProduct'])->name('addProduct');
     Route::post('/add_product', [DashboardController::class, 'submitProduct'])->name('submit.addproduct');
+});
+
+
+Route::prefix('admin')->group(function(){
+    Route::get('/login', [AdminAuthController::class, 'login'])->name('adminLogin');
+    Route::post('/loginSubmit', [AdminAuthController::class, 'loginSubmit'])->name('adminLoginSubmit');
+    Route::get('/logout', [AdminAuthController::class, 'adminLogout'])->name('adminLogout');
 });
 
 /**Super Admin routes **/

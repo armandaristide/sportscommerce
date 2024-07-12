@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('buyer_id');
             $table->unsignedBigInteger('product_id');
+            $table->string('SN');
             $table->string('colour');
             $table->string('size');
             $table->integer('quantity');
-            $table->decimal('price', 10, 2);
+            $table->integer('price');
             $table->timestamps();
 
             // Foreign key constraints
