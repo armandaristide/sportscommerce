@@ -32,7 +32,7 @@ class PagesController extends Controller
         $products = Product::where('subcategories','=', $subcat[0])
             ->where('categories','=',$subcat[1])
             ->where('tag','=',$subcat[2])
-            ->orderBy('created_at', 'desc')->get();
+            ->orderBy('created_at', 'desc')->paginate(15);
         $subcate = $subcat[0];
         $cat = $subcat[1];
         $tag = $subcat[2];
@@ -44,7 +44,10 @@ class PagesController extends Controller
         $gen=explode('_',$prod);
         $cat = $gen[0];
         $subcat = $gen[1];
-        return view('generalsub')->with('cat', $cat)->with('subcat', $subcat);
+        $products = Product::where('subcategories','=', $subcat)
+            ->where('categories','=',$cat)
+            ->orderBy('created_at', 'desc')->paginate(15);
+        return view('generalsub')->with('cat', $cat)->with('subcat', $subcat)->with('products', $products);
     }
     public function about()
     {
