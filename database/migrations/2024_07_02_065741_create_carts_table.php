@@ -15,6 +15,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('size');
             $table->string('color');
+//            $table-> Auth::user()->id();
             $table->timestamps();
         });
     }

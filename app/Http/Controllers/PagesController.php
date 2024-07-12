@@ -109,24 +109,25 @@ class PagesController extends Controller
         return view('cart',['total'=>$total,"products"=>$product])->with('cart');
     }
 
-    public function submitCart(Request $request,)
+    public function submitcart(Request $request,)
     {
 
-
-       $validate=$request->validate([
-            'color' => ['required', 'string'],
-            'quantity' => ['required', 'string'],
-            'size' => ['required', 'string'],
-        ]);
+//        dd($request);
+//       $validate=$request->validate([
+//            'color' => ['required', 'string'],
+//            'quantity' => ['required', 'string'],
+//            'color' => ['required', 'string'],
+//     ]);
        $cart=new Cart();
 
         $data = [
-            'name' => 'Example Name',
+            'name' =>$request->input('name'),
             'identity' => $request->input('identity'),
             'quantity' => $request->input('quantity'),
             'size' => $request->input('size'),
             'color' => $request->input('color'),
         ];
+
 
         Cart::create($data);
 

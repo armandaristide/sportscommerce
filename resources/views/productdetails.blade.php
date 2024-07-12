@@ -105,20 +105,23 @@
 {{--                                                    WORK HERE HABIB--}}
                                                     @if (Route::has('login'))
                                                         @auth
+
                                                     <div class="color-image">
+                                                        <input type="radio"   name="identity" value="{{$product->id}}" checked hidden >
+
                                                         <div class="image-select">
                                                             <h5>Color :</h5>
                                                             <ul class="image-section">
-                                                                <li>
-                                                                    <input name="color" value="{{$product->imageone}}" hidden>
-                                                                        <img src="{{$product->imageone}}" class="img-fluid blur-up lazyloaded" alt="">
+                                                                <li id="img1">
+                                                                    <input type="radio" class="color3" name="color" value="{{$product->imageone}}" hidden >
+                                                                        <img src="{{$product->imageone}}" class="img-fluid blur-up  lazyloaded" alt="" >
                                                                 </li>
-                                                                <li>
-                                                                    <input name="color" value="{{$product->imagetwo}}" hidden >
+                                                                <li id="img2">
+                                                                    <input type="radio" class="color1" name="color" value="{{$product->imagetwo}}" hidden >
                                                                         <img src="{{$product->imagetwo}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </li>
-                                                                <li>
-                                                                    <input name="color" value="{{$product->imagethree}}" hidden >
+                                                                <li id="img3">
+                                                                    <input type="radio" class="color2" name="color" value="{{$product->imagethree}}" hidden >
                                                                         <img src="{{$product->imagethree}}" class="img-fluid blur-up lazyloaded" alt="">
                                                                 </li>
 
@@ -126,6 +129,8 @@
 
                                                         </div>
                                                     </div>
+
+                                                            <input type="radio" name="name" value="{{$product->name}}" checked hidden >
 
                                                     <div id="selectSize" class="addeffect-section product-description border-product">
                                                         <h6 class="product-title size-text">select size
@@ -136,16 +141,20 @@
 
                                                         <div class="size-box">
                                                             <ul>
-                                                                <li>
+                                                                <li id="size">
+                                                                    <input type="radio" class="size" name="size" value="s" hidden >
                                                                     <a href="javascript:void(0)">s</a>
                                                                 </li>
-                                                                <li>
+                                                                <li id="sizem">
+                                                                    <input type="radio" class="sizem" name="size" value="m" hidden >
                                                                     <a href="javascript:void(0)">m</a>
                                                                 </li>
-                                                                <li>
+                                                                <li id="sizel">
+                                                                    <input type="radio" class="sizel" name="size" value="l" hidden >
                                                                     <a href="javascript:void(0)">l</a>
                                                                 </li>
-                                                                <li>
+                                                                <li id="sizexl">
+                                                                    <input type="radio" class="sizexl" name="size" value="xl" hidden >
                                                                     <a href="javascript:void(0)">xl</a>
                                                                 </li>
                                                             </ul>
@@ -174,10 +183,10 @@
                                                                     <i class="fa fa-money-bill fz-16 me-2"></i>
                                                                     <span>BUY NOW</span>
                                                                 </a>
-                                                                <a href="{{route('submit.cart')}}" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+                                                                <button type="submit" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
                                                                     <i class="fa fa-shopping-cart"></i>
                                                                     <span>Add To Cart</span>
-                                                                </a>
+                                                                </button>
                                                             </div>
 
 {{--                                                            END WORK HERE HABIB--}}
@@ -370,7 +379,87 @@
 
                                                         @push('other-scripts')
                                                             <script>
-                                                                console.log('do something in js')
+                                                                console.log('ghjghhfhh')
+                                                                document.addEventListener('DOMContentLoaded', function() {
+                                                                    //for colors
+                                                                    const colorBtn = document.getElementById('img1');
+                                                                    const colorBtn1 = document.getElementById('img2');
+                                                                    const colorBtn2 = document.getElementById('img3')
+                                                                        //for sizes
+                                                                    const button = document.getElementById('size');
+                                                                    const button2 = document.getElementById('sizem');
+                                                                    const button3 = document.getElementById('sizel');
+                                                                    const button4 = document.getElementById('sizexl');
+                                                                        //for colors
+                                                                    colorBtn.addEventListener('click', function() {
+                                                                        const radio = document.getElementsByClassName('color3')[0];
+                                                                        radio.checked = true;
+                                                                        console.log(radio)
+                                                                    });
+                                                                    colorBtn1.addEventListener('click', function() {
+                                                                        const radio = document.getElementsByClassName('color1')[0];
+                                                                        radio.checked = true;
+                                                                        console.log(radio)
+                                                                    });
+                                                                    colorBtn2.addEventListener('click', function() {
+                                                                        const radio = document.getElementsByClassName('color2')[0];
+                                                                        radio.checked = true;
+                                                                        console.log(radio)
+                                                                    });
+
+                                                                    // for sizes
+                                                                    button.addEventListener('click', function() {
+                                                                        const radio = document.getElementsByClassName('size')[0];
+                                                                        radio.checked = true;
+                                                                        console.log(radio)
+                                                                    });
+                                                                    button2.addEventListener('click', function() {
+                                                                        const radio = document.getElementsByClassName('sizem')[0];
+                                                                        radio.checked = true;
+                                                                        console.log(radio)
+                                                                    });
+                                                                    button3.addEventListener('click', function() {
+                                                                        const radio = document.getElementsByClassName('sizel')[0];
+                                                                        radio.checked = true;
+                                                                        console.log(radio)
+                                                                    });
+                                                                    button4.addEventListener('click', function() {
+                                                                        const radio = document.getElementsByClassName('sizexl')[0];
+                                                                        radio.checked = true;
+                                                                        console.log(radio)
+                                                                    });
+                                                                });
+                                                                // $(document).ready(function() {
+                                                                //     $('#size').click(function() {
+                                                                //         $(".size").checked=true
+                                                                //         $('input[name="sizexl"]').checked;
+                                                                //         $('input[name="size"]').val('s');
+                                                                //          console.log($(".size").val())
+                                                                //     });
+                                                                //     $('#sizem').click(function() {
+                                                                //         $(".size").checked=true
+                                                                //         $('input[name="sizexl"]').checked;
+                                                                //         $('input[name="size"]').val('m');
+                                                                //          console.log($(".sizem").val())
+                                                                //     });
+                                                                //     $('#sizel').click(function() {
+                                                                //         $(".size").checked=true
+                                                                //         $('input[name="sizexl"]').checked;
+                                                                //         $('input[name="size"]').val('m');
+                                                                //          console.log($(".sizel").val())
+                                                                //     });
+                                                                //     $('#sizexl').click(function() {
+                                                                //         $(".size").checked=true
+                                                                //         $('input[name="sizexl"]').checked;
+                                                                //         $('input[name="sizexl"]').val('m');
+                                                                //          console.log($(".sizexl").val())
+                                                                //     });
+                                                                //
+                                                                //
+                                                                // });
+
+
+
                                                             </script>
         @endpush
 
