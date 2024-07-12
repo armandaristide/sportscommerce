@@ -130,6 +130,7 @@
                                                         </div>
                                                     </div>
 
+                                                            <input type="radio" name="name" value="{{$product->name}}" checked hidden >
 
                                                     <div id="selectSize" class="addeffect-section product-description border-product">
                                                         <h6 class="product-title size-text">select size
@@ -383,7 +384,7 @@
                                                                     //for colors
                                                                     const colorBtn = document.getElementById('img1');
                                                                     const colorBtn1 = document.getElementById('img2');
-                                                                    const colorBtn2 = document.getElementById('img3'
+                                                                    const colorBtn2 = document.getElementById('img3')
                                                                         //for sizes
                                                                     const button = document.getElementById('size');
                                                                     const button2 = document.getElementById('sizem');

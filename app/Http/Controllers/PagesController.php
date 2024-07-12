@@ -109,24 +109,24 @@ class PagesController extends Controller
     public function submitcart(Request $request,)
     {
 
-        dd($request);
+//        dd($request);
 //       $validate=$request->validate([
 //            'color' => ['required', 'string'],
 //            'quantity' => ['required', 'string'],
 //            'color' => ['required', 'string'],
 //     ]);
-//       $cart=new Cart();
-//
-//        $data = [
-//            'name' => 'Example Name',
-//            'identity' => $request->input('identity'),
-//            'quantity' => $request->input('quantity'),
-//            'size' => $request->input('size'),
-//            'color' => $request->input('color'),
-//        ];
-//
-//
-//        Cart::create($data);
+       $cart=new Cart();
+
+        $data = [
+            'name' =>$request->input('name'),
+            'identity' => $request->input('identity'),
+            'quantity' => $request->input('quantity'),
+            'size' => $request->input('size'),
+            'color' => $request->input('color'),
+        ];
+
+
+        Cart::create($data);
 
         return redirect()->route('cart')->with('message', 'Product added successfully');
     }
