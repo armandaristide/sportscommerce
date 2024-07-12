@@ -103,10 +103,10 @@
                 @elseif($cat=="tennis")
                     <div class="col-lg-4 col-md-6">
                         <div class="collection-banner p-bottom p-center text-center">
-                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shirts")}}" class="banner-img bg-size blur-up lazyloaded" style="background-image: url(assets/img/football/jersey.png); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
                                 <img src="https://www.dropbox.com/scl/fi/j7xenokmplf2j7m7kkknd/f2f3f5-23.png?rlkey=39s4ybmhskdv6vjquqp098b4e&st=qf4mc3ex&raw=1" class="bg-img blur-up lazyload" alt="" style="display: none;">
                             </a>
-                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Jerseys")}}" class="contain-banner">
+                            <a href="{{route('subcat','Clothing'.'_'.$cat.'_'."Shirts")}}" class="contain-banner">
                                 <div class="banner-content with-big">
                                     <h2 class="mb-2">{{$cat}} Shirts</h2>
                                     <span>Check out our {{$cat}} shirts</span>

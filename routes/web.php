@@ -70,7 +70,7 @@ Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController:
 Route::middleware('adminAuth')->prefix('admin')->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'adminDashboard'])->name('adminDashboardShow');
 });
-Route::prefix('admin')->group(function(){
+Route::middleware('adminAuth')->prefix('admin')->group(function(){
     Route::get('/login', [AdminAuthController::class, 'login'])->name('adminLogin');
     Route::post('/loginSubmit', [AdminAuthController::class, 'loginSubmit'])->name('adminLoginSubmit');
     Route::get('/logout', [AdminAuthController::class, 'adminLogout'])->name('adminLogout');
