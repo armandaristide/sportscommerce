@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
+
     //
     public function superAdminDashboard()
     {
@@ -19,6 +20,7 @@ class DashboardController extends Controller
 
     public function adminDashboard()
     {
+
         $profile = User::where('email', Auth::user()->email)->first();
         $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
         $products = Product::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
