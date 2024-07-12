@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','ABOUT US | LEVEL UP')
+@section('title','My Cart | LEVEL UP')
 @section('content')
 
 
@@ -26,11 +26,11 @@
                     <nav>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="index.html">
+                                <a href="{{route('index')}}">
                                     <i class="fas fa-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                            <li class="breadcrumb-item active" aria-current="page">My Cart</li>
                         </ol>
                     </nav>
                 </div>
@@ -43,15 +43,12 @@
     <section class="cart-section section-b-space">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="count-down">
-                        <h5>Your cart will be expired in <span class="count-timer theme-color" id="timer"></span>
-                            minutes !</h5>
-                        <button type="button" onclick="location.href = 'checkout.html';"
-                                class="btn btn-solid-default btn-sm fw-bold">Check Out</button>
+                @if(session()->has('message'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Success!</strong>  {{ session()->get('message') }}
                     </div>
-                </div>
-
+                @endif
                 <div class="col-sm-12 table-responsive mt-4">
                     <table class="table cart-table">
                         <thead>
@@ -64,18 +61,27 @@
                             <th scope="col">total</th>
                         </tr>
                         </thead>
-                        @if($products)
-                            @foreach($products as $cart)
+                        @if(count($carts)>0)
+
+                        @foreach($carts as $cart)
+                                <?php
+                                $product = \App\Models\Product::where('id','=',$cart->product_id)->first()
+                                    ?>
+                                    <?php
+                                    $total = $total + ( $cart->quantity * $product->price)
+                                    ?>
+
+
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <a href="product-left-sidebar.html">
-                                            <img src={{$cart[1]->imageone}} class=" blur-up lazyload"
+                                        <a href="#">
+                                            <img src="{{$cart->color}}" class="blur-up lazyload"
                                                  alt="">
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="product-left-sidebar.html">{{$cart[1]->name}}</a>
+                                        <a href="$">{{$product->name}}</a>
                                         <div class="mobile-cart-content row">
                                             <div class="col">
                                                 <div class="qty-box">
@@ -96,24 +102,23 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <h2>{{$cart[1]->price}}</h2>
+                                        <h2>€{{$product->price}}</h2>
                                     </td>
                                     <td>
                                         <div class="qty-box">
                                             <div class="input-group">
                                                 <input type="number" name="quantity" class="form-control input-number"
-                                                       value={{$cart[0]->quantity}}>
+                                                       value={{$cart->quantity}}>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="javascript:void(0)">
-                                            <i class="fas fa-times"></i>
+                                        <a href="{{route('delete.cart',$cart->id)}}">
+                                            <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <h2 class="td-color"                                 {{$total=$total+$cart[0]->quantity *$cart[1]->price}}
-                                        >{{$cart[0]->quantity *$cart[1]->price }}</h2>
+                                        <h2 class="td-color">€{{$cart->quantity * $product->price }}</h2>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -121,71 +126,65 @@
 
                         @else
                             <div>
-                                <p>NO productucts in cart</p>
+                                <p>Your Cart is EMPTY 😔</p>
                             </div>
                         @endif
 
 
                     </table>
                 </div>
+                    @if(count($carts)>0)
 
                 <div class="col-12 mt-md-5 mt-4">
                     <div class="row">
                         <div class="col-sm-7 col-5 order-1">
                             <div class="left-side-button text-end d-flex d-block justify-content-end">
-                                <a href="javascript:void(0)"
+                                <a href="{{route('delete.cart',0)}}"
                                    class="text-decoration-underline theme-color d-block text-capitalize">clear
                                     all items</a>
                             </div>
                         </div>
                         <div class="col-sm-5 col-7">
-                            <div class="left-side-button float-start">
-                                <a href="index.html" class="btn btn-solid-default btn fw-bold mb-0 ms-0">
-                                    <i class="fas fa-arrow-left"></i> Continue Shopping</a>
-                            </div>
                         </div>
                     </div>
                 </div>
+                    @endif
 
                 <div class="cart-checkout-section">
                     <div class="row g-4">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="promo-section">
-                                <form class="row g-3">
-                                    <div class="col-7">
-                                        <input type="text" class="form-control" id="number" placeholder="Coupon Code">
-                                    </div>
-                                    <div class="col-5">
-                                        <button class="btn btn-solid-default rounded btn">Apply Coupon</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-sm-6 ">
-                            <div class="checkout-button">
-                                <a href="checkout.html" class="btn btn-solid-default btn fw-bold">
-                                    Check Out <i class="fas fa-arrow-right ms-1"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="cart-box">
                                 <div class="cart-box-details">
                                     <div class="total-details">
                                         <div class="top-details">
-                                            <h3>Cart Totals</h3>
-                                            <h6>Total MRP <span>{{$total}}</span></h6>
-                                            <h6>Coupon Discount <span>-$25.00</span></h6>
-                                            <h6>Convenience Fee <span><del>$25.00</del></span></h6>
+                                            <h3 class="text-center">Cart Totals</h3>
+                                            <h6>Subtotal<span>€{{$total}}</span></h6>
+                                            <h6>Shipping Fee <span>FREE</span></h6>
                                         </div>
                                         <div class="bottom-details">
-                                            <a href="checkout.html">Process Checkout</a>
+                                            <a> <h3>Total: €{{$total}}</h3></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-lg-2 col-sm-6">
+                            <div class="left-side-button float-start">
+                                <a href="{{route('index')}}" class="btn btn-solid-default btn fw-bold mb-0 ms-0">
+                                    <i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                            </div>
+                        </div>
+
+                        @if(count($carts)>0)
+
+                        <div class="col-lg-4 col-sm-6 ">
+                            <div class="checkout-button">
+                                <a href="#" class="btn btn-solid-default btn fw-bold">
+                                    Check Out <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
