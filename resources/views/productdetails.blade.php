@@ -48,7 +48,6 @@
                         </div>
                     </div>
                 </section>
-
                 <section>
                     <div class="container">
                         <div class="row gx-4 gy-5">
@@ -113,16 +112,19 @@
                                                             <h5>Color :</h5>
                                                             <ul class="image-section">
                                                                 <li id="img1">
-                                                                    <input type="radio" class="color3" name="color" value="{{$product->imageone}}" hidden >
+                                                                    <input type="radio" class="color3" name="color" checked="checked" required value="{{$product->imageone}}" hidden >
                                                                         <img src="{{$product->imageone}}" class="img-fluid blur-up  lazyloaded" alt="" >
+
                                                                 </li>
                                                                 <li id="img2">
-                                                                    <input type="radio" class="color1" name="color" value="{{$product->imagetwo}}" hidden >
+                                                                    <input type="radio" class="color1" name="color" required value="{{$product->imagetwo}}" hidden >
                                                                         <img src="{{$product->imagetwo}}" class="img-fluid blur-up lazyloaded" alt="">
+
                                                                 </li>
                                                                 <li id="img3">
-                                                                    <input type="radio" class="color2" name="color" value="{{$product->imagethree}}" hidden >
+                                                                    <input type="radio" class="color2" name="color" required value="{{$product->imagethree}}" hidden >
                                                                         <img src="{{$product->imagethree}}" class="img-fluid blur-up lazyloaded" alt="">
+
                                                                 </li>
 
                                                             </ul>
@@ -142,19 +144,19 @@
                                                         <div class="size-box">
                                                             <ul>
                                                                 <li id="size">
-                                                                    <input type="radio" class="size" name="size" value="s" hidden >
+                                                                    <input type="radio" class="size" required name="size" value="s" hidden >
                                                                     <a href="javascript:void(0)">s</a>
                                                                 </li>
                                                                 <li id="sizem">
-                                                                    <input type="radio" class="sizem" name="size" value="m" hidden >
+                                                                    <input type="radio" class="sizem" required name="size" value="m" hidden >
                                                                     <a href="javascript:void(0)">m</a>
                                                                 </li>
                                                                 <li id="sizel">
-                                                                    <input type="radio" class="sizel" name="size" value="l" hidden >
+                                                                    <input type="radio" class="sizel" required name="size" value="l" hidden >
                                                                     <a href="javascript:void(0)">l</a>
                                                                 </li>
                                                                 <li id="sizexl">
-                                                                    <input type="radio" class="sizexl" name="size" value="xl" hidden >
+                                                                    <input type="radio" class="sizexl" required name="size" value="xl" hidden >
                                                                     <a href="javascript:void(0)">xl</a>
                                                                 </li>
                                                             </ul>
@@ -169,7 +171,7 @@
                                                         <i class="fas fa-minus"></i>
                                                     </button>
                                                 </span>
-                                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                                                <input type="text" name="quantity" required style="height: 50px;" class="form-control input-number" max="{{$product->quantity}}" value="1">
                                                                 <span class="input-group-prepend">
                                                     <button type="button" class="btn quantity-right-plus" data-type="plus" data-field="">
                                                         <i class="fas fa-plus"></i>

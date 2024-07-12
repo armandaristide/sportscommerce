@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Cat;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use MongoDB\Driver\Session;
 
 class PagesController extends Controller
@@ -96,42 +97,42 @@ class PagesController extends Controller
 
     public function cart()
     {
-        $product=[];
-         $carts= Cart::all();
-         foreach ($carts as $cart) {
+        $carts = Cart::where('buyer_id', Auth::user()->username)->get();
+        $total = 0;
 
-             $addon=Product::where('id',$cart->identity)->get();
-             $cart=[$cart,...$addon];
-             array_push($product,$cart);
-         }
-        $total=0;
-
-        return view('cart',['total'=>$total,"products"=>$product])->with('cart');
+        return view('cart')->with('carts',$carts)->with('total',$total);
     }
 
     public function submitcart(Request $request,)
     {
 
-//        dd($request);
-//       $validate=$request->validate([
-//            'color' => ['required', 'string'],
-//            'quantity' => ['required', 'string'],
-//            'color' => ['required', 'string'],
-//     ]);
-       $cart=new Cart();
-
-        $data = [
-            'name' =>$request->input('name'),
-            'identity' => $request->input('identity'),
-            'quantity' => $request->input('quantity'),
-            'size' => $request->input('size'),
-            'color' => $request->input('color'),
-        ];
+        $request->validate([
+            'color' => ['required', 'string'],
+            'quantity' => ['required', 'string'],
+            'size' => ['required', 'string'],
+        ]);
 
 
-        Cart::create($data);
-
+        $cart = new Cart();
+        $cart->product_id = $request->input('identity');
+        $cart->buyer_id = Auth::user()->username;
+        $cart->quantity = $request->input('quantity');
+        $cart->size = $request->input('size');
+        $cart->color = $request->input('color');
+        $cart->save();
         return redirect()->route('cart')->with('message', 'Product added successfully');
+    }
+
+    public function deleteCart($id)
+    {
+        if ($id == 0){
+            Cart::truncate();
+        }
+        else{
+            $item = Cart::find($id);
+            $item->delete();
+        }
+        return redirect()->route('cart')->with('message', 'Product deleted successfully');
     }
 }
 
