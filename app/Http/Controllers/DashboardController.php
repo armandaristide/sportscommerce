@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cat;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -94,7 +95,7 @@ class DashboardController extends Controller
     public function generalUserDashboard()
     {
         $user = Auth::user();
-        $orders = $user->orders; // Retrieve the orders for the authenticated user
+        $orders = Order::where('buyer_id','=',$user->id)->get(); // Retrieve the orders for the authenticated user
 
         return view('generalUserDashboard', compact('user', 'orders'));
     }
