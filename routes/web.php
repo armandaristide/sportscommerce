@@ -41,7 +41,7 @@ Route::get('/categories_{cat}', [PagesController::class, 'catpage'])->name('cate
 ####################################CYPRIAN ROUTES###################################################
 Route::get('/product', [PagesController::class, 'product'])->name('product');
 Route::get('/orderhistory', [PagesController::class, 'orderhistory'])->name('orderhistory');
-Route::get('/invoicepage', [PagesController::class, 'invoicepage'])->name('invoicepage');
+Route::get('/invoicepage_{id}', [PagesController::class, 'invoicepage'])->name('invoicepage');
 
 
 ####################################AHBIN ROUTES #######################################################
@@ -61,6 +61,7 @@ Route::get('/invoicepage', [PagesController::class, 'invoicepage'])->name('invoi
 #####################ARMAND'S ROUTES#################################################
 Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/product_details_{prod}', [PagesController::class, 'productDetails'])->name('productdets');
+Route::post('/buy_now{prod}', [PagesController::class, 'buyNow'])->name('buy.now');
 Route::get('/subcategories_{prod}', [PagesController::class, 'subcategory'])->name('subcat');
 Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('generalsub');
 

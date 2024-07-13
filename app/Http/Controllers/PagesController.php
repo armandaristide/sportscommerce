@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Cat;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -69,9 +70,27 @@ class PagesController extends Controller
         return view('orderhistory');
     }
 
-    public function invoicepage()
+    public function invoicepage($id)
     {
-        return view('invoicepage');
+        $order = Order::where('product_id','=',$id)->first();
+        return view('invoicepage')->with('order', $order);
+    }
+
+    public function buyNow(Request $request, $id)
+    {
+        $neworder = new Order();
+        $neworder->product_id = $id;
+        $neworder->buyer_id = Auth::user()->username;
+        $neworder->SN = '000000'.$id;
+        $neworder->color = $request->input('color');
+        $neworder->size = $request->input('size');
+        $neworder->quantity = $request->input('quantity');
+        $neworder->price = $request->input('price');
+        $neworder->save();
+
+        $order = Order::where('product_id','=',$id)->first();
+        $id = $order->id;
+        return redirect('invoicepage')->with('id', $id);
     }
 
     public function product_details(Request $request,$product){

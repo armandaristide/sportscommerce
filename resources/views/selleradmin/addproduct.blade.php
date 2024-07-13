@@ -51,10 +51,23 @@
                                     <option value="Boots">Boots</option>
                                     <option value="Shoes">Shoes</option>
                                     <option value="Socks">Socks</option>
-                                    <option value="Jersey">Jersey/Shirt</option>
+                                    <option value="Shirts">Shirts</option>
+                                    <option value="Trousers">Trousers</option>
+                                    <option value="Skirts">Skirts</option>
+                                    <option value="Shin guards">Shin guards</option>
+                                    <option value="Knee pads">Knee pads</option>
+                                    <option value="Ankle braces">Ankle braces</option>
+                                    <option value="Hightops">Hightops</option>
+                                    <option value="Trackspikes">Trackspikes</option>
+                                    <option value="Rackets">Rackets</option>
+                                    <option value="Bands">Bands</option>
+                                    <option value="Weights">Weights</option>
+                                    <option value="Poles">Poles</option>
+                                    <option value="Nets">Nets</option>
+                                    <option value="Jerseys">Jerseys</option>
                                     <option value="Shorts">Shorts</option>
-                                    <option value="Track Suit">Track Suit</option>
-                                    <option value="Training Gear">Training Gear</option>
+                                    <option value="Track Suits">Track Suits</option>
+                                    <option value="Training Gears">Training Gear</option>
                                     <option value="Gloves">Gloves</option>
                                     <option value="Balls">Balls</option>
                                 </select>
