@@ -13,10 +13,6 @@ class DashboardController extends Controller
 {
 
     //
-    public function superAdminDashboard()
-    {
-        return view('superAdminDashboard');
-    }
 
     public function adminDashboard()
     {
@@ -100,6 +96,54 @@ class DashboardController extends Controller
         $orders = Order::where('buyer_id','=',$user->id)->get(); // Retrieve the orders for the authenticated user
 
         return view('generalUserDashboard', compact('user', 'orders'));
+    }
+
+
+
+    //super admin contollers
+    public function superAdminDashboard()
+    {
+        $profile = User::where('email', Auth::user()->email)->first();
+        $usersellers = User::where('type', 1)->get();
+        $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
+        $products = Product::all();
+        return view('superAdminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('sellers', $usersellers);
+
+    }
+
+    public function addSellerPage()
+    {
+        $profile = User::where('email', Auth::user()->email)->first();
+        $usersellers = User::where('type', 0)->get();
+        $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
+        $products = Product::all();
+
+
+        return view('superadmin.addseller')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('sellers', $usersellers);
+
+    }
+
+    public function addSeller(Request $request){
+        $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'username' => ['required', 'string'],
+        ]);
+
+
+        $data = [
+            'name' =>$request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            'type' => 1,
+            'phone' => $request->input('phone'),
+            'username' => $request->input('username'),
+        ];
+
+        User::create($data);
+        return redirect()->route('superAdminDashboardShow')->with('message', 'Seller added successfully');
     }
 
 }
