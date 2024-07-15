@@ -21,7 +21,7 @@
                         </span>
                     </x-nav-link>
                     <!-- Add more navigation links as needed -->
-                    <x-nav-link :href="route('profile.show')" :active="request()->routeIs('profile.show')">
+                    <x-nav-link :href="route('superAdminDashboardShow')" :active="request()->routeIs('profile.show')">
                         <span class="flex items-center">
                             <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v4m0 4v4m-4-8h8m0 0h2.586a1 1 0 00.707-1.707l-7.586-7.586a1 1 0 00-1.414 0l-7.586 7.586a1 1 0 00.707 1.707H4"></path>
@@ -48,7 +48,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.show')">
+                        <x-dropdown-link :href="route('superAdminDashboardShow')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -84,7 +84,7 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('profile.show')" :active="request()->routeIs('profile.show')">
+            <x-responsive-nav-link :href="route('superAdminDashboardShow')" :active="request()->routeIs('profile.show')">
                 {{ __('Profile') }}
             </x-responsive-nav-link>
         </div>
@@ -97,7 +97,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.show')">
+                <x-responsive-nav-link :href="route('superAdminDashboardShow')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 

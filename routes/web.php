@@ -22,6 +22,9 @@ Route::get('/cart', [PagesController::class, 'cart'])->name('cart');
 Route::post('/cart', [PagesController::class, 'submitcart'])->name('submit.cart');
 
 
+//superAdmin
+
+
 //Route::get('/prodcut-list', [CartController::class, 'index']);
 //Route::get('/cart-list', [CartController::class, 'cartList']);
 //Route::post('add-to-cart', [CartController::class, 'addProductToCart'])->name('add-product-to-shopping-cart');
@@ -83,11 +86,18 @@ Route::prefix('admin')->group(function(){
 /**Super Admin routes **/
 Route::middleware('superAdminAuth' )->prefix('superAdmin')->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'superAdminDashboard'])->name('superAdminDashboardShow');
+
+    //add and edit routes
+    Route::get('/add-seller', [DashboardController::class, 'addSellerPage'])->name('add.seller');
+    Route::post('/addseller', [DashboardController::class, 'addSeller'])->name('addseller');
+
 });
 Route::prefix('superAdmin')->group(function(){
     Route::get('/login', [SuperAdminAuthController::class, 'login'])->name('superAdminLogin');
     Route::post('/loginSubmit', [SuperAdminAuthController::class, 'loginSubmit'])->name('superAdminLoginSubmit');
     Route::get('/logout', [SuperAdminAuthController::class, 'superAdminLogout'])->name('superAdminLogout');
+
+
 });
 
 //Route::get('/dashboard', function () {
