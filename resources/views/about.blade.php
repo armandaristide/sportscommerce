@@ -112,7 +112,7 @@
                             <div class="overlay-color">
                                 <div class="overlay-icon">
                                     <div>
-                                        <h3>AHBIN</h3>
+                                        <h3>ABHIN</h3>
                                         <p class="font-light">TEAM MEMBER
                                         </p>
                                     </div>
