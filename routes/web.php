@@ -90,12 +90,20 @@ Route::middleware('superAdminAuth' )->prefix('superAdmin')->group(function(){
     //add and edit routes
     Route::get('/add-seller', [DashboardController::class, 'addSellerPage'])->name('add.seller');
     Route::post('/addseller', [DashboardController::class, 'addSeller'])->name('addseller');
+    Route::get('/edit-seller-{id}', [DashboardController::class, 'editSellerPage'])->name('edit.seller');
+    Route::post('/edit-seller-{id}', [DashboardController::class, 'editSeller'])->name('editseller');
+    Route::delete('/deleteseller/{id}', [DashboardController::class, 'deleteSeller'])->name('delete.seller');
+    Route::get('/add_product', [DashboardController::class, 'addSuperProduct'])->name('addsuperProduct');
+    Route::post('/add_product', [DashboardController::class, 'submitSupperProduct'])->name('submit.addsuperproduct');
+    Route::delete('/add_product-{id}', [DashboardController::class, 'deletesuperProduct'])->name('delete.superproduct');
+
+
 
 });
 Route::prefix('superAdmin')->group(function(){
     Route::get('/login', [SuperAdminAuthController::class, 'login'])->name('superAdminLogin');
     Route::post('/loginSubmit', [SuperAdminAuthController::class, 'loginSubmit'])->name('superAdminLoginSubmit');
-    Route::get('/logout', [SuperAdminAuthController::class, 'superAdminLogout'])->name('superAdminLogout');
+    Route::delete('/logout', [SuperAdminAuthController::class, 'superAdminLogout'])->name('superAdminLogout');
 
 
 });

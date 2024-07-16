@@ -181,15 +181,23 @@
                                                     </li>
 
                                                     <li>
-                                                        <a href="javascript:void(0)">
+                                                        <a href="{{route('edit.seller',$seller->id)}}">
                                                             <i class="ri-pencil-line"></i>
                                                         </a>
                                                     </li>
 
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" data-toggle="modal">
-                                                            <i class="ri-delete-bin-line"></i>
-                                                        </a>
+                                                        <form action="{{route('delete.seller',$seller->id)}}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+
+                                                            <button type="submit" style="background-color:rgba(192,192,192,0.3);">
+                                                                <a href="" >
+                                                                    <i class="ri-delete-bin-line"></i>
+                                                                </a>
+                                                            </button>
+                                                        </form>
+
                                                     </li>
                                                 </ul>
                                             </td>
@@ -219,7 +227,7 @@
                         <ul>
 
                             <li>
-                                <a class="btn btn-solid" href="{{route('addProduct')}}">Add Product</a>
+                                <a class="btn btn-solid" href="{{route('submit.addsuperproduct')}}">Add Product</a>
                             </li>
                         </ul>
                     </div>
@@ -230,13 +238,13 @@
                             <table class="table all-package theme-table table-product dataTable no-footer" id="table_id" >
                                 <thead>
                                 <tr>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Product Image</th>
+                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">S.No</th>
+                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Q.No</th>
+                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Seller Name</th>
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Product Name</th>
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Category</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Current Qty</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Price</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Subcategory</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.312px;">Option</th>
+                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Delete</th>
+
                                 </tr>
                                 </thead>
 
@@ -244,43 +252,45 @@
                                 @if(count($products)!=0)
                                     @foreach($products as $product)
                                         <tr class="odd">
-                                            <td>
-                                                <div class="table-image">
-                                                    <img src="{{$product->imageone}}" class="img-fluid" width="50%" alt="image">
-                                                </div>
-                                            </td>
 
+
+                                            <td class="text-wrap">{{$product->id}}</td>
+                                            <td>{{$product->quantity}}</td>
+                                            <td class="text-wrap">{{$product->seller}}</td>
                                             <td class="text-wrap">{{$product->name}}</td>
+
 
                                             <td>{{$product->categories}}</td>
 
-                                            <td>{{$product->quantity}}</td>
 
-                                            <td class="td-price">${{$product->price}}</td>
 
-                                            <td class="status-danger">
-                                                <span>{{$product->tag}}</span>
-                                            </td>
+
 
                                             <td>
                                                 <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="ri-eye-line"></i>
-                                                        </a>
-                                                    </li>
+{{--                                                    <li>--}}
+{{--                                                        <a href="#">--}}
+{{--                                                            <i class="ri-eye-line"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                    </li>--}}
 
-                                                    <li>
-                                                        <a href="javascript:void(0)">
-                                                            <i class="ri-pencil-line"></i>
-                                                        </a>
-                                                    </li>
+{{--                                                    <li>--}}
+{{--                                                        <a href="javascript:void(0)">--}}
+{{--                                                            <i class="ri-pencil-line"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                    </li>--}}
 
-                                                    <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                            <i class="ri-delete-bin-line"></i>
-                                                        </a>
-                                                    </li>
+                                                    <form action="{{route('delete.superproduct',$product->id)}}" method="DELETE">
+                                                        @csrf
+                                                        @method('DELETE')
+
+                                                        <button type="submit" style="background-color:rgba(192,192,192,0.3);">
+                                                            <a href="" >
+                                                                <i class="ri-delete-bin-line"></i>
+                                                            </a>
+                                                        </button>
+                                                    </form>
+
                                                 </ul>
                                             </td>
                                         </tr>
