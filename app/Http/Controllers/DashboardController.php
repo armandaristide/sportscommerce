@@ -146,4 +146,94 @@ class DashboardController extends Controller
         return redirect()->route('superAdminDashboardShow')->with('message', 'Seller added successfully');
     }
 
+    public function editSellerPage($id)
+    {
+        $userseller = User::where('id', $id)->get();
+        //dd($userseller);
+        return view('superadmin.editseller',['seller'=> $userseller]);
+    }
+    public function editSeller(Request $request,$id)
+    {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'username' => ['required', 'string'],
+        ]);
+
+        $updatedData=[
+            'name' =>$request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            'type' => 1,
+            'phone' => $request->input('phone'),
+            'username' => $request->input('username'),];
+
+         $userupdate=User::where('id', $id);
+        $userupdate->update($updatedData);
+
+        //dd($userseller);
+        return redirect()->route('superAdminDashboardShow')->with('message', 'Seller updated successfully');
+    }
+
+    public function deleteSeller($id){
+        User::where('id', $id)->delete();
+
+        //dd($userseller);
+        return redirect()->route('superAdminDashboardShow')->with('message', 'Seller deleted successfully');
+    }
+    public function addSuperProduct()
+    {
+        $cats = Cat::all();
+        return view('superadmin.addproduct')->with('cats', $cats);
+    }
+
+    public function submitSupperProduct(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'categories' => ['required', 'string'],
+            'subcategories' => ['required', 'string'],
+            'quantity' => ['required', 'numeric'],
+            'color' => ['required', 'string'],
+            'tag' => ['required', 'string'],
+            'brand' => ['required', 'string'],
+            'imageone' => ['required', 'string'],
+            'imagetwo' => ['required', 'string'],
+            'imagethree' => ['required', 'string'],
+            'imagefour' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'price' => ['required', 'string'],
+            'size' => ['required', 'string'],
+        ]);
+
+        $product = new Product();
+        $product->name = $request->input('name');
+        $product->categories = $request->input('categories');
+        $product->subcategories = $request->input('subcategories');
+        $product->color = $request->input('color');
+        $product->tag = $request->input('tag');
+        $product->brand = $request->input('brand');
+        $product->imageone = $request->input('imageone');
+        $product->imagetwo = $request->input('imagetwo');
+        $product->imagethree = $request->input('imagethree');
+        $product->imagefour = $request->input('imagefour');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+        $product->quantity = $request->input('quantity');
+        $product->size = $request->input('size');
+        $product->filter = "none";
+        $product->seller = Auth::user()->username;
+        $product->save();
+        return redirect()->route('superAdminDashboardShow')->with('message', 'Product added successfully');
+    }
+
+
+    public function deletesuperProduct($id){
+        Product::where('id', $id)->delete();
+
+        //dd($userseller);
+        return redirect()->route('superAdminDashboardShow')->with('message', 'Product deleted successfully');
+    }
 }
