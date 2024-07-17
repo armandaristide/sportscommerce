@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -87,13 +88,13 @@ class DashboardController extends Controller
     }
 
 
-    public function generalUserDashboard()
-    {
-        $user = Auth::user();
-        $orders = $user->orders; // Retrieve the orders for the authenticated user
-
-        return view('generalUserDashboard', compact('user', 'orders'));
-    }
+//    public function generalUserDashboard()
+//    {
+////        $user = Auth::user();
+////        $orders = $user->orders; // Retrieve the orders for the authenticated user
+//
+//        return view('generalUserDashboard', compact('user', 'orders'));
+//    }
 
 
 
@@ -103,8 +104,10 @@ class DashboardController extends Controller
         $profile = User::where('email', Auth::user()->email)->first();
         $usersellers = User::where('type', 1)->get();
         $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
+        $idNo= Auth::user();
         $products = Product::all();
-        return view('superAdminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('sellers', $usersellers);
+
+        return view('superAdminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('sellers', $usersellers)->with('superId', $idNo);
 
     }
 
@@ -162,7 +165,7 @@ class DashboardController extends Controller
         $updatedData=[
             'name' =>$request->input('name'),
             'email' => $request->input('email'),
-            'password' => $request->input('password'),
+            'password' =>  Hash::make($request->password),
             'type' => 1,
             'phone' => $request->input('phone'),
             'username' => $request->input('username'),];
@@ -232,5 +235,35 @@ class DashboardController extends Controller
 
         //dd($userseller);
         return redirect()->route('superAdminDashboardShow')->with('message', 'Product deleted successfully');
+    }
+    public function editsuperadmin($id){
+
+        $user = User::where('id', $id)->get();
+
+        return view('superadmin.editsuperadmin',['seller'=> $user]);
+    }
+
+    public function editsuperadmindeds(Request $request,$id){
+        $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'username' => ['required', 'string'],
+        ]);
+
+        $updatedData=[
+            'name' =>$request->input('name'),
+            'email' => $request->input('email'),
+            'password' =>  Hash::make($request->password),
+            'type' => 2,
+            'phone' => $request->input('phone'),
+            'username' => $request->input('username'),];
+
+        $superupdate=User::where('id', $id);
+        $superupdate->update($updatedData);
+
+
+        return redirect()->route('superAdminDashboardShow')->with('message', 'Super admin updated successfully');
     }
 }

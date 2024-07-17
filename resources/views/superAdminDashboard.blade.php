@@ -99,11 +99,22 @@
                                     <input class="form-control" type="email" name="email" value="{{$profile->email}}">
                                 </div>
                             </div>
+<div class="row">
+    <div class="col-8"></div>
+    <div class=" col-4 right-options">
+        <ul>
 
+            <li>
+                <a class="btn btn-solid" href="{{route('edit.superadmin',$superId->id)}}">Edit Super Admin</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
                         </div>
 
                     </div>
+
                 </form>
             </div>
         </div>
@@ -174,11 +185,11 @@
 
                                             <td>
                                                 <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="ri-eye-line"></i>
-                                                        </a>
-                                                    </li>
+{{--                                                    <li>--}}
+{{--                                                        <a href="#">--}}
+{{--                                                            <i class="ri-eye-line"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                    </li>--}}
 
                                                     <li>
                                                         <a href="{{route('edit.seller',$seller->id)}}">
@@ -243,7 +254,7 @@
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Seller Name</th>
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Product Name</th>
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Category</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Delete</th>
+{{--                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Delete</th>--}}
 
                                 </tr>
                                 </thead>
@@ -266,33 +277,21 @@
 
 
 
-                                            <td>
-                                                <ul>
-{{--                                                    <li>--}}
-{{--                                                        <a href="#">--}}
-{{--                                                            <i class="ri-eye-line"></i>--}}
-{{--                                                        </a>--}}
-{{--                                                    </li>--}}
+{{--                                            <td>--}}
+{{--                                                <ul>--}}
+{{--                                                    <form action="{{route('delete.superproduct',$product->id)}}" method="DELETE">--}}
+{{--                                                        @csrf--}}
+{{--                                                        @method('DELETE')--}}
 
-{{--                                                    <li>--}}
-{{--                                                        <a href="javascript:void(0)">--}}
-{{--                                                            <i class="ri-pencil-line"></i>--}}
-{{--                                                        </a>--}}
-{{--                                                    </li>--}}
+{{--                                                        <button type="submit" style="background-color:rgba(192,192,192,0.3);">--}}
+{{--                                                            <a href="" >--}}
+{{--                                                                <i class="ri-delete-bin-line"></i>--}}
+{{--                                                            </a>--}}
+{{--                                                        </button>--}}
+{{--                                                    </form>--}}
 
-                                                    <form action="{{route('delete.superproduct',$product->id)}}" method="DELETE">
-                                                        @csrf
-                                                        @method('DELETE')
-
-                                                        <button type="submit" style="background-color:rgba(192,192,192,0.3);">
-                                                            <a href="" >
-                                                                <i class="ri-delete-bin-line"></i>
-                                                            </a>
-                                                        </button>
-                                                    </form>
-
-                                                </ul>
-                                            </td>
+{{--                                                </ul>--}}
+{{--                                            </td>--}}
                                         </tr>
 
                                     @endforeach
