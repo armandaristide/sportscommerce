@@ -74,6 +74,7 @@ Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController:
 /**Admin routes **/
 Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'adminDashboard'])->name('adminDashboardShow');
+    Route::post('/edit_profile{id}', [DashboardController::class, 'editProfile'])->name('submit.editprofile');
     Route::get('/add_category', [DashboardController::class, 'addCategory'])->name('addCategory');
     Route::post('/add_category', [DashboardController::class, 'submitCategory'])->name('submit.addcategory');
     Route::get('/add_product', [DashboardController::class, 'addProduct'])->name('addProduct');

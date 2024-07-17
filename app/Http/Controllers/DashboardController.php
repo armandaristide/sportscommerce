@@ -19,8 +19,25 @@ class DashboardController extends Controller
 
         $profile = User::where('email', Auth::user()->email)->first();
         $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
-        $products = Product::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
+        $products = Product::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->paginate(5);
         return view('adminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products);
+    }
+
+    public function editProfile(Request $request,$id)
+    {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+        ]);
+
+        $profile = User::where('id','=',$id)->first();
+        $profile->name = $request->input('name');
+        $profile->email = $request->input('email');
+        $profile->phone = $request->input('phone');
+        $profile->save();
+        return redirect()->route('adminDashboardShow')->with('message', 'Profile Info Updated Successfully added successfully');
+
     }
 
     public function submitCategory(Request $request)
