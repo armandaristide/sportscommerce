@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Cat;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use MongoDB\Driver\Session;
 
 class PagesController extends Controller
@@ -32,7 +34,7 @@ class PagesController extends Controller
         $products = Product::where('subcategories','=', $subcat[0])
             ->where('categories','=',$subcat[1])
             ->where('tag','=',$subcat[2])
-            ->orderBy('created_at', 'desc')->get();
+            ->orderBy('created_at', 'desc')->paginate(15);
         $subcate = $subcat[0];
         $cat = $subcat[1];
         $tag = $subcat[2];
@@ -44,7 +46,10 @@ class PagesController extends Controller
         $gen=explode('_',$prod);
         $cat = $gen[0];
         $subcat = $gen[1];
-        return view('generalsub')->with('cat', $cat)->with('subcat', $subcat);
+        $products = Product::where('subcategories','=', $subcat)
+            ->where('categories','=',$cat)
+            ->orderBy('created_at', 'desc')->paginate(15);
+        return view('generalsub')->with('cat', $cat)->with('subcat', $subcat)->with('products', $products);
     }
     public function about()
     {
@@ -65,9 +70,27 @@ class PagesController extends Controller
         return view('orderhistory');
     }
 
-    public function invoicepage()
+    public function invoicepage($id)
     {
-        return view('invoicepage');
+        $order = Order::where('product_id','=',$id)->first();
+        return view('invoicepage')->with('order', $order);
+    }
+
+    public function buyNow(Request $request, $id)
+    {
+        $neworder = new Order();
+        $neworder->product_id = $id;
+        $neworder->buyer_id = Auth::user()->username;
+        $neworder->SN = '000000'.$id;
+        $neworder->color = $request->input('color');
+        $neworder->size = $request->input('size');
+        $neworder->quantity = $request->input('quantity');
+        $neworder->price = $request->input('price');
+        $neworder->save();
+
+        $order = Order::where('product_id','=',$id)->first();
+        $id = $order->id;
+        return redirect('invoicepage')->with('id', $id);
     }
 
     public function product_details(Request $request,$product){
@@ -93,42 +116,42 @@ class PagesController extends Controller
 
     public function cart()
     {
-        $product=[];
-         $carts= Cart::all();
-         foreach ($carts as $cart) {
+        $carts = Cart::where('buyer_id', Auth::user()->username)->get();
+        $total = 0;
 
-             $addon=Product::where('id',$cart->identity)->get();
-             $cart=[$cart,...$addon];
-             array_push($product,$cart);
-         }
-        $total=0;
-
-        return view('cart',['total'=>$total,"products"=>$product])->with('cart');
+        return view('cart')->with('carts',$carts)->with('total',$total);
     }
 
     public function submitcart(Request $request,)
     {
 
-//        dd($request);
-//       $validate=$request->validate([
-//            'color' => ['required', 'string'],
-//            'quantity' => ['required', 'string'],
-//            'color' => ['required', 'string'],
-//     ]);
-       $cart=new Cart();
-
-        $data = [
-            'name' =>$request->input('name'),
-            'identity' => $request->input('identity'),
-            'quantity' => $request->input('quantity'),
-            'size' => $request->input('size'),
-            'color' => $request->input('color'),
-        ];
+        $request->validate([
+            'color' => ['required', 'string'],
+            'quantity' => ['required', 'string'],
+            'size' => ['required', 'string'],
+        ]);
 
 
-        Cart::create($data);
-
+        $cart = new Cart();
+        $cart->product_id = $request->input('identity');
+        $cart->buyer_id = Auth::user()->username;
+        $cart->quantity = $request->input('quantity');
+        $cart->size = $request->input('size');
+        $cart->color = $request->input('color');
+        $cart->save();
         return redirect()->route('cart')->with('message', 'Product added successfully');
+    }
+
+    public function deleteCart($id)
+    {
+        if ($id == 0){
+            Cart::truncate();
+        }
+        else{
+            $item = Cart::find($id);
+            $item->delete();
+        }
+        return redirect()->route('cart')->with('message', 'Product deleted successfully');
     }
 }
 

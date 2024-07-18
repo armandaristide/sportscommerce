@@ -26,37 +26,9 @@
     @endif
 
     @if(session()->has('message'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> {{ session()->get('message') }}</strong>. Check the Categories Table for Updates
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal fade theme-modal remove-coupon" id="exampleModalToggle2" aria-hidden="true" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center" id="exampleModalLabel12">Done!</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="remove-box text-center">
-                            <div class="wrapper">
-                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
-                                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                                </svg>
-                            </div>
-                            <h4 class="text-content">{{ session()->get('message') }}</h4>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong>  {{ session()->get('message') }}
         </div>
     @endif
 
@@ -66,7 +38,7 @@
                 <div class="card-header card-header-top card-header--2 px-0 pt-0">
                     <h5>Profile Settings</h5>
                 </div>
-                <form class="theme-form theme-form-2 mega-form">
+                <form class="theme-form theme-form-2 mega-form" method="POST" action="{{ route('submit.editprofile',\Illuminate\Support\Facades\Auth::user()->id) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="mb-4 row align-items-center">
@@ -78,7 +50,7 @@
                         <div class="mb-4 row align-items-center">
                             <label class="form-label-title col-sm-2 mb-0">Name</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="name" value="{{$profile->name}}">
+                                <input class="form-control" style="color: black" type="text" required name="name" value="{{$profile->name}}">
                             </div>
                         </div>
 
@@ -86,7 +58,7 @@
                             <label class="form-label-title col-sm-2 mb-0">Phone
                                 Number</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="tel" name="phone" value="{{$profile->phone}}">
+                                <input class="form-control" style="color: black" type="tel" name="phone" required value="{{$profile->phone}}">
                             </div>
                         </div>
 
@@ -94,17 +66,29 @@
                             <label class="form-label-title col-sm-2 mb-0">Email
                                 Address</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="email" name="email" value="{{$profile->email}}">
+                                <input class="form-control" style="color: black" type="email" required name="email" value="{{$profile->email}}">
                             </div>
                         </div>
 
                         <div class="mb-4 row align-items-center">
                             <label class="form-label-title col-sm-2 mb-0">Password</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="password" name="password" value="{{$profile->password}}">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <input class="form-control" style="color: black" type="password" name="password" readonly  value="{{$profile->password}}">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a class="btn btn-solid" href="#">Change Password</a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
+
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="submit" class="btn btn-primary w-100 h-100" data-bs-original-title="" title="">Submit</button>
                     </div>
                 </form>
             </div>
@@ -125,7 +109,7 @@
                                         <div class="media align-items-center static-top-widget">
                                             <div class="media-body p-0">
                                                 <span class="m-0">Total Uploaded Products</span>
-                                                <h4 class="mb-0 counter">0
+                                                <h4 class="mb-0 counter">{{count($products)}}
                                                     <span class="badge badge-light-primary grow">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>0%</span>
                                                 </h4>
@@ -161,8 +145,8 @@
                                     <div class="media static-top-widget">
                                         <div class="media-body p-0">
                                             <span class="m-0">Total Products In Stock</span>
-                                            <h4 class="mb-0 counter">0
-                                                <a href="#" class="badge badge-light-success grow" data-bs-original-title="" title="">
+                                            <h4 class="mb-0 counter">{{count($products)}}
+                                                <a href="{{route('addProduct')}}" class="badge badge-light-success grow" data-bs-original-title="" title="">
                                                     ADD NEW</a>
                                             </h4>
                                         </div>
@@ -181,7 +165,7 @@
                                         <div class="media-body p-0">
                                             <span class="m-0">Products Out of Stock</span>
                                             <h4 class="mb-0 counter">0
-                                                <a href="#" class="badge badge-light-danger grow" data-bs-original-title="" title="">
+                                                <a href="{{route('addProduct')}}" class="badge badge-light-danger grow" data-bs-original-title="" title="">
                                                     ADD NEW</a>
                                             </h4>
                                         </div>
@@ -248,7 +232,7 @@
 
                                             <td>{{$product->quantity}}</td>
 
-                                            <td class="td-price">${{$product->price}}</td>
+                                            <td class="td-price">€{{$product->price}}</td>
 
                                             <td class="status-danger">
                                                 <span>{{$product->tag}}</span>
@@ -282,7 +266,11 @@
 
                                 </tbody>
                             </table>
+                            <div class="container pt-4 text-center" style="text-decoration-color: red">
+                                <p style="color: black">{{ $products->links("pagination::bootstrap-4")}}</p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
