@@ -2,31 +2,8 @@
 @section('title','SELLER ADMIN Dashboard | LEVEL UP ')
 @section('content')
 
-    @if (session()->has('message'))
-        <script>
-            'use strict';
-            var notify = $.notify('<i class="fas fa-bell"></i></i><strong>{{ session()->get('message') }}</strong>...', {
-                type: 'theme',
-                allow_dismiss: true,
-                delay: 4000,
-                showProgressbar: true,
-                timer: 300,
-                // timer: 555555500,
-                animate: {
-                    enter: 'animated fadeInDown',
-                    exit: 'animated fadeOutUp'
-                }
-            });
-
-            setTimeout(function () {
-                notify.update('message', '<i class="fas fa-bell"></i></i><strong>{{ session()->get('message') }}</strong> your data.');
-            }, 1000);
-
-        </script>
-    @endif
-
     @if(session()->has('message'))
-        <div class="alert alert-success alert-dismissible">
+        <div class="alert alert-success alert-dismissible text-black" style="color: black">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>Success!</strong>  {{ session()->get('message') }}
         </div>
@@ -240,20 +217,15 @@
 
                                             <td>
                                                 <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="ri-eye-line"></i>
-                                                        </a>
-                                                    </li>
 
                                                     <li>
-                                                        <a href="javascript:void(0)">
+                                                        <a href="{{route('editProduct',$product->id)}}">
                                                             <i class="ri-pencil-line"></i>
                                                         </a>
                                                     </li>
 
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                                        <a href="{{route('deleteProduct',$product->id)}}">
                                                             <i class="ri-delete-bin-line"></i>
                                                         </a>
                                                     </li>
@@ -314,20 +286,15 @@
 
                                             <td>
                                                 <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="ri-eye-line"></i>
-                                                        </a>
-                                                    </li>
 
                                                     <li>
-                                                        <a href="javascript:void(0)">
+                                                        <a href="{{route('editCategory',$cat->id)}}">
                                                             <i class="ri-pencil-line"></i>
                                                         </a>
                                                     </li>
 
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                                        <a href="{{route('deleteCategory',$cat->id)}}">
                                                             <i class="ri-delete-bin-line"></i>
                                                         </a>
                                                     </li>
