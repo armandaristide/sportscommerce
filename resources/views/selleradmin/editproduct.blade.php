@@ -1,22 +1,22 @@
 @extends('layouts.mastertwo')
-@section('title','ADD PRODUCT  | SELLER ADMIN LEVEL UP ')
+@section('title','EDIT PRODUCT  | SELLER ADMIN LEVEL UP ')
 @section('content')
     <div class="col-12">
         <div class="row">
             <div class="col-sm-8 m-auto">
-                <form class="theme-form theme-form-2 mega-form" method="post" action="{{route('submit.addproduct')}}" enctype="multipart/form-data">
+                <form class="theme-form theme-form-2 mega-form" method="post" action="{{route('submit.editproduct',$product->id)}}" enctype="multipart/form-data">
                     @csrf
                 <div class="card">
                     <div class="card-body">
                         <div class="card-header-2">
-                            <h5>Product Information - Add New Product</h5>
+                            <h5>Product Information - Edit Product</h5>
                         </div>
 
                             <div class="mb-4 row align-items-center">
                                 <label class="form-label-title col-sm-3 mb-0">Product
                                     Name</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="name" required type="text" placeholder="Enter Product Name">
+                                    <input class="form-control" name="name" required type="text" placeholder="{{$product->name}}" value="{{$product->name}}">
                                 </div>
                             </div>
 
@@ -24,7 +24,7 @@
                                 <label class="col-sm-3 col-form-label form-label-title">Category</label>
                                 <div class="col-sm-9">
                                     <select class="js-example-basic-single w-100 select2-hidden-accessible" name="categories" required data-select2-id="select2-data-4-cix8" tabindex="-1" aria-hidden="true">
-                                        <option disabled="" selected>Select Category</option>
+                                        <option value="{{$product->categories}}" selected>{{$product->categories}}</option>
                                         @foreach($cats as $cat)
                                             <option value="{{$cat->categories}}">{{$cat->categories}}</option>
                                         @endforeach
@@ -36,7 +36,7 @@
                                 <label class="col-sm-3 col-form-label form-label-title">Subcategory</label>
                                 <div class="col-sm-9">
                                     <select class="js-example-basic-single w-100 select2-hidden-accessible" required name="subcategories" data-select2-id="select2-data-7-jgm1" tabindex="-1" aria-hidden="true">
-                                        <option disabled="" selected>Select Subcategory</option>
+                                        <option value="{{$product->subcategories}}" selected>{{$product->subcategories}}</option>
                                         <option value="Clothing">Clothing</option>
                                         <option value="Footwear">Footwear</option>
                                         <option value="Accessories">Accessories</option>
@@ -47,7 +47,7 @@
                             <label class="col-sm-3 col-form-label form-label-title">Tag</label>
                             <div class="col-sm-9">
                                 <select class="js-example-basic-single w-100 select2-hidden-accessible" required name="tag" data-select2-id="select2-data-7-jgm1" tabindex="-1" aria-hidden="true">
-                                    <option disabled="" selected>Select Tag</option>
+                                    <option value="{{$product->tag}}" selected>{{$product->tag}}</option>
                                     <option value="Boots">Boots</option>
                                     <option value="Shoes">Shoes</option>
                                     <option value="Socks">Socks</option>
@@ -78,7 +78,7 @@
                                 <label class="form-label-title col-sm-3 mb-0">Product
                                     Description</label>
                                 <div class="col-md-9">
-                                    <textarea name="description" rows="10" cols="78"></textarea>
+                                    <textarea name="description"  rows="10" cols="78">{{$product->description}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -96,20 +96,20 @@
                         <div class="mb-4 row align-items-center">
                             <label class="form-label-title col-sm-3 mb-0">Brand</label>
                             <div class="col-sm-9">
-                                <input class="form-control" name="brand" required type="text" placeholder="Enter Size Options">
+                                <input class="form-control" name="brand" value="{{$product->brand}}" required type="text" placeholder="{{$product->brand}}">
                             </div>
                         </div>
 
                         <div class="mb-4 row align-items-center">
                             <label class="form-label-title col-sm-3 mb-0">Quantity</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="number" name="quantity" min="0" required placeholder="Enter Quantity">
+                                <input class="form-control" type="number" name="quantity" min="0" value="{{$product->quantity}}" required placeholder="{{$product->quantity}}">
                             </div>
                         </div>
                         <div class="mb-4 row align-items-center">
                             <label class="col-sm-3 form-label-title">price</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="number" name="price" placeholder="enter numeric value only">
+                                <input class="form-control" type="number" name="price" value="{{$product->price}}" placeholder="{{$product->price}}">
                             </div>
                         </div>
 
@@ -127,25 +127,25 @@
                             <div class="mb-4 row align-items-center">
                                 <label class="col-sm-3 col-form-label form-label-title">Image One</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control form-choose" type="text" id="formFile" name="imageone" placeholder="Enter Image URL" required>
+                                    <input class="form-control form-choose" type="text" id="formFile" name="imageone" value="{{$product->imageone}}" placeholder="{{$product->imageone}}" required>
                                 </div>
                             </div>
                             <div class="mb-4 row align-items-center">
                                 <label class="col-sm-3 col-form-label form-label-title">Image Two</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control form-choose" type="text" id="formFile" name="imagetwo" placeholder="Enter Image URL" required>
+                                    <input class="form-control form-choose" type="text" id="formFile" name="imagetwo" value="{{$product->imagetwo}}" placeholder="{{$product->imagetwo}}" required>
                                 </div>
                             </div>
                             <div class="mb-4 row align-items-center">
                                 <label class="col-sm-3 col-form-label form-label-title">Image Three</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control form-choose" type="text" id="formFile" name="imagethree" placeholder="Enter Image URL" required>
+                                    <input class="form-control form-choose" type="text" id="formFile" name="imagethree" value="{{$product->imagethree}}" placeholder="{{$product->imagethree}}" required>
                                 </div>
                             </div>
                             <div class="mb-4 row align-items-center">
                                 <label class="col-sm-3 col-form-label form-label-title">Image Four</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control form-choose" type="text" id="formFile" name="imagefour" placeholder="Enter Image URL" required>
+                                    <input class="form-control form-choose" type="text" id="formFile" name="imagefour" value="{{$product->imagefour}}" placeholder="{{$product->imagefour}}" required>
                                 </div>
                             </div>
 

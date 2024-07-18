@@ -1,19 +1,20 @@
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400 text-center">
-        <h2> RESET  PASSWORD</h2>
+       <h2> {{ __('RESET USER PASSWORD') }}</h2>
     </div>
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 
         <!-- Password Reset Token -->
-        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+        <input type="hidden" name="token" value="#">
+
 
         <!-- Email Address -->
 
         <div class="mt-4 row">
             <div class="container">
                 <div class="col-md-4">
-                    <h2 class="text-white">Email: <strong class="text-white">{{old('email', $request->email)}}</strong> </h2>
+                    <h2 class="text-white">Email: <strong class="text-white">{{$user->email}}</strong> </h2>
                 </div>
             </div>
         </div>
