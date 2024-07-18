@@ -53,13 +53,16 @@ class CartController extends Controller
     public function deleteItem($id)
     {
         $cart = session()->get('cart');
+
         if (isset($cart[$id])) {
             unset($cart[$id]);
             session()->put('cart', $cart);
             session()->flash('success', 'Product successfully deleted.');
         }
-        return back();
+
+        return redirect()->route('cart.list'); // Redirect to cart page after deletion
     }
+
 
     public function updateCart(Request $request, $id)
     {
@@ -78,4 +81,12 @@ class CartController extends Controller
 
         return response()->json(['total' => $total], 200);
     }
+
+    public function clearCart()
+    {
+        session()->forget('cart');
+        session()->flash('success', 'Cart cleared successfully.');
+        return redirect()->route('cart.list');
+    }
+
 }

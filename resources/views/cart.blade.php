@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','My Cart | LEVEL UP')
+@section('title', 'My Cart | LEVEL UP')
 @section('content')
 
     <!-- Breadcrumb section start -->
@@ -80,12 +80,12 @@
                                         <div class="qty-box">
                                             <div class="input-group">
                                                 <input type="number" name="quantity" class="form-control input-number"
-                                                       value="{{ $cart['quantity'] }}" min="1" data-id="{{ $cart['id'] }}">
+                                                       value="{{ $cart['quantity'] }}" min="1" max="10" data-id="{{ $cart['id'] }}">
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="{{ route('cart.delete', $cart['id']) }}">
+                                        <a href="{{ route('cart.delete', $cart['id']) }}" onclick="return confirm('Are you sure you want to delete this item?');">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -96,62 +96,61 @@
                             @endforeach
                             </tbody>
                         </table>
-                    @else
-                        <div>
-                            <p>Your Cart is EMPTY 😔</p>
-                        </div>
-                    @endif
-                </div>
 
-                <!-- Cart totals and checkout section -->
-                @if(count($carts) > 0)
-                    <div class="col-12 mt-md-5 mt-4">
-                        <div class="row">
-                            <div class="col-sm-7 col-5 order-1">
-                                <div class="left-side-button text-end d-flex d-block justify-content-end">
-                                    <a href="{{ route('clear.cart') }}"
-                                       class="text-decoration-underline theme-color d-block text-capitalize">Clear All Items</a>
+                        <!-- Cart totals and checkout section -->
+                        <div class="col-12 mt-md-5 mt-4">
+                            <div class="row">
+                                <div class="col-sm-7 col-5 order-1">
+                                    <div class="left-side-button text-end d-flex d-block justify-content-end">
+                                        <a href="{{ route('cart.clear') }}"
+                                           class="text-decoration-underline theme-color d-block text-capitalize">Clear All Items</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-5 col-7">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cart-checkout-section">
-                        <div class="row g-4">
-                            <div class="col-lg-6">
-                                <div class="cart-box">
-                                    <div class="cart-box-details">
-                                        <div class="total-details">
-                                            <div class="top-details">
-                                                <h3 class="text-center">Cart Totals</h3>
-                                                <h6>Subtotal<span id="subtotal">€{{ $total }}</span></h6>
-                                                <h6>Shipping Fee <span>FREE</span></h6>
-                                            </div>
-                                            <div class="bottom-details">
-                                                <h3>Total: €<span id="grand-total">{{ $total }}</span></h3>
+                                <div class="col-sm-5 col-7">
+                                    <div class="cart-box">
+                                        <div class="cart-box-details">
+                                            <div class="total-details">
+                                                <div class="top-details">
+                                                    <h3 class="text-center">Cart Totals</h3>
+                                                    <h6>Subtotal<span id="subtotal">€{{ $total }}</span></h6>
+                                                    <h6>Shipping Fee <span>FREE</span></h6>
+                                                </div>
+                                                <div class="bottom-details">
+                                                    <h3>Total: €<span id="grand-total">{{ $total }}</span></h3>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-2 col-sm-6">
-                                <div class="left-side-button float-start">
-                                    <a href="{{ route('index') }}"
-                                       class="btn btn-solid-default btn fw-bold mb-0 ms-0">
-                                        <i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                        </div>
+
+                        <div class="cart-checkout-section">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="left-side-button float-start">
+                                        <a href="{{ route('index') }}"
+                                           class="btn btn-solid-default btn fw-bold mb-0 ms-0">
+                                            <i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 ">
-                                <div class="checkout-button">
-                                    <a href="{{ route('checkout') }}" class="btn btn-solid-default btn fw-bold">
-                                        Check Out <i class="fas fa-arrow-right ms-1"></i></a>
+                                <div class="col-lg-6">
+                                    <div class="checkout-button">
+                                        <a href="{{ route('checkout') }}" class="btn btn-solid-default btn fw-bold">
+                                            Check Out <i class="fas fa-arrow-right ms-1"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endif
+                    @else
+                        <!-- If cart is empty -->
+                        <div class="col-md-12 text-center">
+                            <p>Your Cart is EMPTY 😔</p>
+                            <a href="{{ route('index') }}" class="btn btn-solid-default btn fw-bold">
+                                <i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </section>
