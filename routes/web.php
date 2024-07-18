@@ -66,7 +66,13 @@ Route::get('/subcategories_{prod}', [PagesController::class, 'subcategory'])->na
 Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('generalsub');
 
 /**General user routes **/
-Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
+    Route::get('/reset_user_password_{verify}', [PasswordController::class, 'resetUserPassword'])->name('reset.userpassword');
+
+    Route::get('/user/profile/edit', [DashboardController::class, 'editUserProfilePage'])->name('userProfileEditPage');
+    Route::post('/user/profile/edit', [DashboardController::class, 'editUserProfile'])->name('userProfileEdit');
+});
 
 /**Admin routes **/
 Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
