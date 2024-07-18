@@ -9,7 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
+                    <p>Name: {{ $user->name }}</p>
+                    <p>Email: {{ $user->email }}</p>
+
+                    <a href="{{ route('profile.edit') }}" class="btn btn-primary">Edit Profile</a>
                 </div>
             </div>
 
