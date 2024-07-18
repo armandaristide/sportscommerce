@@ -21,10 +21,7 @@ Route::get('/home', [PagesController::class, 'home'])->name('homePage');
 Route::get('/cart', [PagesController::class, 'cart'])->name('cart');
 Route::post('/cart', [PagesController::class, 'submitcart'])->name('submit.cart');
 Route::get('/delete_cart_{id}', [PagesController::class, 'deleteCart'])->name('delete.cart');
-
-
 //superAdmin
-
 
 //Route::get('/prodcut-list', [CartController::class, 'index']);
 //Route::get('/cart-list', [CartController::class, 'cartList']);
@@ -75,6 +72,7 @@ Route::get('/reset_user_password_{verify}', [\App\Http\Controllers\Auth\Password
 /**Admin routes **/
 Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'adminDashboard'])->name('adminDashboardShow');
+
     Route::post('/edit_profile{id}', [DashboardController::class, 'editProfile'])->name('submit.editprofile');
     Route::get('/add_category', [DashboardController::class, 'addCategory'])->name('addCategory');
     Route::get('/edit_category_{id}', [DashboardController::class, 'editCategory'])->name('editCategory');
@@ -88,6 +86,13 @@ Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
     Route::get('/delete_product_{id}', [DashboardController::class, 'deleteProduct'])->name('deleteProduct');
 
 
+});
+
+
+Route::prefix('admin')->group(function(){
+    Route::get('/login', [AdminAuthController::class, 'login'])->name('adminLogin');
+    Route::post('/loginSubmit', [AdminAuthController::class, 'loginSubmit'])->name('adminLoginSubmit');
+    Route::get('/logout', [AdminAuthController::class, 'adminLogout'])->name('adminLogout');
 });
 
 
