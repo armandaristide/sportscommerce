@@ -61,6 +61,39 @@ class DashboardController extends Controller
         return view('selleradmin.addcategory');
     }
 
+    public function editCategory($id)
+    {
+        $cat = Cat::where('id','=',$id)->first();
+        return view('selleradmin.editcategory')->with('cat', $cat);
+    }
+
+    public function submitEditCategory(Request $request,$id)
+    {
+        $request->validate([
+            'categories' => ['required', 'string'],
+            'backgroundurl' => ['required', 'string'],
+        ]);
+
+        $cat = Cat::where('id','=',$id)->first();
+        $cat->categories = $request->input('categories');
+        $cat->backgroundurl = $request->input('backgroundurl');
+        $cat->save();
+        return redirect()->route('adminDashboardShow')->with('message', 'Category Edited successfully');
+    }
+
+    public function deleteCategory($id)
+    {
+        if ($id == 0){
+            Product::truncate();
+        }
+        else{
+            $item = Cat::find($id);
+            $item->delete();
+        }
+        return redirect()->route('adminDashboardShow')->with('message', 'Category deleted successfully');
+    }
+
+
     public function addProduct()
     {
         $cats = Cat::all();
@@ -107,6 +140,65 @@ class DashboardController extends Controller
         return redirect()->route('adminDashboardShow')->with('message', 'Product added successfully');
     }
 
+    public function editProduct($id)
+    {
+        $cats = Cat::all();
+        $product = Product::where('id','=',$id)->first();
+        return view('selleradmin.editproduct')->with('cats', $cats)->with('product', $product);
+    }
+
+    public function submitEditProduct(Request $request,$id)
+    {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'categories' => ['required', 'string'],
+            'subcategories' => ['required', 'string'],
+            'quantity' => ['required', 'numeric'],
+            'color' => ['required', 'string'],
+            'tag' => ['required', 'string'],
+            'brand' => ['required', 'string'],
+            'imageone' => ['required', 'string'],
+            'imagetwo' => ['required', 'string'],
+            'imagethree' => ['required', 'string'],
+            'imagefour' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'price' => ['required', 'string'],
+            'size' => ['required', 'string'],
+        ]);
+
+        $product = Product::where('id','=',$id)->first();
+        $product->name = $request->input('name');
+        $product->categories = $request->input('categories');
+        $product->subcategories = $request->input('subcategories');
+        $product->color = $request->input('color');
+        $product->tag = $request->input('tag');
+        $product->brand = $request->input('brand');
+        $product->imageone = $request->input('imageone');
+        $product->imagetwo = $request->input('imagetwo');
+        $product->imagethree = $request->input('imagethree');
+        $product->imagefour = $request->input('imagefour');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+        $product->quantity = $request->input('quantity');
+        $product->size = $request->input('size');
+
+        $product->save();
+
+        return redirect()->route('adminDashboardShow')->with('message', 'Product Updated successfully');
+    }
+    public function deleteProduct($id)
+    {
+        if ($id == 0){
+            Product::truncate();
+        }
+        else{
+            $item = Product::find($id);
+            $item->delete();
+        }
+        return redirect()->route('adminDashboardShow')->with('message', 'Product deleted successfully');
+    }
+
+
 
     public function generalUserDashboard()
     {
@@ -148,7 +240,6 @@ class DashboardController extends Controller
             'name' => ['required', 'string'],
             'email' => ['required', 'string'],
             'phone' => ['required', 'string'],
-            'phone' => ['required', 'string'],
             'username' => ['required', 'string'],
         ]);
 
@@ -177,7 +268,6 @@ class DashboardController extends Controller
         $request->validate([
             'name' => ['required', 'string'],
             'email' => ['required', 'string'],
-            'phone' => ['required', 'string'],
             'phone' => ['required', 'string'],
             'username' => ['required', 'string'],
         ]);

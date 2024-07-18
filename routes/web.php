@@ -76,9 +76,17 @@ Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'adminDashboard'])->name('adminDashboardShow');
     Route::post('/edit_profile{id}', [DashboardController::class, 'editProfile'])->name('submit.editprofile');
     Route::get('/add_category', [DashboardController::class, 'addCategory'])->name('addCategory');
+    Route::get('/edit_category_{id}', [DashboardController::class, 'editCategory'])->name('editCategory');
+    Route::post('/edit_category_{id}', [DashboardController::class, 'submitEditCategory'])->name('submit.editCategory');
+    Route::get('/delete_category_{id}', [DashboardController::class, 'deleteCategory'])->name('deleteCategory');
     Route::post('/add_category', [DashboardController::class, 'submitCategory'])->name('submit.addcategory');
     Route::get('/add_product', [DashboardController::class, 'addProduct'])->name('addProduct');
     Route::post('/add_product', [DashboardController::class, 'submitProduct'])->name('submit.addproduct');
+    Route::get('/edit_product_{id}', [DashboardController::class, 'editProduct'])->name('editProduct');
+    Route::post('/edit_product_{id}', [DashboardController::class, 'submitEditProduct'])->name('submit.editproduct');
+    Route::get('/delete_product_{id}', [DashboardController::class, 'deleteProduct'])->name('deleteProduct');
+
+
 });
 
 
