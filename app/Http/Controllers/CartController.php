@@ -3,71 +3,79 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class CartController extends Controller
 {
-    //
-    public function index()
-    {
-
-
-        $products = Product::all();
-        return view('products', compact('products'));
-    }
-
     public function cartList()
     {
-        return view('cart-list');
+        $carts = session()->get('cart', []);
+        $total = 0;
+
+        foreach ($carts as $cart) {
+            $total += $cart['quantity'] * $cart['price'];
+        }
+
+        return view('cart', compact('carts', 'total'));
     }
 
     public function addProductToCart(Request $request)
     {
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity', 1);
-        $cartItemId = $request->input('cart_item_id');
 
-        $productd = Product::find($productId);
+        $product = Product::find($productId);
 
-        if (!$productd) {
-            return response()->json(['error' => 'Prodcut not found'], 404);
+        if (!$product) {
+            return response()->json(['error' => 'Product not found'], 404);
         }
 
         $cart = session()->get('cart', []);
 
         if (isset($cart[$productId])) {
-            // Update quantity if product is already in the cart
             $cart[$productId]['quantity'] += $quantity;
         } else {
-            // Add new item to the cart
             $cart[$productId] = [
-                'id' => $productd->id,
-                'name' => $productd->name,
-                'price' => $productd->price,
+                'id' => $product->id,
+                'name' => $product->name,
+                'price' => $product->price,
                 'quantity' => $quantity,
-                "poster" => $productd->poster
+                'poster' => $product->poster
             ];
         }
 
         session()->put('cart', $cart);
 
-        // Calculate the total quantity
-        $totalQuantity = 0;
-        foreach ($cart as $item) {
-            $totalQuantity += $item['quantity'];
-        }
-        return response()->json(['message' => 'Cart updated', 'cartCount' => $totalQuantity], 200);
+        $totalQuantity = array_sum(array_column($cart, 'quantity'));
+        return response()->json(['message' => 'Product added to cart', 'cartCount' => $totalQuantity], 200);
     }
 
-
-    public function deleteItem(Request $request)
+    public function deleteItem($id)
     {
-        if($request->id) {
-            $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
+        $cart = session()->get('cart');
+        if (isset($cart[$id])) {
+            unset($cart[$id]);
+            session()->put('cart', $cart);
             session()->flash('success', 'Product successfully deleted.');
         }
+        return back();
+    }
+
+    public function updateCart(Request $request, $id)
+    {
+        $quantity = $request->input('quantity');
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] = $quantity;
+            session()->put('cart', $cart);
+        }
+
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['quantity'] * $item['price'];
+        }
+
+        return response()->json(['total' => $total], 200);
     }
 }

@@ -12,19 +12,16 @@ use App\Http\Controllers\CartController;
 ##########################SHERWIN ROUTES#######################################
 Route::get('/about_us', [PagesController::class, 'about'])->name('about');
 
-/**General user dashboard links**/
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+
 
 ############################Habib routes#########################################3
 Route::get('/home', [PagesController::class, 'home'])->name('homePage');
 Route::get('/cart', [PagesController::class, 'cart'])->name('cart');
-Route::post('/cart', [PagesController::class, 'submitcart'])->name('submit.cart');
-Route::get('/delete_cart_{id}', [PagesController::class, 'deleteCart'])->name('delete.cart');
+Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('/cart/add', [CartController::class, 'addProductToCart'])->name('cart.add');
+Route::post('/cart/update/{id}', [CartController::class, 'updateCart'])->name('cart.update');
+Route::get('/cart/delete/{id}', [CartController::class, 'deleteItem'])->name('cart.delete');
+
 //superAdmin
 
 //Route::get('/prodcut-list', [CartController::class, 'index']);
@@ -70,8 +67,13 @@ Route::get('/subcategories_{prod}', [PagesController::class, 'subcategory'])->na
 Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('generalsub');
 
 /**General user routes **/
-Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
-Route::get('/reset_user_password_{verify}', [\App\Http\Controllers\Auth\PasswordController::class, 'resetUserPassword'])->name('reset.userpassword');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
+    Route::get('/reset_user_password_{verify}', [PasswordController::class, 'resetUserPassword'])->name('reset.userpassword');
+
+    Route::get('/user/profile/edit', [DashboardController::class, 'editUserProfilePage'])->name('userProfileEditPage');
+    Route::post('/user/profile/edit', [DashboardController::class, 'editUserProfile'])->name('userProfileEdit');
+});
 
 /**Admin routes **/
 Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
