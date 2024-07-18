@@ -17,13 +17,9 @@ Route::get('/about_us', [PagesController::class, 'about'])->name('about');
 ############################Habib routes#########################################3
 Route::get('/home', [PagesController::class, 'home'])->name('homePage');
 Route::get('/cart', [PagesController::class, 'cart'])->name('cart');
-Route::post('/submit_cart', [PagesController::class, 'submitcart'])->name('submit.cart');
-Route::get('/cart_list', [CartController::class, 'cartList'])->name('cart.list');
-Route::post('/add-to-cart', [CartController::class, 'addProductToCart'])->name('cart.add');
-Route::get('/delete-from-cart/{id}', [CartController::class, 'deleteItem'])->name('cart.delete');
-Route::post('/update-cart/{id}', [CartController::class, 'updateCart'])->name('cart.update');
-Route::get('/clear-cart', [CartController::class, 'clearCart'])->name('cart.clear');
-Route::get('/checkout', [PagesController::class, 'checkout'])->name('checkout');
+Route::post('/cart', [PagesController::class, 'submitcart'])->name('submit.cart');
+Route::get('/delete_cart_{id}', [PagesController::class, 'deleteCart'])->name('delete.cart');
+
 
 //superAdmin
 
