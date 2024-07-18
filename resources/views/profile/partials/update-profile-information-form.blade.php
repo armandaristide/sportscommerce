@@ -18,9 +18,21 @@
         @method('patch')
 
         <div>
+            <x-input-label for="username" :value="__('Username')" />
+            <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" :value="old('username', $user->username)" disabled />
+            <x-input-error class="mt-2" :messages="$errors->get('username')" />
+        </div>
+
+        <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        </div>
+
+        <div>
+            <x-input-label for="phone" :value="__('Phone')" />
+            <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)" required autocomplete="phone" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
         </div>
 
         <div>
@@ -45,6 +57,24 @@
                     @endif
                 </div>
             @endif
+        </div>
+
+        <div>
+            <x-input-label for="current_password" :value="__('Current Password')" />
+            <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
+            <x-input-error class="mt-2" :messages="$errors->get('current_password')" />
+        </div>
+
+        <div>
+            <x-input-label for="password" :value="__('New Password')" />
+            <x-text-input id="password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-input-error class="mt-2" :messages="$errors->get('password')" />
+        </div>
+
+        <div>
+            <x-input-label for="password_confirmation" :value="__('Confirm New Password')" />
+            <x-text-input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-input-error class="mt-2" :messages="$errors->get('password_confirmation')" />
         </div>
 
         <div class="flex items-center gap-4">

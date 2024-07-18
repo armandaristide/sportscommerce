@@ -12,9 +12,13 @@ use App\Http\Controllers\CartController;
 ##########################SHERWIN ROUTES#######################################
 Route::get('/about_us', [PagesController::class, 'about'])->name('about');
 
-
-
-
+/**General user dashboard links**/
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 ############################Habib routes#########################################3
 Route::get('/home', [PagesController::class, 'home'])->name('homePage');

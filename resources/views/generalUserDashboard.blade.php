@@ -12,7 +12,10 @@
                     </div>
                     <div class="card-body">
                         <p>Name: {{ Auth::user()->name }}</p>
+                        <p>Username: {{ Auth::user()->username }}</p>
+                        <p>Phone: {{ Auth::user()->phone }}</p>
                         <p>Email: {{ Auth::user()->email }}</p>
+                        <p>Password: {{ Auth::user()->password }}</p>
                         <p>Type:
                             @if(Auth::user()->type == 0)
                                 User
