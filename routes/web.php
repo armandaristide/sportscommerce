@@ -70,6 +70,7 @@ Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('general
 
 /**General user routes **/
 Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
+Route::get('/reset_user_password_{verify}', [\App\Http\Controllers\Auth\PasswordController::class, 'resetUserPassword'])->name('reset.userpassword');
 
 /**Admin routes **/
 Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
