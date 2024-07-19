@@ -23,16 +23,14 @@
             <div class="row">
                 <div class="col-12">
                     <h3>Shopping Cart</h3>
-                    <nav>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="{{route('index')}}">
-                                    <i class="fas fa-home"></i>
-                                </a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">My Cart</li>
-                        </ol>
-                    </nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{route('index')}}">
+                                <i class="fas fa-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">My Cart</li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -61,16 +59,39 @@
                             <th scope="col">total</th>
                         </tr>
                         </thead>
+
                         @if(count($carts)>0)
 
+
+                                <?php
+                                $n = 0
+                                ?>
+                                <?php
+                                $tot = 0
+                                ?>
+
                             @foreach($carts as $cart)
+                                @push('head')
+                                    <script>
+                                        function calc(n) {
+                                            var price = document.getElementsByClassName("ticket_price")[n].innerHTML;
+                                            var noTickets = document.getElementsByClassName("num")[n].value;
+                                            var total = parseFloat(price) * noTickets;
+                                            var totalf = 0;
+                                            var totalfn = totalf + total;
+                                            if (!isNaN(total))
+                                                document.getElementsByClassName("total")[n].innerHTML = total;
+                                                document.getElementsByClassName("totalf")[n].innerHTML = totalfn;
+                                        }
+                                    </script>
+                                @endpush
+
                                     <?php
                                     $product = \App\Models\Product::where('id','=',$cart->product_id)->first()
                                     ?>
                                     <?php
                                     $total = $total + ( $cart->quantity * $product->price)
                                     ?>
-
 
                                 <tbody>
                                 <tr>
@@ -81,7 +102,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="$">{{$product->name}}</a>
+                                        <a href="#">{{$product->name}}</a>
                                         <div class="mobile-cart-content row">
                                             <div class="col">
                                                 <div class="qty-box">
@@ -102,12 +123,13 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <h2>€{{$product->price}}</h2>
+                                        <h2>€<span class="ticket_price">{{$product->price}}</span></h2>
                                     </td>
                                     <td>
                                         <div class="qty-box">
+
                                             <div class="input-group">
-                                                <input type="number" name="quantity" class="form-control input-number"
+                                                <input type="number" name="quantity" min="1"  oninput="calc({{$n}})" required max="{{$product->quantity}}" class="form-control  num"
                                                        value={{$cart->quantity}}>
                                             </div>
                                         </div>
@@ -118,10 +140,21 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <h2 class="td-color">€{{$cart->quantity * $product->price }}</h2>
+
+                                        <h2 class="td-color">€<span class="total">
+                                                  <?php
+                                                    $tot = $tot + ($product->price*$cart->quantity)
+                                                    ?>
+                                                {{$product->price*$cart->quantity}}
+                                            </span></h2>
                                     </td>
                                 </tr>
                                 </tbody>
+                                        <?php
+                                        $n = $n+1
+                                        ?>
+
+
                             @endforeach
 
                         @else
@@ -156,13 +189,13 @@
                             <div class="cart-box">
                                 <div class="cart-box-details">
                                     <div class="total-details">
-                                        <div class="top-details">
+                                        <div class="top-details" id="here">
                                             <h3 class="text-center">Cart Totals</h3>
-                                            <h6>Subtotal<span>€{{$total}}</span></h6>
+                                            <h6>Subtotal<span class="totalfn">€{{$tot}}</span></h6>
                                             <h6>Shipping Fee <span>FREE</span></h6>
                                         </div>
                                         <div class="bottom-details">
-                                            <a> <h3>Total: €{{$total}}</h3></a>
+                                            <a> <h3>Total: €{{$tot}}</h3></a>
                                         </div>
                                     </div>
                                 </div>

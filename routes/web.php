@@ -31,7 +31,7 @@ Route::get('/delete_cart_{id}', [PagesController::class, 'deleteCart'])->name('d
 #####################################SIDDHARTH ROUTES####################################
 Route::get('/sport', [PagesController::class, 'sport'])->name('sportcat');
 Route::get('/categories_{cat}', [PagesController::class, 'catpage'])->name('categories');
-Route::get('/filter/{category_subcategory}', [PagesController::class, 'filter'])->name('filter');
+Route::get('/filter_{category_subcategory}', [PagesController::class, 'filter'])->name('filter');
 ############################################ARPIT ROUTES###########################################
 
 
@@ -60,7 +60,7 @@ Route::get('/invoicepage_{id}', [PagesController::class, 'invoicepage'])->name('
 #####################ARMAND'S ROUTES#################################################
 Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/product_details_{prod}', [PagesController::class, 'productDetails'])->name('productdets');
-Route::post('/buy_now{prod}', [PagesController::class, 'buyNow'])->name('buy.now');
+Route::post('/buy_now_{prod}', [PagesController::class, 'buyNow'])->name('buy.now');
 Route::get('/subcategories_{prod}', [PagesController::class, 'subcategory'])->name('subcat');
 Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('generalsub');
 

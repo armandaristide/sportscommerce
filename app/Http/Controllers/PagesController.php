@@ -73,11 +73,18 @@ class PagesController extends Controller
     public function invoicepage($id)
     {
         $order = Order::where('product_id','=',$id)->first();
-        return view('invoicepage')->with('order', $order);
+        $product = Product::where('id','=', $id)->first();
+        return view('invoicepage')->with('order', $order)->with('product', $product);
     }
 
     public function buyNow(Request $request, $id)
     {
+        $request->validate([
+            'color' => ['required', 'string'],
+            'quantity' => ['required', 'string'],
+            'size' => ['required', 'string'],
+        ]);
+
         $neworder = new Order();
         $neworder->product_id = $id;
         $neworder->buyer_id = Auth::user()->username;
@@ -88,9 +95,10 @@ class PagesController extends Controller
         $neworder->price = $request->input('price');
         $neworder->save();
 
-        $order = Order::where('product_id','=',$id)->first();
-        $id = $order->id;
-        return redirect('invoicepage')->with('id', $id);
+        $update = Product::where('id','=', $id)->first();
+        $update->quantity = $update->quantity - $neworder->quantity;
+        $update->save();
+        return redirect()->route('invoicepage',$id);
     }
 
     public function product_details(Request $request,$product){
