@@ -32,14 +32,14 @@
                     </ul>
                     <div class="container" style="text-align: left">
                         <div class="row">
-                            <li class="breadcrumb-item">
+                            <h3 class="breadcrumb-item">
                                 <a href="{{route('index')}}">
                                     <i class="fas fa-home"></i>
                                 </a>/
                                 <a  class="text-capitalize text-white" href="{{route('categories',$product->categories)}}">
                                     {{$product->categories}}
-                                </a> /{{$product->name}}
-                            </li>
+                                </a>/<strong style="color:#fcb320">{{$product->name}}</strong>
+                            </h3>
 
                             <div class="col-12">
                                 <h1 class="text-white">Product Details</h1>
@@ -98,14 +98,16 @@
                                                 <h3 class="price-detail">€{{$product->price}} <del>€{{$product->price*2}}</del><span>50% off</span></h3>
                                                 <h4 style="text-align: justify">{{$product->description}}</h4>
 
-                                                <form class="row g-2" method="POST" action="{{ route('submit.cart') }}" enctype="multipart/form-data">
+                                                <form class="row g-2" method="POST"  enctype="multipart/form-data">
+
                                                     @csrf
 
 {{--                                                    WORK HERE HABIB--}}
                                                     @if (Route::has('login'))
                                                         @auth
+                                                            <input class="form-control" type="text" name="price" value="{{$product->price}}" hidden>
 
-                                                    <div class="color-image">
+                                                            <div class="color-image">
                                                         <input type="radio"   name="identity" value="{{$product->id}}" checked hidden >
 
                                                         <div class="image-select">
@@ -166,26 +168,21 @@
 
                                                         <div class="qty-box">
                                                             <div class="input-group">
+
                                                 <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
-                                                        <i class="fas fa-minus"></i>
-                                                    </button>
-                                                </span>
-                                                                <input type="text" name="quantity" required style="height: 50px;" class="form-control input-number" max="{{$product->quantity}}" value="1">
-                                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-right-plus" data-type="plus" data-field="">
-                                                        <i class="fas fa-plus"></i>
-                                                    </button>
+                                                    <button onclick="document.querySelector('#steve').value=parseInt(document.querySelector('#steve').value)<1?parseInt(document.querySelector('#steve').value):parseInt(document.querySelector('#steve').value)-1"">-</button>
+                                                    <input name="quantity" type="number" id="steve" min="1" max="{{$product->quantity}}" value="1">
+                                                    <button onclick="document.querySelector('#steve').value=parseInt(document.querySelector('#steve').value)>19?parseInt(document.querySelector('#steve').value):parseInt(document.querySelector('#steve').value)+1">+</button>
                                                 </span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                             <div class="product-buttons">
-                                                                <a href="#" class="btn btn-solid">
+                                                                <button type="submit" id="cartEffect" value="buynow" formaction="{{route('buy.now',$product->id)}}" class="btn btn-solid hover-solid btn-animation">
                                                                     <i class="fa fa-money-bill fz-16 me-2"></i>
                                                                     <span>BUY NOW</span>
-                                                                </a>
-                                                                <button type="submit" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+                                                                </button>
+                                                                <button type="submit" id="cartEffect" value="addcart" formaction="{{ route('submit.cart') }}" class="btn btn-solid hover-solid btn-animation">
                                                                     <i class="fa fa-shopping-cart"></i>
                                                                     <span>Add To Cart</span>
                                                                 </button>
@@ -310,12 +307,12 @@
                                                                                                         <div class="product-box">
                                                                                                             <div class="img-wrapper">
                                                                                                                 <div class="front">
-                                                                                                                    <a href="http://localhost:8000/product_details_1" tabindex="0" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;{{$similar->imageone}};); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                                                                                                    <a href="{{route('productdets',$similar->id)}}" tabindex="0" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;{{$similar->imageone}};); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
                                                                                                                         <img src="{{$similar->imageone}}" class="bg-img blur-up lazyload" alt="" style="display: none;">
                                                                                                                     </a>
                                                                                                                 </div>
                                                                                                                 <div class="back">
-                                                                                                                    <a href="http://localhost:8000/product_details_1" tabindex="0" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;{{$similar->imagetwo}};); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                                                                                                    <a href="{{route('productdets',$similar->id)}}" tabindex="0" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;{{$similar->imagetwo}};); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
                                                                                                                         <img src="{{$similar->imagetwo}}" class="bg-img blur-up lazyload" alt="" style="display: none;">
                                                                                                                     </a>
                                                                                                                 </div>
@@ -350,7 +347,7 @@
                                                                                                                     </ul>
                                                                                                                 </div>
                                                                                                                 <div class="main-price" id="quick-view">
-                                                                                                                    <a href="http://localhost:8000/product_details_1" class="font-default" tabindex="0">
+                                                                                                                    <a href="{{route('productdets',$similar->id)}}" class="font-default" tabindex="0">
                                                                                                                         <h5>
                                                                                                                             {{$similar->name}}</h5>
                                                                                                                     </a>

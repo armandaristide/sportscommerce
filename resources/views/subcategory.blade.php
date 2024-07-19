@@ -60,7 +60,7 @@
                                                 Filters
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="filterDropdown">
-                                                <form method="GET" action="{{ url('/filter/' . $cat . '_' . $subcate ) }}">
+                                                <form method="GET" action="{{ route('filter',  $cat . '_' . $subcate ) }}">
                                                 <!-- Price Filter -->
                                                 <div class="dropdown" onclick="event.stopPropagation();">
                                                     <label for="price_range">Price Range</label>

@@ -43,14 +43,15 @@
                             <tbody>
                             <tr class="table-order">
                                 <td>
-                                    <a href="javascript:void(0)">
+                                    <a href="{{route('productdets',$product->id)}}">
                                         <img src="{{$order->color}}" class="img-fluid blur-up lazyloaded" alt="">
                                     </a>
                                 </td>
                                 <td>
                                     <p>Product Name</p>
-                                    <h5>###</h5>
+                                    <h5>{{$product->name}} ({{$order->size}})</h5>
                                 </td>
+
                                 <td>
                                     <p>Quantity</p>
                                     <h5>{{$order->quantity}}</h5>
@@ -67,7 +68,7 @@
                                     <h5 class="font-light">Subtotal :</h5>
                                 </td>
                                 <td>
-                                    <h4>€{{$order->price}}</h4>
+                                    <h4>€{{$order->price * $order->quantity}}</h4>
                                 </td>
                             </tr>
 
@@ -85,7 +86,7 @@
                                     <h4 class="theme-color fw-bold">Total Price :</h4>
                                 </td>
                                 <td>
-                                    <h4 class="theme-color fw-bold">€##</h4>
+                                    <h4 class="theme-color fw-bold">€{{$order->price * $order->quantity}}</h4>
                                 </td>
                             </tr>
                             </tfoot>
@@ -96,11 +97,11 @@
                     <div class="order-success">
                         <div class="row g-4">
                             <div class="col-sm-6">
-                                <h4>summery</h4>
+                                <h4>Order Summary</h4>
                                 <ul class="order-details">
                                     <li>Order ID: {{$order->SN}}</li>
                                     <li>Order Date: {{$order->created_at}}</li>
-                                    <li>Order Total: €###</li>
+                                    <li>Order Total: €{{$order->price * $order->quantity}}</li>
                                 </ul>
                             </div>
 

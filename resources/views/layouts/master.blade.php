@@ -1,4 +1,5 @@
 <html lang="en"><head>
+    @stack('head')
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="assets/images/favicon/2.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="assets/images/favicon/2.png">
@@ -500,6 +501,7 @@
     });
     @endif
 </script>
+
 
 
 
