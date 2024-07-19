@@ -63,9 +63,9 @@
                         </thead>
                         @if(count($carts)>0)
 
-                        @foreach($carts as $cart)
-                                <?php
-                                $product = \App\Models\Product::where('id','=',$cart->product_id)->first()
+                            @foreach($carts as $cart)
+                                    <?php
+                                    $product = \App\Models\Product::where('id','=',$cart->product_id)->first()
                                     ?>
                                     <?php
                                     $total = $total + ( $cart->quantity * $product->price)
@@ -133,22 +133,22 @@
 
                     </table>
                 </div>
-                    @if(count($carts)>0)
+                @if(count($carts)>0)
 
-                <div class="col-12 mt-md-5 mt-4">
-                    <div class="row">
-                        <div class="col-sm-7 col-5 order-1">
-                            <div class="left-side-button text-end d-flex d-block justify-content-end">
-                                <a href="{{route('delete.cart',0)}}"
-                                   class="text-decoration-underline theme-color d-block text-capitalize">clear
-                                    all items</a>
+                    <div class="col-12 mt-md-5 mt-4">
+                        <div class="row">
+                            <div class="col-sm-7 col-5 order-1">
+                                <div class="left-side-button text-end d-flex d-block justify-content-end">
+                                    <a href="{{route('delete.cart',0)}}"
+                                       class="text-decoration-underline theme-color d-block text-capitalize">clear
+                                        all items</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-7">
                             </div>
                         </div>
-                        <div class="col-sm-5 col-7">
-                        </div>
                     </div>
-                </div>
-                    @endif
+                @endif
 
                 <div class="cart-checkout-section">
                     <div class="row g-4">
@@ -178,12 +178,12 @@
 
                         @if(count($carts)>0)
 
-                        <div class="col-lg-4 col-sm-6 ">
-                            <div class="checkout-button">
-                                <a href="#" class="btn btn-solid-default btn fw-bold">
-                                    Check Out <i class="fas fa-arrow-right ms-1"></i></a>
+                            <div class="col-lg-4 col-sm-6 ">
+                                <div class="checkout-button">
+                                    <a href="#" class="btn btn-solid-default btn fw-bold">
+                                        Check Out <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
                             </div>
-                        </div>
                         @endif
                     </div>
                 </div>

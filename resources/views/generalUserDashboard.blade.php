@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <h3 class="card-title">Customer Details</h3>
                     </div>
                     <div class="card-body">
@@ -25,6 +25,10 @@
                                 Super Admin
                             @endif
                         </p>
+                        <!-- Button to navigate to the edit profile page -->
+                        <div class="text-center mt-4">
+                            <a href="{{ route('userProfileEditPage') }}" class="btn btn-primary">Edit Profile</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,7 +60,7 @@
                                     <td>{{ $order->buyer_id }}</td>
                                     <td>{{ $order->product_id }}</td>
                                     <td>{{ $order->colour }}</td>
-                                    <td>{{ $order->size  }}</td>
+                                    <td>{{ $order->size }}</td>
                                     <td>{{ $order->quantity }}</td>
                                     <td>{{ $order->price }}</td>
                                 </tr>

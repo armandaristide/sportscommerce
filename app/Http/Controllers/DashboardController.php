@@ -12,6 +12,39 @@ use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
+    // user controllers
+    public function editUserProfilePage()
+    {
+        $user = Auth::user();
+        return view('user.editprofile', ['user' => $user]);
+    }
+
+    public function editUserProfile(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string', 'email'],
+            'phone' => ['required', 'string'],
+        ]);
+
+        $userId = Auth::id();
+
+        $updatedData=[
+            'name' =>$request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),];
+
+        if ($request->filled('password')) {
+            $updatedData['password'] = Hash::make($request->input('password'));
+        }
+
+        User::where('id', $userId)->update($updatedData);
+
+        return redirect()->route('dashboard')->with('message', 'Profile updated successfully');
+
+    }
+
+
 
     //
 
@@ -280,7 +313,7 @@ class DashboardController extends Controller
             'phone' => $request->input('phone'),
             'username' => $request->input('username'),];
 
-         $userupdate=User::where('id', $id);
+        $userupdate=User::where('id', $id);
         $userupdate->update($updatedData);
 
         //dd($userseller);
