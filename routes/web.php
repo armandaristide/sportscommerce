@@ -28,11 +28,10 @@ Route::get('/delete_cart_{id}', [PagesController::class, 'deleteCart'])->name('d
 //Route::post('add-to-cart', [CartController::class, 'addProductToCart'])->name('add-product-to-shopping-cart');
 //Route::delete('/delete-cart-product', [CartController::class, 'deleteItem'])->name('delete.cart.product');
 //
-
-
 #####################################SIDDHARTH ROUTES####################################
 Route::get('/sport', [PagesController::class, 'sport'])->name('sportcat');
 Route::get('/categories_{cat}', [PagesController::class, 'catpage'])->name('categories');
+Route::get('/filter/{category_subcategory}', [PagesController::class, 'filter'])->name('filter');
 ############################################ARPIT ROUTES###########################################
 
 

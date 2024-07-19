@@ -112,6 +112,31 @@ class PagesController extends Controller
     {
         return view('sportcategories')->with('cat', $cat);
     }
+    public function filter(Request $request, $category_subcategory) {
+        // Extract category and subcategory from the parameter
+        list($cat, $subcate) = explode('_', $category_subcategory);
+
+        // Fetch the products based on filters
+        $query = Product::where('categories', $cat)->where('subcategories', $subcate);
+
+        if ($request->filled('price_range')) {
+            $priceRange = explode('-', $request->price_range);
+            $query->whereBetween('price', [$priceRange[0], $priceRange[1]]);
+        }
+
+        if ($request->filled('brand')) {
+            $query->where('brand', $request->brand);
+        }
+
+        if ($request->filled('size')) {
+            $query->where('size', $request->size);
+        }
+
+        $products = $query->paginate(12);
+        $tag = $request->tag;
+        // Pass the filtered products and other necessary data to the view
+        return view('subcategory')-> with('products',$products)-> with('cat',$cat)-> with('subcate',$subcate)-> with('request', $request)-> with('tag',$tag);
+    }
 
 
     public function cart()
