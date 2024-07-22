@@ -56,9 +56,7 @@ Route::get('/invoicepage_{id}', [PagesController::class, 'invoicepage'])->name('
 
 
 ####################################ADITHYA ROUTES########################################################
-
-
-
+Route::view('/419', 'errors.419')->name('error.419');
 
 
 
