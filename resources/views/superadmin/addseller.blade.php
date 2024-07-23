@@ -38,15 +38,10 @@
                                 </div> <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Password</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="password" placeholder="Enter URL of banner Image">
+                                        <input class="form-control" type="text" name="password" placeholder="Enter password">
                                     </div>
                                 </div>
-                                <div class="mb-4 row align-items-center">
-                                    <label class="form-label-title col-sm-3 mb-0">Confirm password</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="password" placeholder="Enter URL of banner Image">
-                                    </div>
-                                </div>
+
                             </div>
 
                             <div class="col-4">
