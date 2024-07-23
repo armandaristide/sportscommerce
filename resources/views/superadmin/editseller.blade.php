@@ -30,7 +30,7 @@
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Email</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="email" name="email" value="{{$seller[0]->email}}" placeholder="Enter email">
+                                        <h5>{{$seller[0]->email}}</h5>
                                     </div>
                                 </div> <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Phone No</label>
@@ -40,15 +40,11 @@
                                 </div> <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Password</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="password" value="{{$seller[0]->name}}" placeholder="Enter URL of banner Image">
+                                        <input class="form-control" type="text" name="password"  placeholder="Enter new password">
                                     </div>
                                 </div>
-                                <div class="mb-4 row align-items-center">
-                                    <label class="form-label-title col-sm-3 mb-0">Confirm password</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control" type="text"  placeholder="Enter URL of banner Image">
-                                    </div>
-                                </div>
+
+
                             </div>
 
                             <div class="col-4">

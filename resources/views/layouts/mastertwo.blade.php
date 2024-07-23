@@ -209,10 +209,11 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <x-dropdown-link :href="route('logout')"
-                                         onclick="event.preventDefault(); this.closest('form').submit();">
-                            <button type="button" class="btn btn--yes btn-primary">
+                                         onclick="event.preventDefault(); this.closest('form').submit();"  >
+                            <button type="button" class="btn btn--yes btn-primary" onclick="window.history.forward()" >
                                 {{ __('Yes') }}
                             </button>
+
                         </x-dropdown-link>
                     </form>
                 </div>
