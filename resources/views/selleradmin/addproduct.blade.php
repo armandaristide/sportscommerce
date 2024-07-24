@@ -96,7 +96,7 @@
                         <div class="mb-4 row align-items-center">
                             <label class="form-label-title col-sm-3 mb-0">Brand</label>
                             <div class="col-sm-9">
-                                <input class="form-control" name="brand" required type="text" placeholder="Enter Size Options">
+                                <input class="form-control" name="brand" required type="text" placeholder="Enter Brand Name">
                             </div>
                         </div>
 
