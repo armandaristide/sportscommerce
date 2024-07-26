@@ -155,7 +155,7 @@ class PagesController extends Controller
         return view('cart')->with('carts',$carts)->with('total',$total);
     }
 
-    public function submitcart(Request $request,)
+    public function submitcart(Request $request)
     {
 
         $request->validate([
@@ -185,6 +185,29 @@ class PagesController extends Controller
             $item->delete();
         }
         return redirect()->route('cart')->with('message', 'Product deleted successfully');
+    }
+    public function checkout($carts)
+    {
+        $checkouts = Cart::where('buyer_id','=',$carts)->get();
+        foreach ($checkouts as $checkout) {
+            $neworder = new Order();
+            $neworder->product_id = $checkout->product_id;
+            $neworder->buyer_id = Auth::user()->username;
+            $neworder->SN = '000000'.$carts;
+            $neworder->color = $checkout->color;
+            $neworder->size = $checkout->size;
+            $neworder->quantity = $checkout->quantity;
+            $neworder->price = 000;
+            $neworder->save();
+        }
+
+        return redirect()->route('cart.invoicepage',$carts);
+    }
+
+    public function cartinvoicepage($carts)
+    {
+        $orders = Order::where('buyer_id','=',$carts)->get();
+        return view('cartinvoicepage')->with('orders', $orders);
     }
 }
 

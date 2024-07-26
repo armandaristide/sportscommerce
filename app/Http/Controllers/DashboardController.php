@@ -50,6 +50,7 @@ class DashboardController extends Controller
 
 
 
+
     public function editProfile(Request $request,$id)
     {
         $request->validate([
