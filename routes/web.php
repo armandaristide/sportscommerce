@@ -72,6 +72,11 @@ Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('general
 /**General user routes **/
 Route::middleware(['auth', 'verified'])->get('/dashboard', [\App\Http\Controllers\UsersController::class, 'generalUserDashboard'])->name('dashboard');
 Route::get('/reset_user_password_{verify}', [\App\Http\Controllers\Auth\PasswordController::class, 'resetUserPassword'])->name('reset.userpassword');
+Route::get('/general-user-dashboard', [UsersController::class, 'generalUserDashboard'])->name('generalUserDashboard');
+Route::get('/order/{id}', [OrderController::class, 'viewOrder'])->name('viewOrder');
+Route::post('/submit-edit-profile', [\App\Http\Controllers\UsersController::class, 'submitEditProfile'])->name('submit.edituserprofile');
+
+
 
 /**Admin routes **/
 Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
