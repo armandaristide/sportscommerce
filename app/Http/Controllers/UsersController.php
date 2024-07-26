@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,31 +13,30 @@ class UsersController extends Controller
     public function generalUserDashboard()
     {
         $user = Auth::user();
-        $orders = Order::where('buyer_id', $user->id)->paginate(10); // Paginate the orders for the authenticated user
-
+        $orders = Order::where('buyer_id', '=',$user->username)->get(); // Paginate the orders for the authenticated user
         if ($user->type != 0) {
             return redirect()->route('login')->with('error', "YOU ARE ALREADY LOGGED IN AS A CUSTOMER");
         } else {
-            return view('generalUserDashboard', compact('user', 'orders'));
+            return view('generalUserDashboard')->with('orders', $orders)->with('user', $user);
         }
     }
 
-    public function submitEditProfile(Request $request)
+    public function submitEditProfile(Request $request,$id)
     {
-        $user = Auth::user();
+        $request->validate([
+            'phone' => ['required', 'string'],
+            'name' => ['required', 'string'],
+        ]);
 
-        // Update user details
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-
-        // Update password if provided
-        if ($request->filled('password')) {
-            $user->password = Hash::make($request->password);
+        $user = User::where('id', $id)->first();
+        $user->name = $request->input('name');
+        $user->phone = $request->input('phone');
+        if ($request->input('password') != null) {
+            $user->password = Hash::make($request->input('password'));
         }
-
-        // Save the updated user
         $user->save();
 
-        return redirect()->route('generalUserDashboard')->with('message', 'Profile updated successfully');
+        return redirect()->route('dashboard')->with('success', "Your profile has been updated");
     }
+
 }
