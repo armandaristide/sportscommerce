@@ -2,11 +2,11 @@
 @section('title','GENERAL SUBCATEGORIES | LEVEL UP ')
 @section('content')
     <!-- Breadcrumb section start -->
-    @if($cat== "football")
+    @if($cat == "football")
         <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihbv_kwYq0cqbHBk15PcUwygXa_JGvxK70vUu2yHM6sjql-cMB4-wDOPwk_1ojZdBBGev6x1soXUYBrUvqM8OnSwPGKMSuH5P3c=s1600-rw-v1'); background-size: cover">
-            @elseif($cat== "basketball")
+            @elseif($cat == "basketball")
                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihb21nBUo3P4ZtYAab4XKWcogWPvHUH7nYdDO6fDxJWFP6sGbkCRmGn2YmPIkt5UC8Irqou1dNLZn9OSXPAHXSB2fA3ksmwCxzI=s1600-rw-v1'); background-size: cover">
-                    @elseif($cat== "tennis")
+                    @elseif($cat == "tennis")
                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihafeynsQd6ZKq6eOIuRAAKGsBPALvr7eZi79h8wp_tmbmZ-mM4z6w7cI1wY8GFByXcsewl3kHKRaxm5Gq9TWveNZe9jtgxN6B0=s1600-rw-v1'); background-size: cover">
                             @elseif($cat == "volleyball")
                                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihZTMfzpu4TflPLIU1dYMPZki42eKnY6gCC41qnedx3xn1PctVRN7z3Wb2WK4DbPY8v3gc2MSUMtrcu_BcQKIMu0eQfymI_eiHM=s1600-rw-v1'); background-size: cover">
@@ -17,8 +17,6 @@
                                                     @else
                                                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihZm_arptYYXtWkO9gVErZWPdfXEEaPR-xiAB3YcFjrUXUEEyO4zUCBXGkMn9Ovk4Bz8S_K6VYo5uRUYvEmtcH8KZEVtmEsfMg=s1600-rw-v1');background-size: cover">
                                                             @endif
-
-
                                                             <ul class="circles">
                                                                 <li></li>
                                                                 <li></li>
@@ -33,78 +31,70 @@
                                                             </ul>
                                                             <div class="container" style="text-align: left">
                                                                 <div class="row">
-                                                                    <h3 class="breadcrumb-item text-capitalize text-white"><a  class="text-capitalize"  style="color:#fcb320" href="{{route('categories',$cat)}}">
-                                                                            {{$cat}}
-                                                                        </a>/ <a style="color:#f0f0f0"> {{$subcat}} </a>
+                                                                    <h3 class="breadcrumb-item text-capitalize text-white">
+                                                                        <a class="text-capitalize" style="color:#fcb320" href="{{ route('categories', $cat) }}">
+                                                                            {{ $cat }}
+                                                                        </a> / <a style="color:#f0f0f0"> {{ $subcat }} </a>
                                                                     </h3>
-
                                                                     <div class="col-12">
-                                                                        <h1 class="text-white">All {{$cat}} {{$subcat}}</h1>
-
+                                                                        <h1 class="text-white">All {{ $cat }} {{ $subcat }}</h1>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </section>
-
 
                                                         <section class="section-b-space">
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-lg-12 col-12 ratio_30">
                                                                         <div class="row g-4">
-                                                                            <!-- label and featured section -->
-                                                                            <div class="col-md-12">
-
-                                                                            </div>
-
-                                                                            <div class="col-12">
-                                                                                <div class="title title1 text-left">
-                                                                                    <h2>{{$cat}} {{$subcat}}</h2>
-                                                                                </div>
-                                                                                <div class="filter-options">
-                                                                                    <div class="grid-options d-sm-inline-block d-none">
-
-                                                                                    </div>
-                                                                                    <div class="select-options">
-                                                                                        <div class="page-view-filter">
-                                                                                            <div class="dropdown select-featured">
-                                                                                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                                    20 Items per page
-                                                                                                </button>
-                                                                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
-                                                                                                    <li>
-                                                                                                        <a class="dropdown-item" href="javascript:void(0)">Alphabetically
-                                                                                                            A-Z</a>
-                                                                                                    </li>
-                                                                                                    <li>
-                                                                                                        <a class="dropdown-item" href="javascript:void(0)">Alphabetically
-                                                                                                            Z-A</a>
-                                                                                                    </li>
-                                                                                                    <li>
-                                                                                                        <a class="dropdown-item" href="javascript:void(0)">Price, High To
-                                                                                                            Low</a>
-                                                                                                    </li>
-                                                                                                    <li>
-                                                                                                        <a class="dropdown-item" href="javascript:void(0)">Price, Low To
-                                                                                                            High</a>
-                                                                                                    </li>
-                                                                                                    <li>
-                                                                                                        <a class="dropdown-item" href="javascript:void(0)">Date, Old To
-                                                                                                            New</a>
-                                                                                                    </li>
-                                                                                                    <li>
-                                                                                                        <a class="dropdown-item" href="javascript:void(0)">Date, New To
-                                                                                                            Old</a>
-                                                                                                    </li>
-                                                                                                </ul>
+                                                                            <!-- Filter Button -->
+                                                                            <div class="d-flex justify-content-end mb-3">
+                                                                                <div class="dropdown">
+                                                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                        Filters
+                                                                                    </button>
+                                                                                    <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="filterDropdown">
+                                                                                        <form method="GET" action="{{ route('filter', $cat . '_' . $subcat) }}">
+                                                                                            <!-- Price Filter -->
+                                                                                            <div class="mb-3">
+                                                                                                <label for="price_range">Price Range</label>
+                                                                                                <select id="price_range" name="price_range" class="form-control">
+                                                                                                    <option value="">All</option>
+                                                                                                    <option value="0-50">$0 - $50</option>
+                                                                                                    <option value="51-100">$51 - $100</option>
+                                                                                                    <option value="101-200">$101 - $200</option>
+                                                                                                    <!-- Add more price ranges as needed -->
+                                                                                                </select>
                                                                                             </div>
-                                                                                        </div>
+
+                                                                                            <!-- Brand Filter -->
+                                                                                            <div class="mb-3">
+                                                                                                <label for="brand">Brand</label>
+                                                                                                <select id="brand" name="brand" class="form-control">
+                                                                                                    <option value="">All</option>
+                                                                                                    @foreach($products->unique('brand') as $product)
+                                                                                                        <option value="{{ $product->brand }}">{{ $product->brand }}</option>
+                                                                                                    @endforeach
+                                                                                                </select>
+                                                                                            </div>
+
+                                                                                            <!-- Size Filter -->
+                                                                                            <div class="mb-3">
+                                                                                                <label for="size">Size</label>
+                                                                                                <select id="size" name="size" class="form-control">
+                                                                                                    <option value="">All</option>
+                                                                                                    @foreach($products->unique('size') as $product)
+                                                                                                        <option value="{{ $product->size }}">{{ $product->size }}</option>
+                                                                                                    @endforeach
+                                                                                                </select>
+                                                                                            </div>
+
+                                                                                            <!-- Apply Filters Button -->
+                                                                                            <button type="submit" class="btn btn-primary mt-3">Apply Filters</button>
+                                                                                        </form>
                                                                                     </div>
-
                                                                                 </div>
-
-
-
                                                                             </div>
                                                                         </div>
                                                                         <!-- label and featured section -->
