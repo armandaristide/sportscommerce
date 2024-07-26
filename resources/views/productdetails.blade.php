@@ -170,7 +170,7 @@
                                                             <div class="input-group">
 
                                                 <span class="input-group-prepend">
-                                                    <button onclick="document.querySelector('#steve').value=parseInt(document.querySelector('#steve').value)<1?parseInt(document.querySelector('#steve').value):parseInt(document.querySelector('#steve').value)-1"">-</button>
+                                                    <button onclick="document.querySelector('#steve').value=parseInt(document.querySelector('#steve').value)<1?parseInt(document.querySelector('#steve').value):parseInt(document.querySelector('#steve').value)-1">-</button>
                                                     <input name="quantity" type="number" id="steve" min="1" max="{{$product->quantity}}" value="1">
                                                     <button onclick="document.querySelector('#steve').value=parseInt(document.querySelector('#steve').value)>19?parseInt(document.querySelector('#steve').value):parseInt(document.querySelector('#steve').value)+1">+</button>
                                                 </span>
