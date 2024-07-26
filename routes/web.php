@@ -19,6 +19,7 @@ Route::get('/about_us', [PagesController::class, 'about'])->name('about');
 ############################Habib routes#########################################3
 Route::get('/home', [PagesController::class, 'home'])->name('homePage');
 Route::get('/cart', [PagesController::class, 'cart'])->name('cart');
+Route::get('/checkout_{carts}', [PagesController::class, 'checkout'])->name('checkout');
 Route::post('/cart', [PagesController::class, 'submitcart'])->name('submit.cart');
 Route::get('/delete_cart_{id}', [PagesController::class, 'deleteCart'])->name('delete.cart');
 
@@ -46,6 +47,7 @@ Route::get('/filter_{category_subcategory}', [PagesController::class, 'filter'])
 Route::get('/product', [PagesController::class, 'product'])->name('product');
 Route::get('/orderhistory', [PagesController::class, 'orderhistory'])->name('orderhistory');
 Route::get('/invoicepage_{id}', [PagesController::class, 'invoicepage'])->name('invoicepage');
+Route::get('/cart_invoicepage_{id}', [PagesController::class, 'cartinvoicepage'])->name('cart.invoicepage');
 
 
 ####################################AHBIN ROUTES #######################################################
@@ -63,13 +65,18 @@ Route::get('/filter_{category_subcategory}', [PagesController::class, 'filter'])
 #####################ARMAND'S ROUTES#################################################
 Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/product_details_{prod}', [PagesController::class, 'productDetails'])->name('productdets');
-Route::post('/buy_now{prod}', [PagesController::class, 'buyNow'])->name('buy.now');
+Route::post('/buy_now_{prod}', [PagesController::class, 'buyNow'])->name('buy.now');
 Route::get('/subcategories_{prod}', [PagesController::class, 'subcategory'])->name('subcat');
 Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('generalsub');
 
 /**General user routes **/
 Route::middleware(['auth', 'verified'])->get('/dashboard', [\App\Http\Controllers\UsersController::class, 'generalUserDashboard'])->name('dashboard');
 Route::get('/reset_user_password_{verify}', [\App\Http\Controllers\Auth\PasswordController::class, 'resetUserPassword'])->name('reset.userpassword');
+Route::get('/general-user-dashboard', [UsersController::class, 'generalUserDashboard'])->name('generalUserDashboard');
+Route::get('/order/{id}', [OrderController::class, 'viewOrder'])->name('viewOrder');
+Route::post('/submit-edit-profile', [\App\Http\Controllers\UsersController::class, 'submitEditProfile'])->name('submit.edituserprofile');
+
+
 
 /**Admin routes **/
 Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){

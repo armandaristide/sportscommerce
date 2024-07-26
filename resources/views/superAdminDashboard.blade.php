@@ -244,53 +244,41 @@
                 </div>
                 <div>
                     <div class="table-responsive">
-                        <div id="table_id_wrapper" class="dataTables_wrapper no-footer">
-                            <table class="table all-package theme-table table-product dataTable no-footer" id="table_id" >
+                         <div id="table_id_wrapper" class="dataTables_wrapper no-footer">
+                            <table class="table all-package theme-table table-product dataTable no-footer" id="table_id">
                                 <thead>
                                 <tr>
+                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Image</th>
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">S.No</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Q.No</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Seller Name</th>
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Product Name</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Category</th>
-{{--                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Delete</th>--}}
-
+                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Product Category</th>
+                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Seller</th>
+                 
+                                 
                                 </tr>
                                 </thead>
 
-                                <tbody style="max-height:500px;overflow-y:auto;">
+                                <tbody>
                                 @if(count($products)!=0)
                                     @foreach($products as $product)
                                         <tr class="odd">
-
+                                            <td>
+                                                <div class="table-image">
+                                                    <img src="{{$product->imageone}}" class="img-fluid" width="50%" alt="image">
+                                                </div>
+                                            </td>
 
                                             <td class="text-wrap">{{$product->id}}</td>
-                                            <td>{{$product->quantity}}</td>
-                                            <td class="text-wrap">{{$product->seller}}</td>
-                                            <td class="text-wrap">{{$product->name}}</td>
 
+                                            <td class="text-wrap" >{{$product->name}}</td>
 
-                                            <td>{{$product->categories}}</td>
+                                            <td class="text-wrap">{{$product->categories}}</td>
 
+                                            <td class="td-price">€{{$product->seller}}</td>
 
+                                            
 
-
-
-{{--                                            <td>--}}
-{{--                                                <ul>--}}
-{{--                                                    <form action="{{route('delete.superproduct',$product->id)}}" method="DELETE">--}}
-{{--                                                        @csrf--}}
-{{--                                                        @method('DELETE')--}}
-
-{{--                                                        <button type="submit" style="background-color:rgba(192,192,192,0.3);">--}}
-{{--                                                            <a href="" >--}}
-{{--                                                                <i class="ri-delete-bin-line"></i>--}}
-{{--                                                            </a>--}}
-{{--                                                        </button>--}}
-{{--                                                    </form>--}}
-
-{{--                                                </ul>--}}
-{{--                                            </td>--}}
+                                         
                                         </tr>
 
                                     @endforeach
@@ -298,7 +286,11 @@
 
                                 </tbody>
                             </table>
+                            <div class="container pt-4 text-center" style="text-decoration-color: red row">
+                                <p style="color: black">{{ $products->links("pagination::bootstrap-4")}}</p>
+                            </div>
                         </div>
+                    
                     </div>
                 </div>
             </div>

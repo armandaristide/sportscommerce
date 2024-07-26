@@ -96,7 +96,7 @@
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <a href="#">
+                                        <a href="{{route('productdets',$product->id)}}">
                                             <img src="{{$cart->color}}" class="blur-up lazyload"
                                                  alt="">
                                         </a>
@@ -213,7 +213,7 @@
 
                             <div class="col-lg-4 col-sm-6 ">
                                 <div class="checkout-button">
-                                    <a href="#" class="btn btn-solid-default btn fw-bold">
+                                    <a href="{{route('checkout',\Illuminate\Support\Facades\Auth::user()->username)}}" class="btn btn-solid-default btn fw-bold">
                                         Check Out <i class="fas fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
