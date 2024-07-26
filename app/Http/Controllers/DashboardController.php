@@ -59,7 +59,7 @@ class DashboardController extends Controller
 
         $profile = User::where('id','=',$id)->first();
         $profile->name = $request->input('name');
-        $profile->email = $request->input('email');
+        $profile->email = Auth::user()->email;
         $profile->phone = $request->input('phone');
         $profile->save();
         return redirect()->route('adminDashboardShow')->with('message', 'Profile Info Updated Successfully added successfully');

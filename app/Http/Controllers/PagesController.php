@@ -190,6 +190,7 @@ class PagesController extends Controller
     {
         $checkouts = Cart::where('buyer_id','=',$carts)->get();
         foreach ($checkouts as $checkout) {
+            $product = \App\Models\Product::where('id','=',$checkout->product_id)->first();
             $neworder = new Order();
             $neworder->product_id = $checkout->product_id;
             $neworder->buyer_id = Auth::user()->username;
@@ -197,7 +198,7 @@ class PagesController extends Controller
             $neworder->color = $checkout->color;
             $neworder->size = $checkout->size;
             $neworder->quantity = $checkout->quantity;
-            $neworder->price = 000;
+            $neworder->price = $product->price;
             $neworder->save();
         }
 

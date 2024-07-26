@@ -43,7 +43,7 @@
                             <label class="form-label-title col-sm-2 mb-0">Email
                                 Address</label>
                             <div class="col-sm-10">
-                                <input class="form-control" style="color: black" type="email" required name="email" value="{{$profile->email}}">
+                                <h5>{{$profile->email}}</h5>
                             </div>
                         </div>
 
