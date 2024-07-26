@@ -59,9 +59,8 @@ class RegisteredUserController extends Controller
         $loggeduser->session = 1;
         $loggeduser->save();
 
-        Auth::login($user);
+        //Auth::login($user);
 
-
-        return redirect(route('index', absolute: false));
+        return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
     }
 }
