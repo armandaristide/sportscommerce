@@ -237,7 +237,7 @@ class DashboardController extends Controller
         $usersellers = User::where('type', 1)->get();
         $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
         $idNo= Auth::user();
-        $products = Product::all();
+        $products = Product::paginate(5);
 
         return view('superAdminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('sellers', $usersellers)->with('superId', $idNo);
 
