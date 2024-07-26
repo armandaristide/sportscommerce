@@ -27,7 +27,7 @@
                         </p>
                         <!-- Button to navigate to the edit profile page -->
                         <div class="text-center mt-4">
-                            <a href="{{ route('userProfileEditPage') }}" class="btn btn-primary">Edit Profile</a>
+                            <a href="#" class="btn btn-primary">Edit Profile</a>
                         </div>
                     </div>
                 </div>

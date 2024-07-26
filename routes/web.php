@@ -68,12 +68,12 @@ Route::get('/subcategories_{prod}', [PagesController::class, 'subcategory'])->na
 Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('generalsub');
 
 /**General user routes **/
-Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->get('/dashboard', [\App\Http\Controllers\UsersController::class, 'generalUserDashboard'])->name('dashboard');
 Route::get('/reset_user_password_{verify}', [\App\Http\Controllers\Auth\PasswordController::class, 'resetUserPassword'])->name('reset.userpassword');
 
 /**Admin routes **/
 Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
-    Route::get('/dashboard', [DashboardController::class, 'adminDashboard'])->name('adminDashboardShow');
+    Route::get('/dashboard', [\App\Http\Controllers\SellerController::class, 'adminDashboard'])->name('adminDashboardShow');
     Route::post('/edit_profile{id}', [DashboardController::class, 'editProfile'])->name('submit.editprofile');
     Route::get('/add_category', [DashboardController::class, 'addCategory'])->name('addCategory');
     Route::get('/edit_category_{id}', [DashboardController::class, 'editCategory'])->name('editCategory');

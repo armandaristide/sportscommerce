@@ -67,7 +67,7 @@
                                 $n = 0
                                 ?>
                                 <?php
-                                $tot = 0
+                                $total = 0
                                 ?>
 
                             @foreach($carts as $cart)
@@ -143,7 +143,7 @@
 
                                         <h2 class="td-color">€<span class="total">
                                                   <?php
-                                                    $tot = $tot + ($product->price*$cart->quantity)
+                                                    $total = $total + ($product->price*$cart->quantity)
                                                     ?>
                                                 {{$product->price*$cart->quantity}}
                                             </span></h2>
@@ -191,11 +191,11 @@
                                     <div class="total-details">
                                         <div class="top-details" id="here">
                                             <h3 class="text-center">Cart Totals</h3>
-                                            <h6>Subtotal<span class="totalfn">€{{$tot}}</span></h6>
+                                            <h6>Subtotal<span class="totalfn">€{{$total}}</span></h6>
                                             <h6>Shipping Fee <span>FREE</span></h6>
                                         </div>
                                         <div class="bottom-details">
-                                            <a> <h3>Total: €{{$tot}}</h3></a>
+                                            <a> <h3>Total: €{{$total}}</h3></a>
                                         </div>
                                     </div>
                                 </div>

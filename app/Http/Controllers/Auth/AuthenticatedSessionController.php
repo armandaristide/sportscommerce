@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Userprofile;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,6 +69,24 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $loggeduser = Userprofile::where('username','=',Auth::user()->username)->first();
+
+        if ($loggeduser) {
+            $loggeduser->session = 0;
+            $loggeduser->save();
+        }
+        else
+        {
+            $loggeduser = new Userprofile();
+            $loggeduser->name = Auth::user()->name;
+            $loggeduser->username = Auth::user()->username;
+            $loggeduser->email = Auth::user()->email;
+            $loggeduser->phone = Auth::user()->phone;
+            $loggeduser->type = Auth::user()->type;
+            $loggeduser->session = 0;
+            $loggeduser->save();
+        }
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
