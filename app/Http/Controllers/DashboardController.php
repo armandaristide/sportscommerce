@@ -23,7 +23,6 @@ class DashboardController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string'],
-            'email' => ['required', 'string', 'email'],
             'phone' => ['required', 'string'],
         ]);
 
@@ -31,7 +30,6 @@ class DashboardController extends Controller
 
         $updatedData=[
             'name' =>$request->input('name'),
-            'email' => $request->input('email'),
             'phone' => $request->input('phone'),];
 
         if ($request->filled('password')) {
@@ -226,7 +224,7 @@ class DashboardController extends Controller
 
 
 
-
+q
 
 
     //super admin contollers

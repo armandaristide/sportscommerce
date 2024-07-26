@@ -1,75 +1,100 @@
 @extends('layouts.mastertwo')
-
-@section('title', 'User Dashboard | LEVEL UP')
-
+@section('title', 'USER Dashboard | LEVEL UP')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">Customer Details</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Name: {{ Auth::user()->name }}</p>
-                        <p>Username: {{ Auth::user()->username }}</p>
-                        <p>Phone: {{ Auth::user()->phone }}</p>
-                        <p>Email: {{ Auth::user()->email }}</p>
-                        <p>Password: {{ Auth::user()->password }}</p>
-                        <p>Type:
-                            @if(Auth::user()->type == 0)
-                                User
-                            @elseif(Auth::user()->type == 1)
-                                Seller Admin
-                            @elseif(Auth::user()->type == 2)
-                                Super Admin
-                            @endif
-                        </p>
-                        <!-- Button to navigate to the edit profile page -->
-                        <div class="text-center mt-4">
-                            <a href="#" class="btn btn-primary">Edit Profile</a>
+
+    @if(session()->has('message'))
+        <div class="alert alert-success alert-dismissible text-black" style="color: black">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong>  {{ session()->get('message') }}
+        </div>
+    @endif
+
+    <!-- Profile Edit Section -->
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-header card-header-top card-header--2 px-0 pt-0">
+                    <h5>Profile Settings</h5>
+                </div>
+                <form class="theme-form theme-form-2 mega-form" method="POST" action="{{ route('submit.edituserprofile', Auth::user()->id) }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="mb-4 row align-items-center">
+                            <label class="form-label-title col-sm-2 mb-0">User Name:</label>
+                            <div class="col-sm-10">
+                                <h5>{{ $user->username }}</h5>
+                            </div>
+                        </div>
+                        <div class="mb-4 row align-items-center">
+                            <label class="form-label-title col-sm-2 mb-0">Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" style="color: black" type="text" required name="name" value="{{ $user->name }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row align-items-center">
+                            <label class="form-label-title col-sm-2 mb-0">Phone Number</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" style="color: black" type="tel" name="phone" required value="{{ $user->phone }}">
+                            </div>
+                        </div>
+                        <div class="mb-4 row align-items-center">
+                            <label class="form-label-title col-sm-2 mb-0">Email Address:</label>
+                            <div class="col-sm-10">
+                                <h5>{{ $user->email }}</h5>
+                            </div>
+                        </div>
+                        <div class="mb-4 row align-items-center">
+                            <label class="form-label-title col-sm-2 mb-0">Password</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" style="color: black" type="password" name="password" placeholder="Leave blank to keep current password">
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-sm-3">
+                        <button type="submit" class="btn btn-primary w-100 h-100" data-bs-original-title="" title="">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Order History</h3>
-                    </div>
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
+    <!-- Order History Section -->
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-header card-header-top card-header--2 px-0 pt-0">
+                    <h5>Order History</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($orders as $order)
                             <tr>
-                                <th>S.No</th>
-                                <th>Buyer Id</th>
-                                <th>Product Id</th>
-                                <th>Colour</th>
-                                <th>Size</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
+                                <td>{{ $order->id }}</td>
+                                <td>{{ $order->product_name }}</td>
+                                <td>{{ $order->quantity }}</td>
+                                <td>{{ $order->total_price }}</td>
+                                <td>{{ $order->status }}</td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($orders as $order)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $order->buyer_id }}</td>
-                                    <td>{{ $order->product_id }}</td>
-                                    <td>{{ $order->colour }}</td>
-                                    <td>{{ $order->size }}</td>
-                                    <td>{{ $order->quantity }}</td>
-                                    <td>{{ $order->price }}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <div class="container pt-4 text-center">
+                        <p style="color: black">{{ $orders->links("pagination::bootstrap-4") }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
+
+@stop
