@@ -177,12 +177,14 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                
+                                                    
                                                             <div class="product-buttons">
                                                                 <button type="submit" id="cartEffect" value="buynow" formaction="{{route('buy.now',$product->id)}}" class="btn btn-solid hover-solid btn-animation">
                                                                     <i class="fa fa-money-bill fz-16 me-2"></i>
                                                                     <span>BUY NOW</span>
                                                                 </button>
-                                                                <button type="submit" id="cartEffect" value="addcart" formaction="{{ route('submit.cart') }}" class="btn btn-solid hover-solid btn-animation">
+                                                                <button type="submit" id="cartEffect2" value="addcart" formaction="{{ route('submit.cart') }}" class="btn btn-solid hover-solid btn-animation">
                                                                     <i class="fa fa-shopping-cart"></i>
                                                                     <span>Add To Cart</span>
                                                                 </button>

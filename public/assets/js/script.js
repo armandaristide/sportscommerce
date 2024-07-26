@@ -40,16 +40,17 @@
       ==========================*/
     $(window).on("scroll", function () {
         if ($(this).scrollTop() > 600) {
-            $('.tap-to-top').addClass('show');
+            $(".tap-to-top").addClass("show");
         } else {
-            $('.tap-to-top').removeClass('show');
+            $(".tap-to-top").removeClass("show");
         }
     });
 
-    $('.tap-to-top').on('click', function () {
-        $("html, body").animate({
-            scrollTop: 0,
-        },
+    $(".tap-to-top").on("click", function () {
+        $("html, body").animate(
+            {
+                scrollTop: 0,
+            },
             600
         );
         return false;
@@ -121,9 +122,7 @@
 
     var contentwidth = $(window).width();
     if (contentwidth < "1200") {
-        $(".menu-title-level1").append(
-            '<span class="according-menu">+</span>'
-        );
+        $(".menu-title-level1").append('<span class="according-menu">+</span>');
         $(".menu-title-level1").on("click", function () {
             $(".menu-title-level1")
                 .removeClass("active")
@@ -183,7 +182,10 @@
 
         // close seach
         $(".close-search").on("click", function () {
-            $(this).closest(".main-menu").find(".search-full").removeClass("open");
+            $(this)
+                .closest(".main-menu")
+                .find(".search-full")
+                .removeClass("open");
         });
     });
 
@@ -214,82 +216,90 @@
        8. Add to cart
        ==========================*/
     $(".product-box .cart-wrap li .addtocart-btn").on("click", function () {
-        $.notify({
-            icon: "fa fa-check",
-            title: "Success!",
-            message: "Item Successfully added to your cart",
-        }, {
-            element: "body",
-            position: null,
-            type: "success",
-            allow_dismiss: true,
-            newest_on_top: false,
-            showProgressbar: true,
-            placement: {
-                from: "top",
-                align: "right",
+        $.notify(
+            {
+                icon: "fa fa-check",
+                title: "Success!",
+                message: "Item Successfully added to your cart",
             },
-            offset: 20,
-            spacing: 10,
-            z_index: 1031,
-            delay: 5000,
-            animate: {
-                enter: "animated fadeInDown",
-                exit: "animated fadeOutUp",
-            },
-            icon_type: "class",
-            template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-                '<button type="button" aria-hidden="true" class="btn-close" data-notify="dismiss"></button>' +
-                '<span data-notify="icon"></span> ' +
-                '<span data-notify="title">{1}</span> ' +
-                '<span data-notify="message">{2}</span>' +
-                '<div class="progress" data-notify="progressbar">' +
-                '<div class="progress-bar progress-bar-info progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-                "</div>" +
-                '<a href="{3}" target="{4}" data-notify="url"></a>' +
-                "</div>",
-        });
+            {
+                element: "body",
+                position: null,
+                type: "success",
+                allow_dismiss: true,
+                newest_on_top: false,
+                showProgressbar: true,
+                placement: {
+                    from: "top",
+                    align: "right",
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+                delay: 5000,
+                animate: {
+                    enter: "animated fadeInDown",
+                    exit: "animated fadeOutUp",
+                },
+                icon_type: "class",
+                template:
+                    '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<button type="button" aria-hidden="true" class="btn-close" data-notify="dismiss"></button>' +
+                    '<span data-notify="icon"></span> ' +
+                    '<span data-notify="title">{1}</span> ' +
+                    '<span data-notify="message">{2}</span>' +
+                    '<div class="progress" data-notify="progressbar">' +
+                    '<div class="progress-bar progress-bar-info progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                    "</div>" +
+                    '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                    "</div>",
+            }
+        );
     });
 
     /*=====================
       9. Add to wishlist
       ==========================*/
     $(".product-box a.wishlist").on("click", function () {
-        $.notify({
-            icon: "fa fa-check",
-            title: "Success!",
-            message: "Item Successfully added in wishlist",
-        }, {
-            element: "body",
-            position: null,
-            type: "info",
-            allow_dismiss: true,
-            newest_on_top: false,
-            showProgressbar: true,
-            placement: {
-                from: "top",
-                align: "right",
+        $.notify(
+            {
+                icon: "fa fa-check",
+                title: "Success!",
+                message: "Item Successfully added in wishlist",
             },
-            offset: 20,
-            spacing: 10,
-            z_index: 1031,
-            delay: 5000,
-            animate: {
-                enter: "animated fadeInDown",
-                exit: "animated fadeOutUp",
-            },
-            icon_type: "class",
-            template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-                '<button type="button" aria-hidden="true" class="btn-close" data-notify="dismiss"></button>' +
-                '<span data-notify="icon"></span> ' +
-                '<span data-notify="title">{1}</span> ' +
-                '<span data-notify="message">{2}</span>' +
-                '<div class="progress" data-notify="progressbar">' +
-                '<div class="progress-bar progress-bar-info progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-                "</div>" +
-                '<a href="{3}" target="{4}" data-notify="url"></a>' +
-                "</div>",
-        });
+            {
+                element: "body",
+                position: null,
+                type: "info",
+                allow_dismiss: true,
+                newest_on_top: false,
+                showProgressbar: true,
+                placement: {
+                    from: "top",
+                    align: "right",
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+                delay: 5000,
+                animate: {
+                    enter: "animated fadeInDown",
+                    exit: "animated fadeOutUp",
+                },
+                icon_type: "class",
+                template:
+                    '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<button type="button" aria-hidden="true" class="btn-close" data-notify="dismiss"></button>' +
+                    '<span data-notify="icon"></span> ' +
+                    '<span data-notify="title">{1}</span> ' +
+                    '<span data-notify="message">{2}</span>' +
+                    '<div class="progress" data-notify="progressbar">' +
+                    '<div class="progress-bar progress-bar-info progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                    "</div>" +
+                    '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                    "</div>",
+            }
+        );
     });
 
     /*=====================
@@ -393,10 +403,13 @@
     /*=====================
        12. cart function
        ==========================*/
-    $(".cart-dropdown .cart-media, .cart-dropdown > button").on("click", function () {
-        $(".cart-dropdown").addClass("show");
-        $("body").addClass("o-hidden");
-    });
+    $(".cart-dropdown .cart-media, .cart-dropdown > button").on(
+        "click",
+        function () {
+            $(".cart-dropdown").addClass("show");
+            $("body").addClass("o-hidden");
+        }
+    );
 
     $(".back-cart").on("click", function () {
         $(".cart-dropdown").removeClass("show");
@@ -444,12 +457,13 @@
                 pY = e.pageY,
                 oX = parseInt($(this).offset().left),
                 oY = parseInt($(this).offset().top);
-            $(".x-" + oX + ".y-" + oY + "").animate({
-                width: "500px",
-                height: "500px",
-                top: "-250px",
-                left: "-250px",
-            },
+            $(".x-" + oX + ".y-" + oY + "").animate(
+                {
+                    width: "500px",
+                    height: "500px",
+                    top: "-250px",
+                    left: "-250px",
+                },
                 600
             );
             $("button", this).addClass("active");
@@ -469,10 +483,11 @@
                     });
                 }, 600);
 
-                $(this).animate({
-                    width: "140px",
-                    height: "140px",
-                },
+                $(this).animate(
+                    {
+                        width: "140px",
+                        height: "140px",
+                    },
                     500,
                     function () {
                         $(".box").removeClass("back");
@@ -564,6 +579,17 @@
             $("#selectSize").addClass("cartMove");
         }
     });
+    $("#cartEffect2").on("click", function (e) {
+        if ($("#selectSize .size-box ul").hasClass("selected")) {
+            $("#cartEffect").text("Added to bag ");
+            $(".added-notification").addClass("show");
+            setTimeout(function () {
+                $(".added-notification").removeClass("show");
+            }, 5000);
+        } else {
+            $("#selectSize").addClass("cartMove");
+        }
+    });
 
     /*=====================
      16. Recently puchase modal
@@ -635,17 +661,31 @@
     $(".grid-options .list-btn").on("click", function () {
         $(".product-list-section").addClass("list-style");
     });
-    $('.two-grid').on('click', function (e) {
-        $(".product-list-section").removeClass("row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 list-style").addClass("row-cols-2");
+    $(".two-grid").on("click", function (e) {
+        $(".product-list-section")
+            .removeClass(
+                "row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 list-style"
+            )
+            .addClass("row-cols-2");
     });
-    $('.three-grid').on('click', function (e) {
-        $(".product-list-section").removeClass("row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 list-style").addClass("row-cols-md-3 row-cols-2");
+    $(".three-grid").on("click", function (e) {
+        $(".product-list-section")
+            .removeClass(
+                "row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 list-style"
+            )
+            .addClass("row-cols-md-3 row-cols-2");
     });
-    $('.grid-btn').on('click', function (e) {
-        $(".product-list-section").removeClass("row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 list-style").addClass("row-cols-lg-4 row-cols-md-3 row-cols-2");
+    $(".grid-btn").on("click", function (e) {
+        $(".product-list-section")
+            .removeClass(
+                "row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 list-style"
+            )
+            .addClass("row-cols-lg-4 row-cols-md-3 row-cols-2");
     });
-    $('.five-grid').on('click', function (e) {
-        $(".product-list-section").removeClass("list-style").addClass("row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2");
+    $(".five-grid").on("click", function (e) {
+        $(".product-list-section")
+            .removeClass("list-style")
+            .addClass("row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2");
     });
     var contentwidth = $(window).width();
     if (contentwidth < "1199") {
@@ -657,7 +697,6 @@
     if (contentwidth < "767") {
         $(".grid-options .two-grid").addClass("active");
     }
-
 })(jQuery);
 
 /*=====================
@@ -665,7 +704,7 @@
  ==========================*/
 $(".grid-options ul li").click(function () {
     $(".grid-options li.active").removeClass("active");
-    $(this).addClass("active")
+    $(this).addClass("active");
 });
 
 /*=====================
@@ -714,7 +753,10 @@ feather.replace();
 /*=====================
     24. header Dropdown js
  ==========================*/
-$('.dropdown .dropdown-menu li').click(function () {
-    $(this).parents('.dropdown').find('span').text($(this).text());
-    $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+$(".dropdown .dropdown-menu li").click(function () {
+    $(this).parents(".dropdown").find("span").text($(this).text());
+    $(this)
+        .parents(".dropdown")
+        .find("input")
+        .attr("value", $(this).attr("id"));
 });
