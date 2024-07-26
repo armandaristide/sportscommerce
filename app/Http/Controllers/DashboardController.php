@@ -224,10 +224,6 @@ class DashboardController extends Controller
     }
 
 
-
-q
-
-
     //super admin contollers
     public function superAdminDashboard()
     {
