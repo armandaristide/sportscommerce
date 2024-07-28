@@ -157,7 +157,7 @@
                                                                     <input type="radio" class="sizel" required name="size" value="l" hidden >
                                                                     <a href="javascript:void(0)">l</a>
                                                                 </li>
-                                                                <li id="sizexl">
+                                                                <li >
                                                                     <input type="radio" class="sizexl" required name="size" value="xl" hidden >
                                                                     <a href="javascript:void(0)">xl</a>
                                                                 </li>
@@ -168,12 +168,27 @@
 
                                                         <div class="qty-box">
                                                             <div class="input-group">
-
+                                                                <div class="qty-box">
+                                            <div class="input-group">
                                                 <span class="input-group-prepend">
-                                                    <button onclick="document.querySelector('#steve').value=parseInt(document.querySelector('#steve').value)<1?parseInt(document.querySelector('#steve').value):parseInt(document.querySelector('#steve').value)-1">-</button>
-                                                    <input name="quantity" type="number" id="steve" min="1" max="{{$product->quantity}}" value="1">
-                                                    <button onclick="document.querySelector('#steve').value=parseInt(document.querySelector('#steve').value)>19?parseInt(document.querySelector('#steve').value):parseInt(document.querySelector('#steve').value)+1">+</button>
+                                                    <button type="button" class="btn quantity-left-minus"
+                                                        data-type="minus" data-field="">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
                                                 </span>
+                                                <input type="text" name="quantity" class="form-control input-number"
+                                                    value="1" style='height:50px;'>
+                                                <span class="input-group-prepend">
+                                                    <button type="button" class="btn quantity-right-plus"
+                                                        data-type="plus" data-field="">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+
+
+                                               
                                                             </div>
                                                         </div>
                                                     </div>
@@ -364,7 +379,9 @@
                                                                                                 <?php
                                                                                                 $count=$count+1
                                                                                                 ?>
+                                                                                                
                                                                                     @endforeach
+                                                                                
 
 
 
@@ -422,12 +439,12 @@
                                                                     button3.addEventListener('click', function() {
                                                                         const radio = document.getElementsByClassName('sizel')[0];
                                                                         radio.checked = true;
-                                                                        console.log(radio)
+                                                                       
                                                                     });
                                                                     button4.addEventListener('click', function() {
                                                                         const radio = document.getElementsByClassName('sizexl')[0];
                                                                         radio.checked = true;
-                                                                        console.log(radio)
+                                                                       
                                                                     });
                                                                 });
                                                                 // $(document).ready(function() {
