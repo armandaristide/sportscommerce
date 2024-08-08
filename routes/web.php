@@ -68,6 +68,9 @@ Route::get('/product_details_{prod}', [PagesController::class, 'productDetails']
 Route::post('/buy_now_{prod}', [PagesController::class, 'buyNow'])->name('buy.now');
 Route::get('/subcategories_{prod}', [PagesController::class, 'subcategory'])->name('subcat');
 Route::get('/all_{prod}', [PagesController::class, 'generalsub'])->name('generalsub');
+Route::post('/reset_password', [PagesController::class, 'resetPassword'])->name('reset.password');
+Route::get('/new_password_{user}', [PagesController::class, 'shownewPassword'])->name('show.password.new');
+Route::post('/new_password', [PagesController::class, 'newPassword'])->name('password.new');
 
 /**General user routes **/
 Route::middleware(['auth', 'verified'])->get('/dashboard', [\App\Http\Controllers\UsersController::class, 'generalUserDashboard'])->name('dashboard');
@@ -99,7 +102,7 @@ Route::middleware(['adminAuth','verified'])->prefix('admin')->group(function(){
 Route::prefix('admin')->group(function(){
     Route::get('/login', [AdminAuthController::class, 'login'])->name('adminLogin');
     Route::post('/loginSubmit', [AdminAuthController::class, 'loginSubmit'])->name('adminLoginSubmit');
-    Route::get('/logout', [AdminAuthController::class, 'adminLogout'])->name('adminLogout');
+    Route::post('/logout', [AdminAuthController::class, 'adminLogout'])->name('adminLogout');
 });
 
 /**Super Admin routes **/
@@ -124,7 +127,7 @@ Route::middleware('superAdminAuth' )->prefix('superAdmin')->group(function(){
 Route::prefix('superAdmin')->group(function(){
     Route::get('/login', [SuperAdminAuthController::class, 'login'])->name('superAdminLogin');
     Route::post('/loginSubmit', [SuperAdminAuthController::class, 'loginSubmit'])->name('superAdminLoginSubmit');
-    Route::delete('/logout', [SuperAdminAuthController::class, 'superAdminLogout'])->name('superAdminLogout');
+    Route::post('/logout', [SuperAdminAuthController::class, 'superAdminLogout'])->name('superAdminLogout');
 
 
 });

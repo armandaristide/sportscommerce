@@ -33,6 +33,11 @@ class UsersController extends Controller
         $user->phone = $request->input('phone');
         if ($request->input('password') != null) {
             $user->password = Hash::make($request->input('password'));
+            $user->save();
+            Auth::logout();
+            return redirect()->route('login')->with('success', "Your Password has been updated");
+
+
         }
         $user->save();
 

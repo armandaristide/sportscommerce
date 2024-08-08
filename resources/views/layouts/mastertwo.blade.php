@@ -88,13 +88,13 @@
             <div class="container">
                 <h3>
                     @if(Auth::user()->type == 0)
-                        USER
+                       <a href="{{route("dashboard")}}">USER DASHBOARD</a>
                     @elseif(Auth::user()->type == 1)
-                        SELLER ADMIN
+                        <a href="{{route("adminDashboardShow")}}">SELLER ADMIN DASHBOARD</a>
                     @elseif(Auth::user()->type == 2)
-                        SUPER ADMIN
+                        <a href="{{route("superAdminDashboardShow")}}">SUPER ADMIN DASHBOARD</a>
                     @endif
-                    DASHBOARD
+
                 </h3>
             </div>
             <div class="nav-right col-6 pull-right right-header p-0">
@@ -206,16 +206,42 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="button-box">
                     <button type="button" class="btn btn--no" data-bs-dismiss="modal">No</button>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-dropdown-link :href="route('logout')"
-                                         onclick="event.preventDefault(); this.closest('form').submit();"  >
-                            <button type="button" class="btn btn--yes btn-primary" onclick="window.history.forward()" >
-                                {{ __('Yes') }}
-                            </button>
+                    @if(\Illuminate\Support\Facades\Auth::user()->type == 0)
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-dropdown-link :href="route('logout')"
+                                             onclick="event.preventDefault(); this.closest('form').submit();"  >
+                                <button type="button" class="btn btn--yes btn-primary" onclick="window.history.forward()" >
+                                    {{ __('Yes') }}
+                                </button>
 
-                        </x-dropdown-link>
-                    </form>
+                            </x-dropdown-link>
+                        </form>
+
+                    @elseif(\Illuminate\Support\Facades\Auth::user()->type == 1)
+                        <form method="POST" action="{{ route('adminLogout') }}">
+                            @csrf
+                            <x-dropdown-link :href="route('adminLogout')"
+                                             onclick="event.preventDefault(); this.closest('form').submit();"  >
+                                <button type="button" class="btn btn--yes btn-primary" onclick="window.history.forward()" >
+                                    {{ __('Yes') }}
+                                </button>
+
+                            </x-dropdown-link>
+                        </form>
+                    @elseif(\Illuminate\Support\Facades\Auth::user()->type == 2)
+                        <form method="POST" action="{{ route('superAdminLogout') }}">
+                            @csrf
+                            <x-dropdown-link :href="route('superAdminLogout')"
+                                             onclick="event.preventDefault(); this.closest('form').submit();"  >
+                                <button type="button" class="btn btn--yes btn-primary" onclick="window.history.forward()" >
+                                    {{ __('Yes') }}
+                                </button>
+
+                            </x-dropdown-link>
+                        </form>
+
+                    @endif
                 </div>
             </div>
         </div>

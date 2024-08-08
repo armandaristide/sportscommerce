@@ -44,23 +44,24 @@ class DashboardController extends Controller
 
 
 
-    //
-
-
-
-
     public function editProfile(Request $request,$id)
     {
         $request->validate([
             'name' => ['required', 'string'],
-            'email' => ['required', 'string'],
             'phone' => ['required', 'string'],
         ]);
 
         $profile = User::where('id','=',$id)->first();
         $profile->name = $request->input('name');
-        $profile->email = Auth::user()->email;
         $profile->phone = $request->input('phone');
+        if ($request->input('password') != null) {
+            $profile->password = Hash::make($request->input('password'));
+            $profile->save();
+            Auth::logout();
+            return redirect()->route('adminLogin')->with('success', "Your Password has been updated");
+
+
+        }
         $profile->save();
         return redirect()->route('adminDashboardShow')->with('message', 'Profile Info Updated Successfully added successfully');
 
@@ -113,6 +114,13 @@ class DashboardController extends Controller
         }
         else{
             $item = Cat::find($id);
+            $prodcats = Product::where('categories','=',$item->categories)->get();
+            if (count($prodcats) > 0) {
+                foreach ($prodcats as $prodcat) {
+                    $prodcat->categories = "General";
+                    $prodcat->save();
+                }
+            }
             $item->delete();
         }
         return redirect()->route('adminDashboardShow')->with('message', 'Category deleted successfully');

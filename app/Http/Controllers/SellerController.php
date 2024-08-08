@@ -16,7 +16,8 @@ class SellerController extends Controller
 
         $profile = User::where('email', Auth::user()->email)->first();
         $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
-        $products = Product::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->paginate(5);
-        return view('adminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products);
+        $products = Product::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->paginate(7);
+        $prods = Product::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
+        return view('adminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('prods', $prods);
     }
 }
