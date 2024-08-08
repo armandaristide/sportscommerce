@@ -6,8 +6,12 @@ use App\Models\Cart;
 use App\Models\Cat;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 use MongoDB\Driver\Session;
 
 class PagesController extends Controller
@@ -209,6 +213,45 @@ class PagesController extends Controller
     {
         $orders = Order::where('buyer_id','=',$carts)->get();
         return view('cartinvoicepage')->with('orders', $orders);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email',
+                ]]);
+        $user = \App\Models\User::where('email','=', $request->input('email'))->firstOrFail();
+        return redirect()->route('show.password.new',$user->id);
+    }
+
+    public function shownewPassword($user)
+    {
+        $user = \App\Models\User::where('id','=', $user)->firstOrFail();
+
+        return view('auth.resetpass')->with('user',$user);
+    }
+
+    public function newPassword(Request $request): RedirectResponse
+
+    {
+        $request->validate([
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            ]
+        );
+
+        $newpassword =   Hash::make($request->password);
+
+        $user = User::where('email','=', $request->input('email'))->first();
+        $user->password = $newpassword;
+        $user->save();
+        if ($user->type == 2)
+            return redirect()->route('superAdminLogin')->with('success', 'Password Reset successful! Please log in.');
+        elseif ($user->type == 1)
+            return redirect()->route('adminLogin')->with('success', 'Password Reset successful! Please log in.');
+        else
+            return redirect()->route('login')->with('success', 'Password Reset successful! Please log in.');
+
+
     }
 }
 

@@ -3,7 +3,7 @@
 @section('content')
     <!-- Breadcrumb section start -->
     @if($cat== "football")
-        <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihbv_kwYq0cqbHBk15PcUwygXa_JGvxK70vUu2yHM6sjql-cMB4-wDOPwk_1ojZdBBGev6x1soXUYBrUvqM8OnSwPGKMSuH5P3c=s1600-rw-v1'); background-size: cover">
+        <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/1tw39jpdw0t816jh48f1s/football.png?rlkey=yhvsayp2u1gebbi82gtizgw1d&st=3fskjbbz&raw=1'); background-size: cover">
             @elseif($cat== "basketball")
                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/bn48u880rm7kqxsxt293m/basketball.png?rlkey=as76a6adzifpv91ey7yn0v2p9&st=6j2g6sn4&raw=1'); background-size: cover">
                     @elseif($cat== "tennis")

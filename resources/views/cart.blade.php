@@ -48,7 +48,7 @@
                     </div>
                 @endif
                 <div class="col-sm-12 table-responsive mt-4">
-                    <table class="table cart-table">
+                    <table class="table cart-table" id="ddReferences">
                         <thead>
                         <tr class="table-head">
                             <th scope="col">image</th>
@@ -125,7 +125,7 @@
                                     <td>
                                         <h2>€<span class="ticket_price">{{$product->price}}</span></h2>
                                     </td>
-                                    <td>
+                                    <td id="cellquantity">
                                         <div class="qty-box">
 
                                             <div class="input-group">
@@ -142,9 +142,7 @@
                                     <td>
 
                                         <h2 class="td-color">€<span class="total">
-                                                  <?php
-                                                    $total = $total + ($product->price*$cart->quantity)
-                                                    ?>
+
                                                 {{$product->price*$cart->quantity}}
                                             </span></h2>
                                     </td>
@@ -153,7 +151,9 @@
                                         <?php
                                         $n = $n+1
                                         ?>
-
+                                        <?php
+                                        $total =$total + ($product->price*$cart->quantity)
+                                        ?>
 
                             @endforeach
 
@@ -183,7 +183,34 @@
                     </div>
                 @endif
 
-                <div class="cart-checkout-section">
+                    @push('head')
+                        <script type="text/javascript">
+                            // Get the cell element by its id attribute
+                            const cell = document.getElementById("cellquantity");
+                            // Get the cell value using the textContent property
+                            const cellValue = cell.textContent;
+
+                            // Log the cell value to the console
+                            var total = 0;
+                            var totalq = console.log(cellValue); // Output: "1"
+                            total = total + totalq; // Output: "1"
+                            var number = 123;
+                            var string = "abcd";
+
+                            function docWrite(variable) {
+                                document.write(variable);
+                            }
+                        </script>
+{{--                    <script>--}}
+{{--                        function myFunction() {--}}
+
+
+{{--                            document.getElementById("myTotal").innerHTML = total;--}}
+{{--                        }--}}
+
+{{--                    </script>--}}
+                    @endpush
+                <div class="cart-checkout-section" onload="myFunction()">
                     <div class="row g-4">
                         <div class="col-lg-6">
                             <div class="cart-box">
@@ -191,7 +218,9 @@
                                     <div class="total-details">
                                         <div class="top-details" id="here">
                                             <h3 class="text-center">Cart Totals</h3>
-                                            <h6>Subtotal<span class="totalfn">€{{$total}}</span></h6>
+                                            <h6>Subtotal<span class="totalf">€
+                                                 <script>docWrite(total)</script>
+                                                </span></h6>
                                             <h6>Shipping Fee <span>FREE</span></h6>
                                         </div>
                                         <div class="bottom-details">

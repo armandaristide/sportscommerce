@@ -3,16 +3,16 @@
 @section('content')
     <!-- Breadcrumb section start -->
     @if($product->categories== "football")
-        <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihbv_kwYq0cqbHBk15PcUwygXa_JGvxK70vUu2yHM6sjql-cMB4-wDOPwk_1ojZdBBGev6x1soXUYBrUvqM8OnSwPGKMSuH5P3c=s1600-rw-v1'); background-size: cover">
-            @elseif($product->categories== "basketball")
+        <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/1tw39jpdw0t816jh48f1s/football.png?rlkey=yhvsayp2u1gebbi82gtizgw1d&st=3fskjbbz&raw=1'); background-size: cover">
+            @elseif($cat== "basketball")
                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/bn48u880rm7kqxsxt293m/basketball.png?rlkey=as76a6adzifpv91ey7yn0v2p9&st=6j2g6sn4&raw=1'); background-size: cover">
-                    @elseif($product->categories== "tennis")
+                    @elseif($cat== "tennis")
                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/ql4otue8qmvvk3gwpa76g/tennis.png?rlkey=edaczci8yh4eiqmfqymx5ueng&st=noy0j5b3&raw=1'); background-size: cover">
-                            @elseif($product->categories == "volleyball")
+                            @elseif($cat == "volleyball")
                                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/s9d7wljo620mhvjt2uyeq/volleyball.png?rlkey=v47b67llv4ttxzciqpl2sedqa&st=vdvxp633&raw=1'); background-size: cover">
-                                    @elseif($product->categories == "cricket")
+                                    @elseif($cat == "cricket")
                                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/9gec45nw867z4kjix35qa/cricket.png?rlkey=q2a4zgv98nlhgv4ru2lg41kd1&st=7y4cuoj9&raw=1'); background-size: cover">
-                                            @elseif($product->categories == "athletics")
+                                            @elseif($cat == "athletics")
                                                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/oqb854mclmrndqx6i96nx/athletics.png?rlkey=do699ncwf90zjmgy6b8rufclx&st=rovm21r1&raw=1'); background-size: cover">
                                                     @else
                                                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihZm_arptYYXtWkO9gVErZWPdfXEEaPR-xiAB3YcFjrUXUEEyO4zUCBXGkMn9Ovk4Bz8S_K6VYo5uRUYvEmtcH8KZEVtmEsfMg=s1600-rw-v1');background-size: cover">
@@ -188,12 +188,12 @@
                                         </div>
 
 
-                                               
+
                                                             </div>
                                                         </div>
                                                     </div>
-                                                
-                                                    
+
+
                                                             <div class="product-buttons">
                                                                 <button type="submit" id="cartEffect" value="buynow" formaction="{{route('buy.now',$product->id)}}" class="btn btn-solid hover-solid btn-animation">
                                                                     <i class="fa fa-money-bill fz-16 me-2"></i>
@@ -379,9 +379,9 @@
                                                                                                 <?php
                                                                                                 $count=$count+1
                                                                                                 ?>
-                                                                                                
+
                                                                                     @endforeach
-                                                                                
+
 
 
 
@@ -439,12 +439,12 @@
                                                                     button3.addEventListener('click', function() {
                                                                         const radio = document.getElementsByClassName('sizel')[0];
                                                                         radio.checked = true;
-                                                                       
+
                                                                     });
                                                                     button4.addEventListener('click', function() {
                                                                         const radio = document.getElementsByClassName('sizexl')[0];
                                                                         radio.checked = true;
-                                                                       
+
                                                                     });
                                                                 });
                                                                 // $(document).ready(function() {

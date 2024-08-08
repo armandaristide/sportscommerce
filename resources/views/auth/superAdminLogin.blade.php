@@ -12,7 +12,7 @@
         <li class="">{{Session::get('error')}}</li>
     @endif
 
-    <h1 class="text-md text-center font-bold py-2">Super Admin Login Form</h1>
+    <h1 class="text-md text-center font-bold text-white py-2">Super Admin Login Form</h1>
 
     <form method="POST" action="{{ route('superAdminLoginSubmit') }}">
         @csrf
@@ -55,5 +55,24 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
-    </form>
+    </form>.
+    <!-- Include SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Success message script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            @if (session('success'))
+            Swal.fire({
+                title: 'Success!',
+                text: "{{ session('success') }}",
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+            @endif
+        });
+    </script>
 </x-guest-layout>

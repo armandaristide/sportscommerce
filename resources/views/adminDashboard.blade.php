@@ -50,15 +50,7 @@
                         <div class="mb-4 row align-items-center">
                             <label class="form-label-title col-sm-2 mb-0">Password</label>
                             <div class="col-sm-10">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <input class="form-control" style="color: black" type="password" name="password" readonly  value="{{$profile->password}}">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a class="btn btn-solid" href="#">Change Password</a>
-                                    </div>
-                                </div>
-
+                                <input class="form-control" style="color: black" type="password" name="password" placeholder="Leave blank to keep current password">
                             </div>
                         </div>
 
@@ -86,7 +78,7 @@
                                         <div class="media align-items-center static-top-widget">
                                             <div class="media-body p-0">
                                                 <span class="m-0">Total Uploaded Products</span>
-                                                <h4 class="mb-0 counter">{{count($products)}}
+                                                <h4 class="mb-0 counter">{{count($prods)}}
                                                     <span class="badge badge-light-primary grow">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>0%</span>
                                                 </h4>
@@ -167,7 +159,7 @@
         <div class="card card-table">
             <div class="card-body">
                 <div class="title-header option-title d-sm-flex d-block">
-                    <h5>Products List</h5> (Total Products: {{count($products)}})
+                    <h5>Products List</h5> (Total Products: {{count($prods)}})
                     <div class="right-options">
                         <ul>
 
