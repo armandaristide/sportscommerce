@@ -4,15 +4,15 @@
     <!-- Breadcrumb section start -->
     @if($product->categories== "football")
         <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/1tw39jpdw0t816jh48f1s/football.png?rlkey=yhvsayp2u1gebbi82gtizgw1d&st=3fskjbbz&raw=1'); background-size: cover">
-            @elseif($cat== "basketball")
+            @elseif($product->categories== "basketball")
                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/bn48u880rm7kqxsxt293m/basketball.png?rlkey=as76a6adzifpv91ey7yn0v2p9&st=6j2g6sn4&raw=1'); background-size: cover">
-                    @elseif($cat== "tennis")
+                    @elseif($product->categories== "tennis")
                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/ql4otue8qmvvk3gwpa76g/tennis.png?rlkey=edaczci8yh4eiqmfqymx5ueng&st=noy0j5b3&raw=1'); background-size: cover">
-                            @elseif($cat == "volleyball")
+                            @elseif($product->categories == "volleyball")
                                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/s9d7wljo620mhvjt2uyeq/volleyball.png?rlkey=v47b67llv4ttxzciqpl2sedqa&st=vdvxp633&raw=1'); background-size: cover">
-                                    @elseif($cat == "cricket")
+                                    @elseif($product->categories == "cricket")
                                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/9gec45nw867z4kjix35qa/cricket.png?rlkey=q2a4zgv98nlhgv4ru2lg41kd1&st=7y4cuoj9&raw=1'); background-size: cover">
-                                            @elseif($cat == "athletics")
+                                            @elseif($product->categories == "athletics")
                                                 <section class="breadcrumb-section section-b-space" style="background-image: url('https://www.dropbox.com/scl/fi/oqb854mclmrndqx6i96nx/athletics.png?rlkey=do699ncwf90zjmgy6b8rufclx&st=rovm21r1&raw=1'); background-size: cover">
                                                     @else
                                                         <section class="breadcrumb-section section-b-space" style="background-image: url('https://lh3.googleusercontent.com/drive-viewer/AKGpihZm_arptYYXtWkO9gVErZWPdfXEEaPR-xiAB3YcFjrUXUEEyO4zUCBXGkMn9Ovk4Bz8S_K6VYo5uRUYvEmtcH8KZEVtmEsfMg=s1600-rw-v1');background-size: cover">
@@ -103,7 +103,7 @@
                                                     @csrf
 
 {{--                                                    WORK HERE HABIB--}}
-                                                    @if (Route::has('login'))
+                                                    @if (Route::has('login') and $product->quantity>0)
                                                         @auth
                                                             <input class="form-control" type="text" name="price" value="{{$product->price}}" hidden>
 
@@ -285,12 +285,17 @@
 
 
                                                 <div class="mt-2 mt-md-3 border-product">
-                                                    <h6 class="product-title hurry-title d-block">Hurry Up! Left <span>{{$product->quantity}}</span>
-                                                        in
-                                                        stock</h6>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style="width: 78%"></div>
-                                                    </div>
+                                                    @if($product->quantity == 0)
+                                                        <h6 class="product-title hurry-title d-block">OUT OF STOCK</h6>
+                                                    @else
+                                                        <h6 class="product-title hurry-title d-block">Hurry Up! Left <span>{{$product->quantity}}</span>
+                                                            in
+                                                            stock</h6>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 78%"></div>
+                                                        </div>
+                                                    @endif
+
                                                 </div>
                                             </div>
                                         </div>

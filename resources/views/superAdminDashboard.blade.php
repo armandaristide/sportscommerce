@@ -253,8 +253,8 @@
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Product Name</th>
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Product Category</th>
                                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 188.281px;">Seller</th>
-                 
-                                 
+
+
                                 </tr>
                                 </thead>
 
@@ -274,11 +274,11 @@
 
                                             <td class="text-wrap">{{$product->categories}}</td>
 
-                                            <td class="td-price">€{{$product->seller}}</td>
+                                            <td class="td-price">{{$product->seller}}</td>
 
-                                            
 
-                                         
+
+
                                         </tr>
 
                                     @endforeach
@@ -290,7 +290,7 @@
                                 <p style="color: black">{{ $products->links("pagination::bootstrap-4")}}</p>
                             </div>
                         </div>
-                    
+
                     </div>
                 </div>
             </div>
