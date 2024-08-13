@@ -20,7 +20,7 @@ Route::get('/about_us', [PagesController::class, 'about'])->name('about');
 Route::get('/home', [PagesController::class, 'home'])->name('homePage');
 Route::get('/cart', [PagesController::class, 'cart'])->name('cart');
 Route::get('/checkout_{carts}', [PagesController::class, 'checkout'])->name('checkout');
-Route::post('/cart', [PagesController::class, 'submitcart'])->name('submit.cart');
+Route::post('/cart_{id}', [PagesController::class, 'submitcart'])->name('submit.cart');
 Route::get('/delete_cart_{id}', [PagesController::class, 'deleteCart'])->name('delete.cart');
 
 
