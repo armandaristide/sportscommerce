@@ -159,7 +159,7 @@ class PagesController extends Controller
         return view('cart')->with('carts',$carts)->with('total',$total);
     }
 
-    public function submitcart(Request $request)
+    public function submitcart(Request $request,$id)
     {
 
         $request->validate([
@@ -176,7 +176,7 @@ class PagesController extends Controller
         $cart->size = $request->input('size');
         $cart->color = $request->input('color');
         $cart->save();
-        return redirect()->route('cart')->with('message', 'Product added successfully');
+        return redirect()->route('productdets',$id)->with('message', 'Product added successfully to Cart');
     }
 
     public function deleteCart($id)

@@ -305,10 +305,20 @@ class DashboardController extends Controller
     }
 
     public function deleteSeller($id){
-        User::where('id', $id)->delete();
+        $deleted = User::where('id','=', $id)->first();
+        if ($deleted->username = "AdminRafi_S001")
+            return redirect()->route('superAdminDashboardShow')->with('message', 'ERROR CANNOT DELETE DEFAULT SELLER RAFI');
+        else
+        {
+            $finddeleteds= Product::where('seller','=',$deleted->username)->get();
+            foreach ($finddeleteds as $finddeleted){
+                $finddeleted->seller = "AdminRafi_S001";
+                $finddeleted->save();
+            }
+            $deleted->delete();
+            return redirect()->route('superAdminDashboardShow')->with('message', 'Seller deleted successfully');
+        }
 
-        //dd($userseller);
-        return redirect()->route('superAdminDashboardShow')->with('message', 'Seller deleted successfully');
     }
     public function addSuperProduct()
     {

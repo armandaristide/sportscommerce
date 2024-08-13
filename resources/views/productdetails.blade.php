@@ -50,6 +50,12 @@
                 </section>
                 <section>
                     <div class="container">
+                        @if(session()->has('message'))
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>Success!</strong>  {{ session()->get('message') }}
+                            </div>
+                        @endif
                         <div class="row gx-4 gy-5">
                             <div class="col-12">
                                 <div class="details-items">
@@ -199,7 +205,7 @@
                                                                     <i class="fa fa-money-bill fz-16 me-2"></i>
                                                                     <span>BUY NOW</span>
                                                                 </button>
-                                                                <button type="submit" id="cartEffect2" value="addcart" formaction="{{ route('submit.cart') }}" class="btn btn-solid hover-solid btn-animation">
+                                                                <button type="submit" id="cartEffect2" value="addcart" formaction="{{ route('submit.cart',$product->id) }}" class="btn btn-solid hover-solid btn-animation">
                                                                     <i class="fa fa-shopping-cart"></i>
                                                                     <span>Add To Cart</span>
                                                                 </button>
