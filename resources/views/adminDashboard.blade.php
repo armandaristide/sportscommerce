@@ -96,7 +96,7 @@
                                         <div class="media static-top-widget">
                                             <div class="media-body p-0">
                                                 <span class="m-0">Total Products Sold</span>
-                                                <h4 class="mb-0 counter">0
+                                                <h4 class="mb-0 counter">{{count($sold)}}
                                                     <span class="badge badge-light-danger grow">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-down"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>0%</span>
                                                 </h4>
@@ -114,7 +114,7 @@
                                     <div class="media static-top-widget">
                                         <div class="media-body p-0">
                                             <span class="m-0">Total Products In Stock</span>
-                                            <h4 class="mb-0 counter">{{count($products)}}
+                                            <h4 class="mb-0 counter">{{count($prods)}}
                                                 <a href="{{route('addProduct')}}" class="badge badge-light-success grow" data-bs-original-title="" title="">
                                                     ADD NEW</a>
                                             </h4>
@@ -133,7 +133,7 @@
                                     <div class="media static-top-widget">
                                         <div class="media-body p-0">
                                             <span class="m-0">Products Out of Stock</span>
-                                            <h4 class="mb-0 counter">0
+                                            <h4 class="mb-0 counter">{{count($outstocks)}}
                                                 <a href="{{route('addProduct')}}" class="badge badge-light-danger grow" data-bs-original-title="" title="">
                                                     ADD NEW</a>
                                             </h4>
