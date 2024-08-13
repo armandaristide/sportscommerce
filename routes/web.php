@@ -119,7 +119,7 @@ Route::middleware('superAdminAuth' )->prefix('superAdmin')->group(function(){
     Route::post('/add_product', [DashboardController::class, 'submitSupperProduct'])->name('submit.addsuperproduct');
     Route::delete('/add_product-{id}', [DashboardController::class, 'deletesuperProduct'])->name('delete.superproduct');
     Route::get('/edit-super-admin-{id}', [DashboardController::class, 'editsuperadmin'])->name('edit.superadmin');
-    Route::post('/edit-super-admin-{id}', [DashboardController::class, 'editsuperadmindeds'])->name('editsuperadmin');
+    Route::post('/edit-super-admin{id}', [DashboardController::class, 'submitEditSuperAdmin'])->name('submit.editsuperadmin');
 
 
 

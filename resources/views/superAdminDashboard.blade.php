@@ -1,5 +1,5 @@
 @extends('layouts.mastertwo')
-@section('title','SELLER ADMIN Dashboard | LEVEL UP ')
+@section('title','SUPER ADMIN Dashboard | LEVEL UP ')
 @section('content')
 
     @if (session()->has('message'))
@@ -234,7 +234,7 @@
         <div class="card card-table">
             <div class="card-body">
                 <div class="title-header option-title d-sm-flex d-block">
-                    <h5>Products List</h5> (Total Products: {{count($products)}})
+                    <h5>Products List</h5> (Total Products: {{count($prods)}})
                     <div class="right-options">
                         <ul>
 

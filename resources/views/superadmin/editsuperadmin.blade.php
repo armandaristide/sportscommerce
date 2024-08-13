@@ -1,5 +1,5 @@
 @extends('layouts.mastertwo')
-@section('title','ADD CATEGORY  | SELLER ADMIN LEVEL UP ')
+@section('title','Edit Info  | SUPER ADMIN LEVEL UP ')
 @section('content')
     <div class="col-12">
         <div class="row">
@@ -7,47 +7,51 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-header-2">
-                            <h5>Edit Seller Info</h5>
+                            <h5>Edit Profile Info</h5>
                         </div>
 
-                        <form class="row g-2" method="POST" action="{{ route('editsuperadmin',$seller[0]->id) }}" enctype="multipart/form-data">
+                        <form  method="POST" action="{{ route('submit.editsuperadmin',$user->id) }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="theme-form theme-form-2 mega-form">
-                                <div class="mb-4 row align-items-center">
-                                    <label class="form-label-title col-sm-3 mb-0"> Name</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="name" placeholder="Enter name" value="{{$seller[0]->name}}">
-                                    </div>
-                                </div>
 
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0"> User Name</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="username" value="{{$seller[0]->username}}"placeholder="Enter your user name">
+                                        {{$user->username}}
                                     </div>
+
                                 </div>
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Email</label>
                                     <div class="col-sm-9">
-                                        <h5>{{$seller[0]->email}}</h5>
+                                        <h5>{{$user->email}}</h5>
                                     </div>
-                                </div> <div class="mb-4 row align-items-center">
+                                </div>
+                                <div class="mb-4 row align-items-center">
+                                    <label class="form-label-title col-sm-3 mb-0"> Name</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" type="text" name="name" placeholder="Enter name" value="{{$user->name}}">
+                                    </div>
+                                </div>
+
+
+                                <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Phone No</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="tel" name="phone" value="{{$seller[0]->phone}}" placeholder="Enter phone number">
+                                        <input class="form-control" type="tel" name="phone" value="{{$user->phone}}" placeholder="Enter phone number">
                                     </div>
                                 </div> <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Password</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="password" value=" " placeholder="Enter new password">
+                                        <input class="form-control" type="text" name="password"  placeholder="Enter new password">
                                     </div>
                                 </div>
 
                             </div>
 
                             <div class="col-4">
-                                <button type="submit" class="btn btn-primary w-100 h-100" data-bs-original-title="" title="">Submit</button>
+                                <button type="submit" class="btn btn-primary w-100 h-100">Submit</button>
                             </div>
                         </form>
                     </div>
