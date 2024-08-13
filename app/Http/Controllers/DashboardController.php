@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
@@ -240,8 +241,9 @@ class DashboardController extends Controller
         $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
         $idNo= Auth::user();
         $products = Product::paginate(5);
+        $prods = Product::all();
 
-        return view('superAdminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('sellers', $usersellers)->with('superId', $idNo);
+        return view('superAdminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('sellers', $usersellers)->with('superId', $idNo)->with('prods', $prods);
 
     }
 
@@ -289,23 +291,16 @@ class DashboardController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string'],
-            'email' => ['required', 'string'],
             'phone' => ['required', 'string'],
-            'username' => ['required', 'string'],
         ]);
 
-        $updatedData=[
-            'name' =>$request->input('name'),
-            'email' => $request->input('email'),
-            'password' =>  Hash::make($request->password),
-            'type' => 1,
-            'phone' => $request->input('phone'),
-            'username' => $request->input('username'),];
-
-        $userupdate=User::where('id', $id);
-        $userupdate->update($updatedData);
-
-        //dd($userseller);
+        $newinfo = User::where('id','=',$id)->first();
+        $newinfo->name = $request->input('name');
+        $newinfo->phone = $request->input('phone');
+        if($request->password != null){
+            $newinfo->password  =  Hash::make($request->password);
+        }
+        $newinfo->save();
         return redirect()->route('superAdminDashboardShow')->with('message', 'Seller updated successfully');
     }
 
@@ -369,32 +364,28 @@ class DashboardController extends Controller
         return redirect()->route('superAdminDashboardShow')->with('message', 'Product deleted successfully');
     }
     public function editsuperadmin($id){
+        $user = User::where('id','=', $id)->first();
 
-        $user = User::where('id', $id)->get();
-
-        return view('superadmin.editsuperadmin',['seller'=> $user]);
+        return view('superadmin.editsuperadmin')->with('user',$user);
     }
 
-    public function editsuperadmindeds(Request $request,$id){
+    public function submitEditSuperAdmin(Request $request,$id){
         $request->validate([
             'name' => ['required', 'string'],
-            'email' => ['required', 'string'],
             'phone' => ['required', 'string'],
-            'phone' => ['required', 'string'],
-            'username' => ['required', 'string'],
         ]);
 
-        $updatedData=[
-            'name' =>$request->input('name'),
-            'email' => $request->input('email'),
-            'password' =>  Hash::make($request->password),
-            'type' => 2,
-            'phone' => $request->input('phone'),
-            'username' => $request->input('username'),];
-
-        $superupdate=User::where('id', $id);
-        $superupdate->update($updatedData);
-
+        $newinfo = User::where('id','=',$id)->first();
+        $newinfo->phone = $request->input('phone');
+        $newinfo->name = $request->input('name');
+        if ($request->password !=null){
+            $newinfo->password =  Hash::make($request->password);
+            $newinfo->save();
+            Session::flush();
+            Auth::logout();
+            return redirect()->route('superAdminLogin')->with('success', "Your Password has been updated");
+        }
+        $newinfo->save();
 
         return redirect()->route('superAdminDashboardShow')->with('message', 'Super admin updated successfully');
     }

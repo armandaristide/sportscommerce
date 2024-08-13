@@ -17,14 +17,14 @@
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Seller Name</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="name" placeholder="Enter name" value="{{$seller[0]->name}}">
+                                        <input class="form-control" type="text" name="name" required value="{{$seller[0]->name}}">
                                     </div>
                                 </div>
 
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Seller User Name</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="username" value="{{$seller[0]->username}}"placeholder="Enter your user name">
+                                        {{$seller[0]->username}}
                                     </div>
                                 </div>
                                 <div class="mb-4 row align-items-center">
@@ -35,7 +35,7 @@
                                 </div> <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Phone No</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="tel" name="phone" value="{{$seller[0]->phone}}" placeholder="Enter phone number">
+                                        <input class="form-control" type="tel" name="phone" required value="{{$seller[0]->phone}}">
                                     </div>
                                 </div> <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Password</label>
