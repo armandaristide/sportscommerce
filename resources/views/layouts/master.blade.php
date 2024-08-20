@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<html lang="en">
+
+<head>
     @stack('head')
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="assets/images/favicon/2.png" type="image/x-icon">
@@ -9,6 +11,10 @@
     <meta name="apple-mobile-web-app-title" content="Voxo">
     <meta name="msapplication-TileImage" content="assets/images/favicon/2.png">
     <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -500,6 +506,15 @@
         toastr.error("{{ session('error') }}");
     });
     @endif
+</script>
+<script type="text/javascript">
+    // If persisted then it is in the page cache, force a reload of the page.
+    window.onpageshow =function(event){
+        if(event.persisted){
+            document.body.style.display ="none";
+            location.reload();
+        }
+    };
 </script>
 
 

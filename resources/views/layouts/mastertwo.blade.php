@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +9,10 @@
     <meta name="keywords"
           content="admin template, Fastkart admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
     <link rel="icon" href="../admin/assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../admin/assets/images/favicon.png" type="image/x-icon">
     <title>@yield('title')</title>
@@ -57,6 +60,7 @@
 
     <!-- App css -->
     <link rel="stylesheet" type="text/css" href="../admin/assets/css/style.css">
+
 </head>
 
 <body>
@@ -303,6 +307,15 @@
 
 <!-- Theme js -->
 <script src="../admin/assets/js/script.js"></script>
+<script type="text/javascript">
+    // If persisted then it is in the page cache, force a reload of the page.
+    window.onpageshow =function(event){
+        if(event.persisted){
+            document.body.style.display ="none";
+            location.reload();
+        }
+    };
+</script>
 </body>
 
 </html>

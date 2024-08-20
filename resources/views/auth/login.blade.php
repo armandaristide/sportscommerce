@@ -62,6 +62,13 @@
                 icon: 'success',
                 confirmButtonText: 'OK'
             });
+            @elseif(session('error'))
+            Swal.fire({
+                title: 'Error!',
+                text: "{{ session('error') }}",
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            });
             @endif
         });
     </script>
