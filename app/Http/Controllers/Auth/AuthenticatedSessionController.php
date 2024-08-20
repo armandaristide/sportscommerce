@@ -33,10 +33,12 @@ class AuthenticatedSessionController extends Controller
             // Check the user role
             if (Auth::user()->type == 0) {
                 return redirect()->route('index')->with('success', 'You have successfully logged in!');
-            } elseif (Auth::user()->type == 1) {
-                return redirect()->route('adminDashboardShow')->with('success', 'You have successfully logged in!');
-            } elseif (Auth::user()->type == 2) {
-                return redirect()->route('superAdminDashboardShow')->with('success', 'You have successfully logged in!');
+            } else {
+                Auth::guard('web')->logout();
+
+                $request->session()->invalidate();
+
+                return redirect()->route('login')->with('error', "Incorrect credentials");
             }
         } else {
             return redirect()->route('login')->with('error', "Wrong credentials");
