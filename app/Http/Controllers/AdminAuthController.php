@@ -30,19 +30,24 @@ class AdminAuthController extends Controller
         ];
 
 
-        // check if the given user exists in db
-        if(Auth::attempt(['email'=> $data['email'], 'password'=> $data['password']])){
-            // check the user role
-            if(Auth::user()->type == 1){
-                return redirect()->route('adminDashboardShow');
-            }else{
-                return redirect()->route('adminLogin')->with('error', "You dont have permission to access");
+        if(Auth::check()) {
+                return redirect()->route('error.doublelogin');
+        }
+        else
+        {
+            // check if the given user exists in db
+            if(Auth::attempt(['email'=> $data['email'], 'password'=> $data['password']])){
+                // check the user role
+                if(Auth::user()->type == 1){
+                    return redirect()->route('adminDashboardShow');
+                }else{
+                    return redirect()->route('adminLogin')->with('error', "You dont have permission to access");
+                }
+            }
+            else{
+                return redirect()->route('adminLogin')->with('error', "Wrong credentials");
             }
         }
-        else{
-            return redirect()->route('adminLogin')->with('error', "Wrong credentials");
-        }
-
 
 
     }

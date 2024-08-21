@@ -28,20 +28,27 @@ class SuperAdminAuthController extends Controller
             'password' => $input['password']
         ];
 
+        if(Auth::check()) {
+            return redirect()->route('error.doublelogin');
+        }
+        else
+        {
+            // check if the given user exists in db
+            if(Auth::attempt(['email'=> $data['email'], 'password'=> $data['password']])){
+                // check the user role
+                if (Auth::user()->type == 2) {
+                    return redirect()->route('superAdminDashboardShow');
+                }else{
+                    return redirect()->route('superAdminLogin')->with('error', "You dont have permission to access");
+                }
 
-        // check if the given user exists in db
-        if(Auth::attempt(['email'=> $data['email'], 'password'=> $data['password']])){
-            // check the user role
-            if (Auth::user()->type == 2) {
-                return redirect()->route('superAdminDashboardShow');
-            }else{
-                return redirect()->route('superAdminLogin')->with('error', "You dont have permission to access");
+            }
+            else{
+                return redirect()->route('superAdminLogin')->with('error', "Wrong credentials");
             }
 
         }
-        else{
-            return redirect()->route('superAdminLogin')->with('error', "Wrong credentials");
-        }
+
 
 
 

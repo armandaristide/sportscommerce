@@ -12,13 +12,22 @@ class UsersController extends Controller
 {
     public function generalUserDashboard()
     {
-        $user = Auth::user();
-        $orders = Order::where('buyer_id', '=',$user->username)->get(); // Paginate the orders for the authenticated user
-        if ($user->type != 0) {
-            return redirect()->route('login')->with('error', "YOU ARE ALREADY LOGGED IN AS A CUSTOMER");
-        } else {
-            return view('generalUserDashboard')->with('orders', $orders)->with('user', $user);
+        if(Auth::check()){
+            if(Auth::user()->type != 0)
+            {
+                return redirect()->route('error.doublelogin');
+            }
+            else{
+                $user = Auth::user();
+                $orders = Order::where('buyer_id', '=',$user->username)->get(); // Paginate the orders for the authenticated user
+                if ($user->type != 0) {
+                    return redirect()->route('login')->with('error', "YOU ARE ALREADY LOGGED IN AS A CUSTOMER");
+                } else {
+                    return view('generalUserDashboard')->with('orders', $orders)->with('user', $user);
+                }
+            }
         }
+
     }
 
     public function submitEditProfile(Request $request,$id)

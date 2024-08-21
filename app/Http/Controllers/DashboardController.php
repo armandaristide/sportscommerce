@@ -236,14 +236,21 @@ class DashboardController extends Controller
     //super admin contollers
     public function superAdminDashboard()
     {
-        $profile = User::where('email', Auth::user()->email)->first();
-        $usersellers = User::where('type', 1)->get();
-        $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
-        $idNo= Auth::user();
-        $products = Product::paginate(5);
-        $prods = Product::all();
+        if(Auth::check()) {
+            if (Auth::user()->type != 2) {
+                return redirect()->route('error.doublelogin');
+            } else {
+                $profile = User::where('email', Auth::user()->email)->first();
+                $usersellers = User::where('type', 1)->get();
+                $cats = Cat::where('seller', '=', Auth::user()->username)->Orderby('id', 'desc')->get();
+                $idNo= Auth::user();
+                $products = Product::paginate(5);
+                $prods = Product::all();
 
-        return view('superAdminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('sellers', $usersellers)->with('superId', $idNo)->with('prods', $prods);
+                return view('superAdminDashboard')->with('profile', $profile)->with('cats', $cats)->with('products', $products)->with('sellers', $usersellers)->with('superId', $idNo)->with('prods', $prods);
+
+            }
+        }
 
     }
 

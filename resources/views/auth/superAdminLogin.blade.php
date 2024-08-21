@@ -4,12 +4,12 @@
 
     @if ($errors->any())
         @foreach ($errors->all() as $error)
-            <li class="">{{$error}}</li>
+            <li class="text-danger" style="color: red">{{$error}}</li>
         @endforeach
     @endif
 
     @if (Session::has('error'))
-        <li class="">{{Session::get('error')}}</li>
+        <li class="text-danger" style="color: red">{{Session::get('error')}}</li>
     @endif
 
     <h1 class="text-md text-center font-bold text-white py-2">Super Admin Login Form</h1>

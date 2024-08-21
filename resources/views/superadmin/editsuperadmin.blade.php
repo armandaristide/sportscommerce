@@ -44,7 +44,7 @@
                                 </div> <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Password</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="password"  placeholder="Enter new password">
+                                        <input class="form-control" type="password" name="password"  placeholder="Enter new password">
                                     </div>
                                 </div>
 
