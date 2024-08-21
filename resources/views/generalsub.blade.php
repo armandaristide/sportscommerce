@@ -47,56 +47,7 @@
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-lg-12 col-12 ratio_30">
-                                                                        <div class="row g-4">
-                                                                            <!-- Filter Button -->
-                                                                            <div class="d-flex justify-content-end mb-3">
-                                                                                <div class="dropdown">
-                                                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                                        Filters
-                                                                                    </button>
-                                                                                    <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="filterDropdown">
-                                                                                        <form method="GET" action="{{ route('filter', $cat . '_' . $subcat) }}">
-                                                                                            <!-- Price Filter -->
-                                                                                            <div class="mb-3">
-                                                                                                <label for="price_range">Price Range</label>
-                                                                                                <select id="price_range" name="price_range" class="form-control">
-                                                                                                    <option value="">All</option>
-                                                                                                    <option value="0-50">$0 - $50</option>
-                                                                                                    <option value="51-100">$51 - $100</option>
-                                                                                                    <option value="101-200">$101 - $200</option>
-                                                                                                    <!-- Add more price ranges as needed -->
-                                                                                                </select>
-                                                                                            </div>
 
-                                                                                            <!-- Brand Filter -->
-                                                                                            <div class="mb-3">
-                                                                                                <label for="brand">Brand</label>
-                                                                                                <select id="brand" name="brand" class="form-control">
-                                                                                                    <option value="">All</option>
-                                                                                                    @foreach($products->unique('brand') as $product)
-                                                                                                        <option value="{{ $product->brand }}">{{ $product->brand }}</option>
-                                                                                                    @endforeach
-                                                                                                </select>
-                                                                                            </div>
-
-                                                                                            <!-- Size Filter -->
-                                                                                            <div class="mb-3">
-                                                                                                <label for="size">Size</label>
-                                                                                                <select id="size" name="size" class="form-control">
-                                                                                                    <option value="">All</option>
-                                                                                                    @foreach($products->unique('size') as $product)
-                                                                                                        <option value="{{ $product->size }}">{{ $product->size }}</option>
-                                                                                                    @endforeach
-                                                                                                </select>
-                                                                                            </div>
-
-                                                                                            <!-- Apply Filters Button -->
-                                                                                            <button type="submit" class="btn btn-primary mt-3">Apply Filters</button>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
                                                                         <!-- label and featured section -->
                                                                         @if(count($products)>0)
 

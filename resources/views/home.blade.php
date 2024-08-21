@@ -196,20 +196,6 @@
                                                     <span class="label label-black">New</span>
                                                     <span class="label label-theme">50% Off</span>
                                                 </div>
-                                                <div class="cart-wrap">
-                                                    <ul>
-                                                        @if(Route::has('login'))
-                                                            @auth
-                                                                <li>
-                                                                    <a href="javascript:void(0)" class="addtocart-btn"
-                                                                       data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                                        <i data-feather="shopping-bag"></i>
-                                                                    </a>
-                                                                </li>
-                                                            @endauth
-                                                            @endif
-                                                    </ul>
-                                                </div>
                                             </div>
                                             <div class="product-details">
                                                 <div class="rating-details">

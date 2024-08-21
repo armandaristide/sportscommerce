@@ -96,7 +96,12 @@
                         <div class="mb-4 row align-items-center">
                             <label class="form-label-title col-sm-3 mb-0">Brand</label>
                             <div class="col-sm-9">
-                                <input class="form-control" name="brand" value="{{$product->brand}}" required type="text" placeholder="{{$product->brand}}">
+                                <select class="js-example-basic-single w-100 select2-hidden-accessible" required name="brand" data-select2-id="select2-data-7-jgm1" tabindex="-1" aria-hidden="true">
+                                    <option value="{{$product->brand}}" selected>{{$product->brand}}</option>
+                                    <option value="NIKE">NIKE</option>
+                                    <option value="ADDIDAS">ADDIDAS</option>
+                                    <option value="PUMA">PUMA</option>
+                                </select>
                             </div>
                         </div>
 
