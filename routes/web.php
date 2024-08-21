@@ -59,6 +59,7 @@ Route::get('/cart_invoicepage_{id}', [PagesController::class, 'cartinvoicepage']
 
 ####################################ADITHYA ROUTES########################################################
 Route::view('/419', 'errors.419')->name('error.419');
+Route::view('/authenticated_error', 'errors.doublelogin')->name('error.doublelogin');
 Route::get('/filter_{category_subcategory}', [PagesController::class, 'filter'])->name('filter');
 
 

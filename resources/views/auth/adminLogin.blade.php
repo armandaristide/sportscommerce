@@ -4,12 +4,12 @@
 
     @if ($errors->any())
         @foreach ($errors->all() as $error)
-            <li class="text-orage-300">{{$error}}</li>
+            <li class="text-orage-300" style="color:red;">{{$error}}</li>
         @endforeach
     @endif
 
     @if (Session::has('error'))
-        <li class="text-orage-300">{{Session::get('error')}}</li>
+        <li class="text-orage-300" style="color: red">{{Session::get('error')}}</li>
     @endif
 
 

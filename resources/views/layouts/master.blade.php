@@ -181,11 +181,11 @@
                         </nav>
                         <div class="menu-right">
                             <ul>
-                                @if (Route::has('login'))
-                                    <div class="top-right links">
-                                        @auth
+                                @if (auth()->check())
+                                    @if(Auth::user()->type == 0)
 
-                                        <div class="container">
+                                    <div class="top-right links">
+                                            <div class="container">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <li class="onhover-dropdown wislist-dropdown">
@@ -237,92 +237,40 @@
                                                         </a>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        @if (Route::has('register'))
+                                                        <a href="{{ route('register') }}">
+                                                            <button type="button" class="rounded-3 btn btn-solid-default btn-spacing">
+                                                                <span>Register</span>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        @endif
+                                            @else
+
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <a href="{{ route('login') }}">
+                                                            <button type="button" class="btn rounded-3 btn-solid-default btn-spacing">
+                                                                <span>Login</span>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
                                                             <a href="{{ route('register') }}">
                                                                 <button type="button" class="rounded-3 btn btn-solid-default btn-spacing">
                                                                     <span>Register</span>
                                                                 </button>
                                                             </a>
-                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endauth
                                     </div>
                                 @endif
 
                             </ul>
-                        </div>
-                        <div class="search-full">
-                            <div class="input-group">
-                                    <span class="input-group-text">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search font-light"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                                    </span>
-                                <input type="text" class="form-control search-type" placeholder="Search here..">
-                                <span class="input-group-text close-search">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x font-light"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                    </span>
-                            </div>
-                            <div class="search-suggestion">
-                                <ul class="custom-scroll">
-                                    <li>
-                                        <div class="product-cart media">
-                                            <img src="assets/images/electronics/product/1.jpg" class="img-fluid blur-up lazyloaded" alt="">
-                                            <div class="media-body">
-                                                <a href="javascript:void(0)">
-                                                    <h6 class="mb-1">New Smart Watch 4 ERT2</h6>
-                                                </a>
-                                                <ul class="rating p-0">
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star"></i>
-                                                    </li>
-                                                </ul>
-                                                <p class="mb-0 mt-1">$28.00</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="product-cart media">
-                                            <img src="assets/images/electronics/product/5.jpg" class="img-fluid blur-up lazyloaded" alt="">
-                                            <div class="media-body">
-                                                <a href="javascript:void(0)">
-                                                    <h6 class="mb-1">Powermatic 900 W Juicer</h6>
-                                                </a>
-                                                <ul class="rating m-0 p-0">
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                </ul>
-                                                <p class="mb-0 mt-1">$35.00</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
