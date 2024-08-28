@@ -168,15 +168,38 @@ class PagesController extends Controller
             'size' => ['required', 'string'],
         ]);
 
+        $product = Product::where('id','=',$id)->first();
+        if ($request->input('quantity') > $product->quantity or $request->input('size') <= 0) {
+            return redirect()->route('productdets',$id)->with('error', 'invalid product quantity');
+        }
 
-        $cart = new Cart();
-        $cart->product_id = $request->input('identity');
-        $cart->buyer_id = Auth::user()->username;
-        $cart->quantity = $request->input('quantity');
-        $cart->size = $request->input('size');
-        $cart->color = $request->input('color');
-        $cart->save();
-        return redirect()->route('productdets',$id)->with('message', 'Product added successfully to Cart');
+        $cardproduct = Cart::where('product_id','=',$id)->first();
+        if ($cardproduct and (($cardproduct->size == $request->input("size")) and ($cardproduct->color == $request->input("color")))) {
+            if ($cardproduct->quantity < $product->quantity and ($cardproduct->quantity + $request->input('quantity'))<=$product->quantity) {
+                $cardproduct->quantity = $cardproduct->quantity + $request->input('quantity');
+                $cardproduct->save();
+                return redirect()->route('productdets',$id)->with('message', 'Product added successfully to Cart');
+            }
+            else
+                return redirect()->route('productdets',$id)->with('error', 'Product Quantity has exceeded available stock. Check your Cart');
+        }
+        else{
+            if ($request->input('quantity')<=$product->quantity) {
+
+            $cart = new Cart();
+            $cart->product_id = $request->input('identity');
+            $cart->buyer_id = Auth::user()->username;
+            $cart->quantity = $request->input('quantity');
+            $cart->size = $request->input('size');
+            $cart->color = $request->input('color');
+            $cart->save();
+            return redirect()->route('productdets',$id)->with('message', 'Product added successfully to Cart');
+            }
+            else
+                return redirect()->route('productdets',$id)->with('error', 'Product Quantity has exceeded available stock. Check your Cart');
+
+        }
+
     }
 
     public function deleteCart($id)
@@ -204,6 +227,7 @@ class PagesController extends Controller
             $neworder->quantity = $checkout->quantity;
             $neworder->price = $product->price;
             $neworder->save();
+            $checkout->delete();
         }
 
         return redirect()->route('cart.invoicepage',$carts);

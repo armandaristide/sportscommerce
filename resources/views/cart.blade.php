@@ -102,7 +102,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="#">{{$product->name}}</a>
+                                        <a href="#">{{$product->name}}({{$cart->size}})</a>
                                         <div class="mobile-cart-content row">
                                             <div class="col">
                                                 <div class="qty-box">
@@ -129,7 +129,7 @@
                                         <div class="qty-box">
 
                                             <div class="input-group">
-                                                <input type="number" name="quantity" min="1"  oninput="calc({{$n}})" required max="{{$product->quantity}}" class="form-control  num"
+                                                <input type="number" name="quantity" min="1"  oninput="calc({{$n}})"  required max="{{$product->quantity}}" class="form-control  num"
                                                        value={{$cart->quantity}}>
                                             </div>
                                         </div>

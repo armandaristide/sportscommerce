@@ -35,7 +35,7 @@
                             <label class="form-label-title col-sm-2 mb-0">Phone
                                 Number</label>
                             <div class="col-sm-10">
-                                <input class="form-control" style="color: black" type="tel" name="phone" required value="{{$profile->phone}}">
+                                <input class="form-control" style="color: black" type="number" name="phone" required value="{{$profile->phone}}">
                             </div>
                         </div>
 

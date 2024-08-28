@@ -39,7 +39,7 @@
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Phone No</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="tel" name="phone" value="{{$user->phone}}" placeholder="Enter phone number">
+                                        <input class="form-control" type="number" name="phone" value="{{$user->phone}}" placeholder="Enter phone number">
                                     </div>
                                 </div> <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Password</label>
