@@ -56,6 +56,12 @@
                                 <strong>Success!</strong>  {{ session()->get('message') }}
                             </div>
                         @endif
+                            @if(session()->has('error'))
+                                <div class="alert alert-danger alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>ERROR!</strong>  {{ session()->get('error') }}
+                                </div>
+                            @endif
                         <div class="row gx-4 gy-5">
                             <div class="col-12">
                                 <div class="details-items">
@@ -176,20 +182,9 @@
                                                             <div class="input-group">
                                                                 <div class="qty-box">
                                             <div class="input-group">
-                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-left-minus"
-                                                        data-type="minus" data-field="">
-                                                        <i class="fas fa-minus"></i>
-                                                    </button>
-                                                </span>
-                                                <input type="text" name="quantity" class="form-control input-number"
-                                                    value="1" style='height:50px;'>
-                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-right-plus"
-                                                        data-type="plus" data-field="">
-                                                        <i class="fas fa-plus"></i>
-                                                    </button>
-                                                </span>
+                                                <input type="number" name="quantity" class="form-control input-number"
+                                                    value="1" min="1" max="{{$product->quantity}}" oninput="this.value =
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" style='height:50px;'>
                                             </div>
                                         </div>
 
